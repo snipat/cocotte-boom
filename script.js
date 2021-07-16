@@ -135,6 +135,9 @@ function launchAudio() {
 
 function changeSound() {
 
+//Passer par un state 1/2/3 pour éviter la répétition de l'évènement de l'accéloromètre et donc l'a répétition de la boucle sonore
+//Faire valider par un bouton l'usage du son par l'utilisateur en même temps que celui de l'accéléromètre
+   
 //Fonction sonore qui tourne dans la boucle deviceorientation:
 // i) on examine le changement de la variable jauge;
 // ia) si la variable ne change pas, on break;
