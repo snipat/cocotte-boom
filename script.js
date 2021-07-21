@@ -125,19 +125,7 @@ function changeColor () {
     }
   }
 
-function launchAudio() {
 
-  const audio = document.getElementById("au");
-
-  const startPlaying = ()=>{
-    audio.removeEventListener('playing', startPlaying);
-    audio.src = 'https://github.com/mdn/webaudio-examples/blob/master/audio-basics/outfoxing.mp3';
-    audio.play();
-  }
-  audio.addEventListener('playing', startPlaying);
-
-}
-launchAudio();
 
 //Passer par un state 1/2/3 pour éviter la répétition de l'évènement de l'accéloromètre et donc l'a répétition de la boucle sonore
 //Faire valider par un bouton l'usage du son par l'utilisateur en même temps que celui de l'accéléromètre
