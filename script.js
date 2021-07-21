@@ -100,30 +100,34 @@ function changeColor () {
 
   if (pression == 0) {
     document.getElementById('jauge').style.color = "purple";
-    stateLevel = "bas";
-    }
 
   else if (pression >= 0 && pression < 500) {
     document.getElementById('jauge').style.color = "green";
-    stateLevel = "moyen";
 
     }
 
   else if (pression >= 500 && pression < 1000) {
     document.getElementById('jauge').style.color = "orange";
-    stateLevel = "haut";
 
     }
 
   else if (pression >= 1000 && pression <= 1999) {
     document.getElementById('jauge').style.color = "red";
-    stateLevel = "maximum";
 
     }
 
   else {
     gameover = true;
     }
+  }
+
+  while () {
+    (pression >= 0 && pression < 500) {
+      stateLevel = "bas";
+      }
+      else {
+        stateLevel="minimum";
+      }
   }
 
 function launchAudio() {
