@@ -1,4 +1,4 @@
-let beta, gamma, pression=0, gameover=false, audio_source, state="0";
+let beta, gamma, pression=0, gameover=false, audio_source, stateLevel="0";
 
 //window.onload = function () {
 function bannerAuthorisation() {
@@ -31,7 +31,7 @@ function clickRequestDeviceOrientationEvent() {
             changeSound();
             document.getElementById('roulis').innerHTML = ('Roulis** : '+beta);
             document.getElementById('tangage').innerHTML = ('Tangage : '+gamma);
-            document.getElementById('state').innerHTML = ('State : '+state);
+            document.getElementById('state').innerHTML = ('State : '+stateLevel);
             }
           )} else {
           alert("Désolé, vous ne pouvez pas jouer à ce jeu car votre appareil n'a pas de capteur de mouvement.")
