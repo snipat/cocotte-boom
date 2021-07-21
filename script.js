@@ -1,4 +1,4 @@
-let beta, gamma, pression=0, gameover=false, audio_source;
+let beta, gamma, pression=0, gameover=false, audio_source, state;
 
 //window.onload = function () {
 function bannerAuthorisation() {
@@ -31,7 +31,7 @@ function clickRequestDeviceOrientationEvent() {
             changeSound();
             document.getElementById('roulis').innerHTML = ('Roulis** : '+beta);
             document.getElementById('tangage').innerHTML = ('Tangage : '+gamma);
-            document.getElementById('jauge').innerHTML = ('Pression : '+pression);
+            document.getElementById('state').innerHTML = ('State : '+pression);
             }
           )} else {
           alert("Désolé, vous ne pouvez pas jouer à ce jeu car votre appareil n'a pas de capteur de mouvement.")
@@ -100,18 +100,25 @@ function changeColor () {
 
   if (pression == 0) {
     document.getElementById('jauge').style.color = "purple";
+    state = "bas";
     }
 
   else if (pression >= 0 && pression < 500) {
     document.getElementById('jauge').style.color = "green";
+    state = "moyen";
+
     }
 
   else if (pression >= 500 && pression < 1000) {
     document.getElementById('jauge').style.color = "orange";
+    state = "haut";
+
     }
 
   else if (pression >= 1000 && pression <= 1999) {
     document.getElementById('jauge').style.color = "red";
+    state = "maximum";
+
     }
 
   else {
@@ -137,7 +144,7 @@ function changeSound() {
 
 //Passer par un state 1/2/3 pour éviter la répétition de l'évènement de l'accéloromètre et donc l'a répétition de la boucle sonore
 //Faire valider par un bouton l'usage du son par l'utilisateur en même temps que celui de l'accéléromètre
-   
+
 //Fonction sonore qui tourne dans la boucle deviceorientation:
 // i) on examine le changement de la variable jauge;
 // ia) si la variable ne change pas, on break;
