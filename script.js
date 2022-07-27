@@ -125,6 +125,9 @@ function changeColor () {
     }
   }
 
+const audio = document.getElementById('au');
+console.log("Oui je suis là",audio)
+audio.addEventListener('playing', startPlaying);
 
 
 //Passer par un state 1/2/3 pour éviter la répétition de l'évènement de l'accéloromètre et donc l'a répétition de la boucle sonore
@@ -135,13 +138,13 @@ function changeColor () {
 // ia) si la variable ne change pas, on break;
 // ib) si la variable change et que la nouvelle couleur est X, on lance le son suivant.
 
-//const startPlaying = ()=>{
+const startPlaying = ()=>{
+console.log("le son se joue ?")
 //  audio.removeEventListener('playing', startPlaying);
 //  audio.src = 'assets/son_hard.mp3';
 //  audio.play();
 //  audio.loop = true;
-//}
-//audio.addEventListener('playing', startPlaying);
+}
 
 }
 
