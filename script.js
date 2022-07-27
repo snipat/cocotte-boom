@@ -146,8 +146,6 @@ console.log("le son se joue ?")
 //  audio.loop = true;
 }
 
-}
-
 // Pour faire des boucles sonores sans blanc, voir SeamlessLoop 2.0 for JavaScript: https://github.com/Hivenfour/SeamlessLoop
 
 /*
