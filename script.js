@@ -125,7 +125,7 @@ function changeColor () {
     }
   }
 
-const audio = document.getElementById('au');
+const audio = document.getElementById("au");
 console.log("Oui je suis là",audio)
 audio.addEventListener('playing', startPlaying);
 
