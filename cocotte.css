@@ -44,25 +44,28 @@
 }
 
 .jaune {
+  border-radius: 50%;
   height: 1000px;
   width: 1000px;
-  background-color: #eb174a);
+  background-color: #fdc323);
   position: relative;
 }
 
 .orange {
+  border-radius: 50%;
   height: 130px;
   width: 130px;
   background-color: #fc4b00;
-    position: absolute;
+  position: absolute;
   top: 35px;
   left: 35px;
 }
 
 .rouge {
+  border-radius: 50%;
   height: 70px;
   width: 70px;
-  background-color: #fdc323;
+  background-color: #eb174a;
   position: absolute;
   top: 30px;
   left: 30px;
