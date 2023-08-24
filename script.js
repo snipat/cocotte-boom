@@ -106,11 +106,13 @@ function changeColor() {
     stateLevel = "moyen";
   } else if (pression >= 500 && pression < 1000) {
     document.getElementById("jauge").style.color = "orange";
-    document.getElementById("round2").style.opacity = "1";
+    document.getElementById("orangeRound").style.opacity = "1";
 
     stateLevel = "haut";
   } else if (pression >= 1000 && pression <= 5999) {
     document.getElementById("jauge").style.color = "red";
+    document.getElementById("orangeRound").style.changecolor = "red";
+
     stateLevel = "maximum";
   } else {
     gameover = true;
