@@ -49,7 +49,6 @@
   display: flex;
   justify-content: center;
   align-items: center
-  position:relative;
 }
 
 .orange {
@@ -57,7 +56,6 @@
   height: 230px;
   width: 230px;
   background-color: #fc4b00;
-  position: absolute;
   top: 35px;
   left: 35px;
 }
