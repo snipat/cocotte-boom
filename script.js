@@ -6,8 +6,12 @@ let beta,
 
 //window.onload = function () {
 function bannerAuthorisation() {
-  const audio = document.getElementById("backgroundSound");
+  const audio = document.getElementById("av");
+  const audio2 = document.getElementById("son2");
+
   audio.play();
+  audio2.play();
+
 
   if (
     window.DeviceOrientationEvent &&
@@ -30,7 +34,7 @@ function clickRequestDeviceOrientationEvent() {
   window.DeviceOrientationEvent.requestPermission()
     .then((response) => {
       if (response === "granted") {
-        const audio = document.getElementById("backgroundSound");
+        const audio = document.getElementById("av");
         audio.play();
         window.addEventListener("deviceorientation", (e) => {
           document.getElementById("autorisation").style.display = "none";
@@ -116,3 +120,20 @@ function changeColor() {
     gameover = true;
   }
 }
+
+//onst startPlaying = () => {
+  //console.log("le son se joue ?");
+  //  audio.removeEventListener('playing', startPlaying);
+  //  audio.src = 'assets/son_hard.mp3';
+  //  audio.play();
+  //  audio.loop = true;
+//
+
+// Pour faire des boucles sonores sans blanc, voir SeamlessLoop 2.0 for JavaScript: https://github.com/Hivenfour/SeamlessLoop
+
+/*
+Solution pour récupérer les paramètres de jeu depuis la fenêtre Options
+you can very easily use this to re-use the value of the variable in another function.
+Use this in source window.var1= oEvent.getSource().getBindingContext();
+Get value of var1 in destination var var2= window.var1;
+*/
