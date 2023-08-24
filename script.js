@@ -103,7 +103,7 @@ function changeColor() {
     stateLevel = "bas";
   } else if (pression >= 0 && pression < 500) {
     document.getElementById("jauge").style.color = "green";
-    document.getElementById("round2").style.visibility = "display";
+    document.getElementById("round2").style.visibility = "visible";
 
     stateLevel = "moyen";
   } else if (pression >= 500 && pression < 1000) {
