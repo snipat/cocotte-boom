@@ -169,7 +169,7 @@ display: none;
     height: 100%;
     opacity: 0.7;
     position: absolute;
-    background-color: inherit;
+    background-color: white;
 }
 
 #game .gameZone.fire {
