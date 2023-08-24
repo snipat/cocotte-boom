@@ -56,8 +56,9 @@
   height: 230px;
   width: 230px;
   background-color: #fc4b00;
-  top: 35px;
-  left: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center
 }
 
 .jaune {
@@ -65,8 +66,7 @@
   height: 70px;
   width: 70px;
   background-color: #fdc323;
-  top: 30px;
-  left: 30px;
+  
   z-index: 1;
 }
 
