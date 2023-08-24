@@ -4,14 +4,15 @@ let beta,
     gameover = false,
     stateLevel = "0";
 
+    const whistle = document.getElementById("whistle");
+    const explosion = document.getElementById("explosion");
+
+
 //window.onload = function () {}
 
 function bannerAuthorisation() {
   const audio = document.getElementById("av");
-  const audio2 = document.getElementById("son2");
-
   audio.play();
-  audio2.play();
 
   if (
     window.DeviceOrientationEvent &&
@@ -94,20 +95,20 @@ function changeColor() {
   } else if (pression >= 0 && pression < 500) {
     document.getElementById("jauge").style.color = "green";
     document.getElementById("yellowRound").style.opacity = "1";
-
     stateLevel = "moyen";
   } else if (pression >= 500 && pression < 1000) {
     document.getElementById("jauge").style.color = "orange";
     document.getElementById("round2").style.opacity = "1";
-
+    audio2.play();
     stateLevel = "haut";
   } else if (pression >= 1000 && pression <= 5999) {
     document.getElementById("jauge").style.color = "red";
     document.getElementById("game").style.backgroundColor="red";
-
     stateLevel = "maximum";
+
   } else {
     gameover = true;
+    explosion.play();
   }
 }
 
