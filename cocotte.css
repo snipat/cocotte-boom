@@ -154,9 +154,9 @@
 display: none;
 }
 
-#game {
+/*#game {
   position: relative;
-}
+}*/
 
 #game .gameZone {
     margin-top: 10em;
