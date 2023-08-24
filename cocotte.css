@@ -68,6 +68,8 @@
   width: 70px;
   background-color: #fdc323;
   z-index: 1;
+  opacity: 0;
+
 }
 
 /*.round {
