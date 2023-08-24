@@ -121,7 +121,7 @@ function changeColor() {
   //  audio.src = 'assets/son_hard.mp3';
   //  audio.play();
   //  audio.loop = true;
-//};
+//
 
 // Pour faire des boucles sonores sans blanc, voir SeamlessLoop 2.0 for JavaScript: https://github.com/Hivenfour/SeamlessLoop
 
