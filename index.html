@@ -76,22 +76,23 @@
         </div>
     </div>
     <div data-role="page" id="game">
+      <div data-role="main" class="gameZone">
+          <div class="gameZone">
+          <div id="roulis">Roulis : capteur de mouvement non autorisé</div>
+          <div id="tangage">Tangage : capteur de mouvement non autorisé</div>
+          <div id="jauge">Pression :</div>
+          <div id="joueurs">Joueurs :</div>
+          <div id="difficulté">Difficulté :</div>
+          <div id="state">state :</div>
+          <div id="son">Son :</div>
+          <div id="gameover" class="gameover">Game over ! <a onclick='window.location.href="https://snipat.github.io/cocotte-boom/#options" + (new Date()).getTime() + "#options"'>Retour</a></div>
+      </div>
         <audio id="av" loop  preload="auto" src="son_mini.wav"></audio>
         <audio id="son2" loop  preload="auto" src="son2.wav"></audio>
-        <div class="feu">
-          <div class="orange"><div class="jaune"></div>
-</div>
-        </div>
-        <div data-role="main" class="gameZone">
-            <div class="gameZone">
-            <div id="roulis">Roulis : capteur de mouvement non autorisé</div>
-            <div id="tangage">Tangage : capteur de mouvement non autorisé</div>
-            <div id="jauge">Pression :</div>
-            <div id="joueurs">Joueurs :</div>
-            <div id="difficulté">Difficulté :</div>
-            <div id="state">state :</div>
-            <div id="son">Son :</div>
-            <div id="gameover" class="gameover">Game over ! <a onclick='window.location.href="https://snipat.github.io/cocotte-boom/#options" + (new Date()).getTime() + "#options"'>Retour</a></div>
+          <div class="feu">
+            <div class="orange">
+              <div class="jaune"></div>
+          </div>
         </div>
 </body>
 </html>
