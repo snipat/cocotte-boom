@@ -153,6 +153,11 @@
 #retour {
 display: none;
 }
+
+#game {
+  position: relative;
+}
+
 #game .gameZone {
     margin-top: 10em;
     width: 100%;
