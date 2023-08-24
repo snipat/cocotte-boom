@@ -37,9 +37,11 @@ function clickRequestDeviceOrientationEvent() {
           gamma = Math.round(e.gamma);
           changeColor();
           increasePression();
-          document.getElementById("roulis").innerHTML = "Roulis** : " + beta;
+          document.getElementById("roulis").innerHTML = "Roulis : " + beta;
           document.getElementById("tangage").innerHTML = "Tangage : " + gamma;
           document.getElementById("state").innerHTML = "State : " + stateLevel;
+          document.getElementById("jauge").innerHTML = "Pression :" + pression;
+
         });
       } else {
         alert(
