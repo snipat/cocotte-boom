@@ -7,9 +7,11 @@ let beta,
 //window.onload = function () {
 function bannerAuthorisation() {
   const audio = document.getElementById("av");
-  const audio = document.getElementById("son2");
+  const audio2 = document.getElementById("son2");
 
   audio.play();
+  audio2.play();
+
 
   if (
     window.DeviceOrientationEvent &&
