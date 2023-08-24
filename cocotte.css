@@ -58,8 +58,7 @@
   background-color: #fc4b00;
   display: flex;
   justify-content: center;
-  align-items: center;
-  visibility: hidden;
+  align-items: center
 }
 
 .jaune {
