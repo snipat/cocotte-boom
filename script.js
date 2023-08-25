@@ -108,7 +108,7 @@ function changeColor() {
 
   } else {
     gameover = true;
-    explosion.play();
+    //explosion.play();
   }
 }
 
