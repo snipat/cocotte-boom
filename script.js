@@ -7,7 +7,6 @@ let beta,
     const whistle = document.getElementById("whistle");
     const explosion = document.getElementById("explosion");
 
-
 //window.onload = function () {}
 
 function bannerAuthorisation() {
@@ -20,7 +19,7 @@ function bannerAuthorisation() {
   ) {
     const banner = document.createElement("div");
     banner.innerHTML = `<div id="autorisation" style="z-index: 1; position: absolute; width: 100%; background-color:#000; color: #fff" onclick="clickRequestDeviceOrientationEvent()"><p style="padding: 10px">Cliquez ici pour autoriser l'accès à votre capteur de mouvements.</p></div>`;
-    //      banner.onclick = clickRequestDeviceOrientationEvent();
+//  banner.onclick = clickRequestDeviceOrientationEvent();
     document.querySelector("body").appendChild(banner);
   } else {
     alert("Essaye avec un iphone");
@@ -98,7 +97,7 @@ function changeColor() {
     stateLevel = "moyen";
   } else if (pression >= 500 && pression < 1000) {
     document.getElementById("jauge").style.color = "orange";
-    document.getElementById("round2").style.opacity = "1";
+    document.getElementById("orange").style.opacity = "1";
     audio2.play();
     stateLevel = "haut";
   } else if (pression >= 1000 && pression <= 5999) {
