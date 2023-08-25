@@ -52,19 +52,6 @@
 }
 
 
-
-.jaune {
-  border-radius: 50%;
-  height: 70px;
-  width: 70px;
-  background-color: #fdc323;
-  z-index: 2;
-  opacity: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .orange {
   border-radius: 50%;
   height: 230px;
@@ -72,8 +59,22 @@
   background-color: #fc4b00;
   opacity: 0;
   z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
 }
+.jaune {
+  border-radius: 50%;
+  height: 70px;
+  width: 70px;
+  background-color: #fdc323;
+  z-index: 2;
+  opacity: 1;
+
+}
+
+
 /*.round {
     height: 25%;
     width: 25%;
