@@ -1,17 +1,18 @@
 let beta,
-  gamma,
-  pression = 0,
-  gameover = false,
-  stateLevel = "0";
+    gamma,
+    pression = 0,
+    gameover = false,
+    stateLevel = "0";
 
-//window.onload = function () {
+    const whistle = document.getElementById("whistle");
+    const explosion = document.getElementById("explosion");
+
+
+//window.onload = function () {}
+
 function bannerAuthorisation() {
   const audio = document.getElementById("av");
-  const audio2 = document.getElementById("son2");
-
   audio.play();
-  audio2.play();
-
 
   if (
     window.DeviceOrientationEvent &&
@@ -28,7 +29,6 @@ function bannerAuthorisation() {
     alert(typeof DeviceOrientationEvent.requestPermission);
   }
 }
-//}
 
 function clickRequestDeviceOrientationEvent() {
   window.DeviceOrientationEvent.requestPermission()
@@ -46,7 +46,6 @@ function clickRequestDeviceOrientationEvent() {
           document.getElementById("tangage").innerHTML = "Tangage : " + gamma;
           document.getElementById("state").innerHTML = "State : " + stateLevel;
           document.getElementById("jauge").innerHTML = "Pression :" + pression;
-
         });
       } else {
         alert(
@@ -59,14 +58,6 @@ function clickRequestDeviceOrientationEvent() {
     });
 }
 
-// document.getElementById("start").addEventListener("click", function() {
-// refreshInfo();
-// });
-
-// function refreshInfo() {
-//  pression=0;
-//}
-
 function test() {
   document.getElementById("difficulté").innerHTML = pression;
 }
@@ -78,19 +69,19 @@ function increasePression() {
   } else {
     if ((beta >= 5 && beta < 10) || (beta <= -5 && beta > -10)) {
       pression += 2;
-    } else if ((beta >= 10 && beta < 15) || (beta <= -10 && beta > -15)) {
-      pression += 4;
-    } else if (beta >= 15 || beta <= -15) {
-      pression += 6;
+      } else if ((beta >= 10 && beta < 15) || (beta <= -10 && beta > -15)) {
+        pression += 4;
+      } else if (beta >= 15 || beta <= -15) {
+        pression += 6;
     } else {
       pression += 1;
     }
     if ((gamma >= 10 && gamma < 15) || (gamma <= -10 && gamma > -15)) {
       pression += 2;
-    } else if ((gamma >= 15 && gamma < 30) || (gamma <= -15 && gamma > -30)) {
-      pression += 4;
-    } else if (gamma >= 30 || gamma <= -30) {
-      pression += 6;
+      } else if ((gamma >= 15 && gamma < 30) || (gamma <= -15 && gamma > -30)) {
+        pression += 4;
+      } else if (gamma >= 30 || gamma <= -30) {
+        pression += 6;
     } else {
       pression += 1;
     }
@@ -104,36 +95,27 @@ function changeColor() {
   } else if (pression >= 0 && pression < 500) {
     document.getElementById("jauge").style.color = "green";
     document.getElementById("yellowRound").style.opacity = "1";
-
     stateLevel = "moyen";
   } else if (pression >= 500 && pression < 1000) {
     document.getElementById("jauge").style.color = "orange";
     document.getElementById("round2").style.opacity = "1";
-
+    audio2.play();
     stateLevel = "haut";
   } else if (pression >= 1000 && pression <= 5999) {
     document.getElementById("jauge").style.color = "red";
     document.getElementById("game").style.backgroundColor="red";
-
     stateLevel = "maximum";
+
   } else {
     gameover = true;
+    explosion.play();
   }
 }
 
-//onst startPlaying = () => {
-  //console.log("le son se joue ?");
-  //  audio.removeEventListener('playing', startPlaying);
-  //  audio.src = 'assets/son_hard.mp3';
-  //  audio.play();
-  //  audio.loop = true;
-//
+// document.getElementById("start").addEventListener("click", function() {
+// refreshInfo();
+// });
 
-// Pour faire des boucles sonores sans blanc, voir SeamlessLoop 2.0 for JavaScript: https://github.com/Hivenfour/SeamlessLoop
-
-/*
-Solution pour récupérer les paramètres de jeu depuis la fenêtre Options
-you can very easily use this to re-use the value of the variable in another function.
-Use this in source window.var1= oEvent.getSource().getBindingContext();
-Get value of var1 in destination var var2= window.var1;
-*/
+// function refreshInfo() {
+//  pression=0;
+//}
