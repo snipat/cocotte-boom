@@ -99,7 +99,7 @@ function changeColor() {
     document.getElementById("orange").style.opacity = "1";
     //audio2.play();
     stateLevel = "haut";
-  } else if (pression >= 1000 && pression <= 5999) {
+  } else if (pression >= 1000 && pression <= 2000) {
     document.getElementById("jauge").style.color = "red";
     document.getElementById("gameZone").style.backgroundColor="red";
     stateLevel = "maximum";
