@@ -2,7 +2,6 @@ let beta,
     gamma,
     pression = 0,
     gameover = false,
-    angle = "",
     stateLevel = "0";
 
     const whistle = document.getElementById("whistle");
@@ -11,6 +10,9 @@ let beta,
 
     const audio = document.getElementById("ambiance");
     audio.play();
+
+    document.getElementById("gameZone").style.backgroundColor="green";
+
 
 //window.onload = function () {}
 
@@ -120,6 +122,7 @@ function changeColor() {
 }
 
 function changeAngle(){
+  let
   if(angle = "low"){
     document.getElementById("gameZone").style.backgroundColor="green";
   }
