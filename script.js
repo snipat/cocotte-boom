@@ -12,7 +12,6 @@ let beta,
     const audio = document.getElementById("ambiance");
     audio.play();
 
-    document.getElementById("gameZone").style.backgroundColor="green";
 
 
 //window.onload = function () {}
@@ -122,8 +121,7 @@ function changeColor() {
   }
 }
 
-function changeAngle(){
-  let
+/* function changeAngle(){
   if(angle = "low"){
     document.getElementById("gameZone").style.backgroundColor="green";
   }
@@ -134,7 +132,7 @@ function changeAngle(){
     document.getElementById("gameZone").style.backgroundColor="purple";
     }
 }
-
+*/
 // document.getElementById("start").addEventListener("click", function() {
 // refreshInfo();
 // });
