@@ -2,8 +2,8 @@ let beta,
     gamma,
     pression = 0,
     gameover = false,
-    stateLevel = "0",
-    angle="0";
+    stateLevel = "0";
+    angle="0",
 
     const whistle = document.getElementById("whistle");
     const explosion = document.getElementById("explosion");
@@ -12,12 +12,11 @@ let beta,
     const audio = document.getElementById("ambiance");
     audio.play();
 
-
-
 //window.onload = function () {}
 
 function bannerAuthorisation() {
 
+//emplacement audioPlay
 
   if (
     window.DeviceOrientationEvent &&
@@ -120,7 +119,7 @@ function changeColor() {
   }
 }
 
-function changeAngle(){
+function changeAngle() {
   if(angle = "low"){
     document.getElementById("gameZone").style.backgroundColor="green";
   }
@@ -129,7 +128,7 @@ function changeAngle(){
   }
   else if (angle="high") {
     document.getElementById("gameZone").style.backgroundColor="purple";
-    }
+  }
 }
 
 // document.getElementById("start").addEventListener("click", function() {
