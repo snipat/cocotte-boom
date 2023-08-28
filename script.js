@@ -9,12 +9,13 @@ let beta,
     const explosion = document.getElementById("explosion");
     const ambiance = document.getElementById("ambiance");
 
+    const audio = document.getElementById("ambiance");
+    audio.play();
 
 //window.onload = function () {}
 
 function bannerAuthorisation() {
-    const audio = document.getElementById("ambiance");
-    audio.play();
+
 
   if (
     window.DeviceOrientationEvent &&
@@ -94,8 +95,6 @@ function increasePression() {
     }
   }
 }
-
-
 
 function changeColor() {
   if (pression == 0) {
