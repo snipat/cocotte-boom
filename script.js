@@ -12,6 +12,7 @@ let beta,
     const audio = document.getElementById("ambiance");
     audio.play();
 
+    document.getElementById("gameZone").style.backgroundColor="green";
 
 
 //window.onload = function () {}
@@ -77,9 +78,9 @@ function increasePression() {
   } else {
     if ((beta >= 5 && beta < 10) || (beta <= -5 && beta > -10)) {
       pression += 2;
+      angle = "low"
       } else if ((beta >= 10 && beta < 15) || (beta <= -10 && beta > -15)) {
         pression += 4;
-        angle = "mid";
       } else if (beta >= 15 || beta <= -15) {
         pression += 6;
     } else {
@@ -87,9 +88,9 @@ function increasePression() {
     }
     if ((gamma >= 10 && gamma < 15) || (gamma <= -10 && gamma > -15)) {
       pression += 2;
+      angle = "low"
       } else if ((gamma >= 15 && gamma < 30) || (gamma <= -15 && gamma > -30)) {
         pression += 4;
-        angle = "mid";
       } else if (gamma >= 30 || gamma <= -30) {
         pression += 6;
     } else {
@@ -101,6 +102,7 @@ function increasePression() {
 function changeColor() {
   if (pression == 0) {
     document.getElementById("jauge").style.color = "purple";
+
     stateLevel = "bas";
   } else if (pression >= 0 && pression < 500) {
     document.getElementById("jauge").style.color = "green";
@@ -121,6 +123,7 @@ function changeColor() {
 }
 
 function changeAngle(){
+  let
   if(angle = "low"){
     document.getElementById("gameZone").style.backgroundColor="green";
   }
