@@ -64,7 +64,7 @@ function test() {
 function increasePression() {
   if (gameover) {
     document.getElementById("jauge").style.color = "purple";
-    document.getElementById("gameover").style.visibility = "visible";
+//  document.getElementById("gameover").style.visibility = "visible";
   } else {
     if ((beta >= 5 && beta < 10) || (beta <= -5 && beta > -10)) {
       pression += 2;
