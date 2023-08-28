@@ -6,18 +6,14 @@ let beta,
     //angle=0;
 
     const whistle = document.getElementById("whistle");
-    const explosion = document.getElementById("explosion");
     const ambiance = document.getElementById("ambiance");
-
-    const audio = document.getElementById("ambiance");
-    audio.play();
-
-
 
 //window.onload = function () {}
 
 function bannerAuthorisation() {
 
+  const audio = document.getElementById("ambiance");
+  audio.play();
 
   if (
     window.DeviceOrientationEvent &&
