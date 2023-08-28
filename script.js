@@ -1,8 +1,8 @@
 let beta,
     gamma,
-    pression = 0,
-    gameover = false,
-    stateLevel = "0",
+    pression = 0;
+    gameover = false;
+    stateLevel = "0";
     //angle=0;
 
     const whistle = document.getElementById("whistle");
@@ -85,7 +85,6 @@ function increasePression() {
     }
     if ((gamma >= 10 && gamma < 15) || (gamma <= -10 && gamma > -15)) {
       pression += 2;
-    //  angle = 2;
       } else if ((gamma >= 15 && gamma < 30) || (gamma <= -15 && gamma > -30)) {
         pression += 4;
       } else if (gamma >= 30 || gamma <= -30) {
