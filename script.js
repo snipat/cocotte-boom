@@ -95,17 +95,7 @@ function increasePression() {
   }
 }
 
-function changeAngle(){
-  if(angle = "low"){
-    document.getElementById("gameZone").style.backgroundColor="green";
-  }
-  else if (angle="mid") {
-    document.getElementById("gameZone").style.backgroundColor="blue";
-  }
-  else if (angle="high") {
-    document.getElementById("gameZone").style.backgroundColor="purple";
-    }
-}
+
 
 function changeColor() {
   if (pression == 0) {
@@ -128,6 +118,18 @@ function changeColor() {
     gameover = true;
     //explosion.play();
   }
+}
+
+function changeAngle(){
+  if(angle = "low"){
+    document.getElementById("gameZone").style.backgroundColor="green";
+  }
+  else if (angle="mid") {
+    document.getElementById("gameZone").style.backgroundColor="blue";
+  }
+  else if (angle="high") {
+    document.getElementById("gameZone").style.backgroundColor="purple";
+    }
 }
 
 // document.getElementById("start").addEventListener("click", function() {
