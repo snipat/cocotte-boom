@@ -2,7 +2,8 @@ let beta,
     gamma,
     pression = 0,
     gameover = false,
-    stateLevel = "0";
+    stateLevel = "0",
+    angle="0";
 
     const whistle = document.getElementById("whistle");
     const explosion = document.getElementById("explosion");
