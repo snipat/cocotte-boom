@@ -10,7 +10,7 @@ let beta,
 //window.onload = function () {}
 
 function bannerAuthorisation() {
-  const audio = document.getElementById("av");
+  const audio = document.getElementById("ambiance");
   audio.play();
 
   if (
@@ -33,7 +33,7 @@ function clickRequestDeviceOrientationEvent() {
   window.DeviceOrientationEvent.requestPermission()
     .then((response) => {
       if (response === "granted") {
-        const audio = document.getElementById("av");
+        const audio = document.getElementById("ambiance");
         audio.play();
         window.addEventListener("deviceorientation", (e) => {
           document.getElementById("autorisation").style.display = "none";
