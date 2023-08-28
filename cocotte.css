@@ -57,6 +57,7 @@
   width: 70px;
   background-color: #fdc323;
   z-index: 2;
+  transform: translate(0, -50%);
 }
 
 .orange {
@@ -69,6 +70,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  transform: translate(0, -50%);
 }
 
 /*.round {
