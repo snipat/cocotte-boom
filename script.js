@@ -93,7 +93,6 @@ function changeColor() {
     stateLevel = "bas";
   } else if (pression >= 0 && pression < 500) {
     document.getElementById("jauge").style.color = "green";
-    document.getElementById("jaune").style.opacity = "1";
     stateLevel = "moyen";
   } else if (pression >= 500 && pression < 1000) {
     document.getElementById("jauge").style.color = "orange";
@@ -102,7 +101,7 @@ function changeColor() {
     stateLevel = "haut";
   } else if (pression >= 1000 && pression <= 5999) {
     document.getElementById("jauge").style.color = "red";
-    document.getElementById("game").style.backgroundColor="red";
+    document.getElementById("gameZone").style.backgroundColor="red";
     stateLevel = "maximum";
 
   } else {

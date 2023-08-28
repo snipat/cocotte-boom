@@ -51,6 +51,13 @@
   align-items: center
 }
 
+.jaune {
+  border-radius: 50%;
+  height: 70px;
+  width: 70px;
+  background-color: #fdc323;
+  z-index: 2;
+}
 
 .orange {
   border-radius: 50%;
@@ -62,18 +69,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
-.jaune {
-  border-radius: 50%;
-  height: 70px;
-  width: 70px;
-  background-color: #fdc323;
-  z-index: 2;
-  opacity: 1;
-
-}
-
 
 /*.round {
     height: 25%;
