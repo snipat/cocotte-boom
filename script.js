@@ -5,7 +5,7 @@ let beta,
 
 // const whistle = document.getElementById("whistle");
 // const ambiance = document.getElementById("ambiance");
-const audiomid = document.getElementById("ambiancemid");
+const ambiancemid = document.getElementById("ambiancemid");
 // ambiance.play();
 
 //const cocotte = document.getElementById("cocotte");
@@ -74,7 +74,7 @@ function clickRequestDeviceOrientationEvent() {
 //}
 
 function increasePression() {
-  document.getElementById("jauge").innerHTML = "Pression :" + pression;
+  document.getElementById("jauge").innerHTML = "Pression : " + pression;
   if (gameover) {
     document.getElementById("jauge").style.color = "purple";
   } else {
