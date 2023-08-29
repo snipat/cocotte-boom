@@ -99,12 +99,13 @@ function increasePression() {
 }
 
 function changeColor() {
+  const ambiancemid = document.getElementById("ambiancemid");
+
   if (pression == 0) {
     document.getElementById("jauge").style.color = "purple";
   } else if (pression >= 0 && pression < 500) {
     document.getElementById("jauge").style.color = "green";
   } else if (pression >= 500 && pression < 1000) {
-    const ambiancemid = document.getElementById("ambiancemid");
     ambiancemid.play();
     document.getElementById("jauge").style.color = "orange";
     document.getElementById("orange").style.opacity = "1";
