@@ -98,7 +98,7 @@ function changeColor() {
   } else if (pression >= 500 && pression < 1000) {
     document.getElementById("jauge").style.color = "orange";
     document.getElementById("orange").style.opacity = "1";
-    cocotte.classList.replace('base','bouge');
+    .classList.replace('base','bouge');
     //audio2.play();
   } else if (pression >= 1000 && pression <= 2000) {
     document.getElementById("red").style.opacity = "1";
