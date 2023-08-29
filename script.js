@@ -41,13 +41,14 @@ function bannerAuthorisation() {
     alert(typeof DeviceOrientationEvent.requestPermission);
   }
 }
-
+console.log('vouvou')
 function clickRequestDeviceOrientationEvent() {
   window.DeviceOrientationEvent.requestPermission()
     .then((response) => {
       if (response === "granted") {
         const audio = document.getElementById("ambiance");
         const audio2 = document.getElementById("ambiancemid");
+        console.log({audio2});
         audio.play();
         window.addEventListener("deviceorientation", (e) => {
           document.getElementById("autorisation").style.display = "none";
@@ -110,11 +111,10 @@ function changeColor() {
   } else if (pression >= 500 && pression < 1000) {
     // audio.pause();
     // audio.currentTime = 0;
-    audio2.play();
+    document.getElementById("ambiancemid").play();
     document.getElementById("jauge").style.color = "orange";
     document.getElementById("orange").style.opacity = "1";
     cocotte.classList.replace('base','bouge');
-    //audio2.play();
   } else if (pression >= 1000 && pression <= 2000) {
     document.getElementById("red").style.opacity = "1";
   } else {
