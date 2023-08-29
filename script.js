@@ -42,7 +42,6 @@ function bannerAuthorisation() {
   }
 }
 function clickRequestDeviceOrientationEvent() {
-  document.getElementById("ambiance").pause();
 
   window.DeviceOrientationEvent.requestPermission()
     .then((response) => {
@@ -106,6 +105,9 @@ function changeColor() {
   } else if (pression >= 0 && pression < 500) {
     document.getElementById("jauge").style.color = "green";
   } else if (pression >= 500 && pression < 1000) {
+    document.getElementById("ambiance").pause();
+    document.getElementById("ambiancemid").play();
+
     // audio.pause();
     // audio.currentTime = 0;
     // document.getElementById("ambiancemid").play();
