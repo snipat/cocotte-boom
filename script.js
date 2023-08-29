@@ -20,13 +20,11 @@ let beta,
 
 //window.onload = function () {}
 
-const audio = document.getElementById("ambiance");
-const audio2 = document.getElementById("ambiancemid");
+
 
 function bannerAuthorisation() {
 
-
-  audio.play();
+  document.getElementById("ambiance").play();
 
   if (
     window.DeviceOrientationEvent &&
@@ -44,7 +42,7 @@ function bannerAuthorisation() {
   }
 }
 function clickRequestDeviceOrientationEvent() {
-  audio.pause();
+  document.getElementById("ambiance").pause();
 
   window.DeviceOrientationEvent.requestPermission()
     .then((response) => {
