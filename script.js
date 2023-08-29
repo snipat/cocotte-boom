@@ -5,7 +5,6 @@ let beta,
 
 // const whistle = document.getElementById("whistle");
 // const ambiance = document.getElementById("ambiance");
-const ambiancemid = document.getElementById("ambiancemid");
 // ambiance.play();
 
 //const cocotte = document.getElementById("cocotte");
@@ -105,7 +104,7 @@ function changeColor() {
   } else if (pression >= 0 && pression < 500) {
     document.getElementById("jauge").style.color = "green";
   } else if (pression >= 500 && pression < 1000) {
-
+    const ambiancemid = document.getElementById("ambiancemid");
     ambiancemid.play();
     document.getElementById("jauge").style.color = "orange";
     document.getElementById("orange").style.opacity = "1";
