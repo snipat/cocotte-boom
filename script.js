@@ -21,9 +21,10 @@ let beta,
 //window.onload = function () {}
 
 
+
 function bannerAuthorisation() {
 
-  const audio = document.getElementById("ambiance");
+  const audio = document.getElementById("ambiancemid");
   audio.play();
 
   if (
@@ -106,9 +107,9 @@ function changeColor() {
   } else if (pression >= 0 && pression < 500) {
     document.getElementById("jauge").style.color = "green";
   } else if (pression >= 500 && pression < 1000) {
-    audio.pause();
-    audio.currentTime = 0;
-    document.getElementById("ambiancemid").play();
+    // audio.pause();
+    // audio.currentTime = 0;
+    // document.getElementById("ambiancemid").play();
     document.getElementById("jauge").style.color = "orange";
     document.getElementById("orange").style.opacity = "1";
     cocotte.classList.replace('base','bouge');
