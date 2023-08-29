@@ -78,17 +78,17 @@ img {
 }
 
 @keyframes shake2 {
-  0% { transform: translate(-52%, -50%) rotate(35deg); }
-  10% { transform: translate(-50%, -52%) rotate(-35deg); }
-  20% { transform: translate(-52%, -50%) rotate(35deg); }
-  30% { transform: translate(-50%, -52%) rotate(30deg); }
-  40% { transform: translate(-52%, -50%) rotate(35deg); }
-  50% { transform: translate(-50%, -52%) rotate(-35deg); }
-  60% { transform: translate(-52%, -50%) rotate(30deg); }
-  70% { transform: translate(-50%, -52%) rotate(-35deg); }
-  80% { transform: translate(-52%, -50%) rotate(35deg); }
-  90% { transform: translate(-50%, -52%) rotate(30deg); }
-  100% { transform: translate(-52%, -50%) rotate(-35deg); }
+  0% { transform: translate(-52%, -50%) rotate(5deg); }
+  10% { transform: translate(-50%, -52%) rotate(-5deg); }
+  20% { transform: translate(-52%, -50%) rotate(5deg); }
+  30% { transform: translate(-50%, -52%) rotate(0deg); }
+  40% { transform: translate(-52%, -50%) rotate(5deg); }
+  50% { transform: translate(-50%, -52%) rotate(-5deg); }
+  60% { transform: translate(-52%, -50%) rotate(0deg); }
+  70% { transform: translate(-50%, -52%) rotate(-5deg); }
+  80% { transform: translate(-52%, -50%) rotate(5deg); }
+  90% { transform: translate(-50%, -52%) rotate(0deg); }
+  100% { transform: translate(-52%, -50%) rotate(-5deg); }
 }
 
 .feu {
