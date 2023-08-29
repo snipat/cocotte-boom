@@ -20,11 +20,12 @@ let beta,
 
 //window.onload = function () {}
 
-
+const audio = document.getElementById("ambiance");
+const audio2 = document.getElementById("ambiancemid");
 
 function bannerAuthorisation() {
 
-  const audio = document.getElementById("ambiancemid");
+
   audio.play();
 
   if (
@@ -42,12 +43,12 @@ function bannerAuthorisation() {
     alert(typeof DeviceOrientationEvent.requestPermission);
   }
 }
-console.log('vouvou')
 function clickRequestDeviceOrientationEvent() {
+  audio.pause();
+
   window.DeviceOrientationEvent.requestPermission()
     .then((response) => {
       if (response === "granted") {
-        audio.play();
         window.addEventListener("deviceorientation", (e) => {
           document.getElementById("autorisation").style.display = "none";
           beta = Math.round(e.beta);
