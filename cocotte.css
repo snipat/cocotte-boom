@@ -53,7 +53,7 @@ img {
   position: absolute
 }
 
-img:hover {
+.base {
   animation: shake 0.5s;
   animation-iteration-count: infinite;
 }
@@ -70,6 +70,25 @@ img:hover {
   80% { transform: translate(-52%, -50%) rotate(1deg); }
   90% { transform: translate(-50%, -52%) rotate(0deg); }
   100% { transform: translate(-52%, -50%) rotate(-1deg); }
+}
+
+.bouge {
+  animation: shake2 0.5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes shake2 {
+  0% { transform: translate(-52%, -50%) rotate(5deg); }
+  10% { transform: translate(-50%, -52%) rotate(-5deg); }
+  20% { transform: translate(-52%, -50%) rotate(5deg); }
+  30% { transform: translate(-50%, -52%) rotate(0deg); }
+  40% { transform: translate(-52%, -50%) rotate(5deg); }
+  50% { transform: translate(-50%, -52%) rotate(-5deg); }
+  60% { transform: translate(-52%, -50%) rotate(0deg); }
+  70% { transform: translate(-50%, -52%) rotate(-5deg); }
+  80% { transform: translate(-52%, -50%) rotate(5deg); }
+  90% { transform: translate(-50%, -52%) rotate(0deg); }
+  100% { transform: translate(-52%, -50%) rotate(-5deg); }
 }
 
 .feu {
