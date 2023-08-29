@@ -3,9 +3,21 @@ let beta,
     pression = 0;
     gameover = false;
 
-    const whistle = document.getElementById("whistle");
-    const ambiance = document.getElementById("ambiance");
-    //const cocotte = document.getElementById("cocotte");
+// const whistle = document.getElementById("whistle");
+// const ambiance = document.getElementById("ambiance");
+//
+// ambiance.play();
+
+//const cocotte = document.getElementById("cocotte");
+
+// var loop = new SeamlessLoop();
+// loop.addUri('ambiance.wav', 3000,"amb");
+// loop.callback(soundsLoaded);
+// function soundsLoaded() {
+//     var n = 1;
+//     loop.start("amb" + n);
+//     console.log("tutut")
+// };
 
 //window.onload = function () {}
 
@@ -60,9 +72,6 @@ function clickRequestDeviceOrientationEvent() {
 //function test() {
 //  document.getElementById("jauge").innerHTML = pression;
 //}
-
-const audio = document.getElementById("ambiance");
-audio.play();
 
 function increasePression() {
   document.getElementById("jauge").innerHTML = "Pression :" + pression;
@@ -120,9 +129,11 @@ function changeAngle(){
   }
   if ((gamma >= 10 && gamma < 15) || (gamma <= -10 && gamma > -15)) {
     document.getElementById("gameZone").style.backgroundColor="green";
-  } else if ((gamma >= 15 && gamma < 30) || (gamma <= -15 && gamma > -30)) {
+  }
+  else if ((gamma >= 15 && gamma < 30) || (gamma <= -15 && gamma > -30)) {
     document.getElementById("gameZone").style.backgroundColor="orange";
-  } else if (gamma >= 30 || gamma <= -30) {
+  }
+  else if (gamma >= 30 || gamma <= -30) {
     document.getElementById("gameZone").style.backgroundColor="red";
   }
 }
