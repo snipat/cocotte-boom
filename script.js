@@ -118,11 +118,18 @@ function changeAngle(){
     document.getElementById("gameZone").style.backgroundColor="green";
   }
   else if ((beta >= 10 && beta < 15) || (beta <= -10 && beta > -15)) {
-    document.getElementById("gameZone").style.backgroundColor="blue";
+    document.getElementById("gameZone").style.backgroundColor="orange";
   }
   else if (beta >= 15 || beta <= -15) {
-    document.getElementById("gameZone").style.backgroundColor="purple";
-    }
+    document.getElementById("gameZone").style.backgroundColor="red";
+  }
+  if ((gamma >= 10 && gamma < 15) || (gamma <= -10 && gamma > -15)) {
+    document.getElementById("gameZone").style.backgroundColor="green";
+    } else if ((gamma >= 15 && gamma < 30) || (gamma <= -15 && gamma > -30)) {
+    document.getElementById("gameZone").style.backgroundColor="orange";
+    } else if (gamma >= 30 || gamma <= -30) {
+    document.getElementById("gameZone").style.backgroundColor="red";
+  } 
 }
 
 // document.getElementById("start").addEventListener("click", function() {
