@@ -5,7 +5,7 @@ let beta,
 
     const whistle = document.getElementById("whistle");
     const ambiance = document.getElementById("ambiance");
-    const cocotte = document.getElementById("cocotte");
+    //const cocotte = document.getElementById("cocotte");
 
 //window.onload = function () {}
 
@@ -97,9 +97,8 @@ function changeColor() {
     document.getElementById("jauge").style.color = "green";
   } else if (pression >= 500 && pression < 1000) {
     document.getElementById("jauge").style.color = "orange";
-    document.getElementById("orange").style.opacity = "1";
-    console.log("cocte",Cocotte)
-    cocotte.classList.replace('base','bouge');
+        document.getElementById("orange").style.opacity = "1";
+    //cocotte.classList.replace('base','bouge');
     //audio2.play();
   } else if (pression >= 1000 && pression <= 2000) {
     document.getElementById("red").style.opacity = "1";
