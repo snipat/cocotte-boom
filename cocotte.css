@@ -95,7 +95,7 @@ img:hover {
   height: 290px;
   width: 290px;
   background-color: #fc4b00;
-  opacity: 1;
+  opacity: 0.1;
   z-index: 1;
   top: 50%;
   left: 50%;
@@ -108,7 +108,7 @@ img:hover {
   height: 390px;
   width: 390px;
   background-color: red;
-  opacity: 1;
+  opacity: 0.1;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
