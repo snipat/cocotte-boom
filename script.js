@@ -46,9 +46,6 @@ function clickRequestDeviceOrientationEvent() {
   window.DeviceOrientationEvent.requestPermission()
     .then((response) => {
       if (response === "granted") {
-        const audio = document.getElementById("ambiance");
-        const audio2 = document.getElementById("ambiancemid");
-        console.log({audio2});
         audio.play();
         window.addEventListener("deviceorientation", (e) => {
           document.getElementById("autorisation").style.display = "none";
@@ -109,8 +106,8 @@ function changeColor() {
   } else if (pression >= 0 && pression < 500) {
     document.getElementById("jauge").style.color = "green";
   } else if (pression >= 500 && pression < 1000) {
-    // audio.pause();
-    // audio.currentTime = 0;
+    audio.pause();
+    audio.currentTime = 0;
     document.getElementById("ambiancemid").play();
     document.getElementById("jauge").style.color = "orange";
     document.getElementById("orange").style.opacity = "1";
