@@ -3,7 +3,6 @@ let beta,
     pression = 0;
     gameover = false;
     stateLevel = "0";
-    //angle=0;
 
     const whistle = document.getElementById("whistle");
     const ambiance = document.getElementById("ambiance");
@@ -73,7 +72,7 @@ function increasePression() {
   } else {
     if ((beta >= 5 && beta < 10) || (beta <= -5 && beta > -10)) {
       pression += 2;
-  //    angle = 1;      } else if ((beta >= 10 && beta < 15) || (beta <= -10 && beta > -15)) {
+      } else if ((beta >= 10 && beta < 15) || (beta <= -10 && beta > -15)) {
         pression += 4;
       } else if (beta >= 15 || beta <= -15) {
         pression += 6;
@@ -95,7 +94,6 @@ function increasePression() {
 function changeColor() {
   if (pression == 0) {
     document.getElementById("jauge").style.color = "purple";
-
     stateLevel = "bas";
   } else if (pression >= 0 && pression < 500) {
     document.getElementById("jauge").style.color = "green";
@@ -116,15 +114,13 @@ function changeColor() {
 }
 
 function changeAngle(){
-  if(angle = "low"){
+  if((beta >= 5 && beta < 10) || (beta <= -5 && beta > -10)){
     document.getElementById("gameZone").style.backgroundColor="green";
-    document.getElementById("angle").innerHTML = "Angle : " + angle;
-
   }
-  else if (angle="mid") {
+  else if ((beta >= 10 && beta < 15) || (beta <= -10 && beta > -15)) {
     document.getElementById("gameZone").style.backgroundColor="blue";
   }
-  else if (angle="high") {
+  else if (beta >= 15 || beta <= -15) {
     document.getElementById("gameZone").style.backgroundColor="purple";
     }
 }
