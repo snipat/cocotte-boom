@@ -60,7 +60,7 @@ function clickRequestDeviceOrientationEvent() {
 }
 
 function test() {
-  document.getElementById("difficulté").innerHTML = pression;
+  document.getElementById("jauge").innerHTML = pression;
 }
 
 const audio = document.getElementById("ambiance");
