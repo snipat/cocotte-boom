@@ -98,9 +98,9 @@ function increasePression() {
     }
   }
 }
-const audio2 = document.getElementById("ambiancemid");
 
 function changeColor() {
+  const audio2 = document.getElementById("ambiancemid");
 
   if (pression == 0) {
     document.getElementById("jauge").style.color = "purple";
@@ -108,7 +108,7 @@ function changeColor() {
     document.getElementById("jauge").style.color = "green";
   } else if (pression >= 500 && pression < 1000) {
     audio.pause();
-    audio.currentTime = 0; 
+    audio.currentTime = 0;
     audio2.play();
     document.getElementById("jauge").style.color = "orange";
     document.getElementById("orange").style.opacity = "1";
