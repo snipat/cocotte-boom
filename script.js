@@ -43,6 +43,7 @@ function clickRequestDeviceOrientationEvent() {
           gamma = Math.round(e.gamma);
           changeColor();
           increasePression();
+          changeAngle();
           document.getElementById("roulis").innerHTML = "Roulis : " + beta;
           document.getElementById("tangage").innerHTML = "Tangage : " + gamma;
           document.getElementById("state").innerHTML = "State : " + stateLevel;
@@ -114,9 +115,11 @@ function changeColor() {
   }
 }
 
-/* function changeAngle(){
+function changeAngle(){
   if(angle = "low"){
     document.getElementById("gameZone").style.backgroundColor="green";
+    document.getElementById("angle").innerHTML = "Angle : " + angle;
+
   }
   else if (angle="mid") {
     document.getElementById("gameZone").style.backgroundColor="blue";
@@ -125,7 +128,7 @@ function changeColor() {
     document.getElementById("gameZone").style.backgroundColor="purple";
     }
 }
-*/
+
 // document.getElementById("start").addEventListener("click", function() {
 // refreshInfo();
 // });
