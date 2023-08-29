@@ -2,7 +2,6 @@ let beta,
     gamma,
     pression = 0;
     gameover = false;
-    stateLevel = "0";
 
     const whistle = document.getElementById("whistle");
     const ambiance = document.getElementById("ambiance");
@@ -45,7 +44,6 @@ function clickRequestDeviceOrientationEvent() {
           changeAngle();
           document.getElementById("roulis").innerHTML = "Roulis : " + beta;
           document.getElementById("tangage").innerHTML = "Tangage : " + gamma;
-          document.getElementById("state").innerHTML = "State : " + stateLevel;
         });
       } else {
         alert(
@@ -94,20 +92,16 @@ function increasePression() {
 function changeColor() {
   if (pression == 0) {
     document.getElementById("jauge").style.color = "purple";
-    stateLevel = "bas";
   } else if (pression >= 0 && pression < 500) {
     document.getElementById("jauge").style.color = "green";
-    stateLevel = "moyen";
   } else if (pression >= 500 && pression < 1000) {
     document.getElementById("jauge").style.color = "orange";
     document.getElementById("orange").style.opacity = "1";
     //element.classList.remove("my-class");
     //element.classList.add("my-class");
     //audio2.play();
-    stateLevel = "haut";
   } else if (pression >= 1000 && pression <= 2000) {
     document.getElementById("red").style.opacity = "1";
-    stateLevel = "maximum";
   } else {
     gameover = true;
     //explosion.play();
