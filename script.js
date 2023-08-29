@@ -58,18 +58,17 @@ function clickRequestDeviceOrientationEvent() {
     });
 }
 
-function test() {
-  document.getElementById("jauge").innerHTML = pression;
-  console.log("62")
-}
+//function test() {
+//  document.getElementById("jauge").innerHTML = pression;
+//}
 
 const audio = document.getElementById("ambiance");
 audio.play();
 
 function increasePression() {
+  document.getElementById("jauge").innerHTML = "Pression :" + pression;
   if (gameover) {
     document.getElementById("jauge").style.color = "purple";
-    document.getElementById("jauge").innerHTML = "Pression :" + pression;
   } else {
     if ((beta >= 5 && beta < 10) || (beta <= -5 && beta > -10)) {
       pression += 2;
@@ -102,6 +101,8 @@ function changeColor() {
   } else if (pression >= 500 && pression < 1000) {
     document.getElementById("jauge").style.color = "orange";
     document.getElementById("orange").style.opacity = "1";
+    //element.classList.remove("my-class");
+    //element.classList.add("my-class");
     //audio2.play();
     stateLevel = "haut";
   } else if (pression >= 1000 && pression <= 2000) {
@@ -125,9 +126,9 @@ function changeAngle(){
   }
   if ((gamma >= 10 && gamma < 15) || (gamma <= -10 && gamma > -15)) {
     document.getElementById("gameZone").style.backgroundColor="green";
-    } else if ((gamma >= 15 && gamma < 30) || (gamma <= -15 && gamma > -30)) {
+  } else if ((gamma >= 15 && gamma < 30) || (gamma <= -15 && gamma > -30)) {
     document.getElementById("gameZone").style.backgroundColor="orange";
-    } else if (gamma >= 30 || gamma <= -30) {
+  } else if (gamma >= 30 || gamma <= -30) {
     document.getElementById("gameZone").style.backgroundColor="red";
   }
 }
