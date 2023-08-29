@@ -97,7 +97,7 @@ function increasePression() {
     }
   }
 }
-const ambiancemid = document.getElementById("ambiancemid");
+const audio2 = document.getElementById("ambiancemid");
 
 function changeColor() {
 
@@ -106,7 +106,7 @@ function changeColor() {
   } else if (pression >= 0 && pression < 500) {
     document.getElementById("jauge").style.color = "green";
   } else if (pression >= 500 && pression < 1000) {
-    ambiancemid.play();
+    audio2.play();
     document.getElementById("jauge").style.color = "orange";
     document.getElementById("orange").style.opacity = "1";
     cocotte.classList.replace('base','bouge');
