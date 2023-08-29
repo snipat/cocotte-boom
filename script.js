@@ -46,7 +46,6 @@ function clickRequestDeviceOrientationEvent() {
           document.getElementById("roulis").innerHTML = "Roulis : " + beta;
           document.getElementById("tangage").innerHTML = "Tangage : " + gamma;
           document.getElementById("state").innerHTML = "State : " + stateLevel;
-          document.getElementById("jauge").innerHTML = "Pression :" + pression;
         });
       } else {
         alert(
@@ -61,6 +60,7 @@ function clickRequestDeviceOrientationEvent() {
 
 function test() {
   document.getElementById("jauge").innerHTML = pression;
+  console.log("62")
 }
 
 const audio = document.getElementById("ambiance");
@@ -69,6 +69,7 @@ audio.play();
 function increasePression() {
   if (gameover) {
     document.getElementById("jauge").style.color = "purple";
+    document.getElementById("jauge").innerHTML = "Pression :" + pression;
   } else {
     if ((beta >= 5 && beta < 10) || (beta <= -5 && beta > -10)) {
       pression += 2;
