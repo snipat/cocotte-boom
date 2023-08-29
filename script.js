@@ -104,8 +104,7 @@ function changeColor() {
     //audio2.play();
     stateLevel = "haut";
   } else if (pression >= 1000 && pression <= 2000) {
-    document.getElementById("jauge").style.color = "red";
-    //document.getElementById("gameZone").style.backgroundColor="red";
+    document.getElementById("red").style.opacity = "1";
     stateLevel = "maximum";
   } else {
     gameover = true;
@@ -129,7 +128,7 @@ function changeAngle(){
     document.getElementById("gameZone").style.backgroundColor="orange";
     } else if (gamma >= 30 || gamma <= -30) {
     document.getElementById("gameZone").style.backgroundColor="red";
-  } 
+  }
 }
 
 // document.getElementById("start").addEventListener("click", function() {
