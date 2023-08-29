@@ -97,9 +97,9 @@ function increasePression() {
     }
   }
 }
+const ambiancemid = document.getElementById("ambiancemid");
 
 function changeColor() {
-  const ambiancemid = document.getElementById("ambiancemid");
 
   if (pression == 0) {
     document.getElementById("jauge").style.color = "purple";
