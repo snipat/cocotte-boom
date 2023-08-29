@@ -106,7 +106,7 @@ function changeColor() {
     document.getElementById("jauge").style.color = "green";
   } else if (pression >= 500 && pression < 1000) {
 
-    audiomid.play();
+    ambiancemid.play();
     document.getElementById("jauge").style.color = "orange";
     document.getElementById("orange").style.opacity = "1";
     cocotte.classList.replace('base','bouge');
