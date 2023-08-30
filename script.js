@@ -192,7 +192,7 @@ let beta,
 
 
 var loop = new SeamlessLoop();
-loop.addUri('https://www2.cs.uic.edu/~i101/SoundFiles/BabyElephantWalk60.wav', 3000,"amb1");
+loop.addUri('ambiance.wav', 3000,"amb1");
 loop.callback(soundsLoaded);
 function soundsLoaded() {
     console.log('init sounds loadd', loop)
