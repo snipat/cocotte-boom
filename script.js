@@ -192,20 +192,15 @@ let beta,
 
 
 var loop = new SeamlessLoop();
-loop.addUri('ambiance.wav', 3000,"amb1");
+loop.addUri('ambiancemid.wav', 1000, "sound1");
 loop.callback(soundsLoaded);
 function soundsLoaded() {
     console.log('init sounds loadd', loop)
     var n = 1;
-    loop.start("amb" + n);
-    console.log("tutut")
+    loop.start("sound" + n);
 };
 
 function bannerAuthorisation() {
-
-  document.getElementById("ambiance").play();
-
-
   if (
     window.DeviceOrientationEvent &&
     typeof window.DeviceOrientationEvent.requestPermission === "function"
@@ -293,6 +288,7 @@ function changeColor() {
     document.getElementById("jauge").style.color = "orange";
     document.getElementById("orange").style.opacity = "1";
     cocotte.classList.replace('base','bouge');
+    loop.stop();
   } else if (pression >= 1000 && pression <= 2000) {
     document.getElementById("red").style.opacity = "1";
     document.getElementById("ambiancemid").play();
