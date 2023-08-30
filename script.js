@@ -1,9 +1,13 @@
+
 let beta,
     gamma,
     pression = 0;
     gameover = false;
 
-  function SeamlessLoop() {
+
+
+   function SeamlessLoop() {
+     console.log("init seamless object",this)
     	this.is = {
     			  ff: Boolean(!(window.mozInnerScreenX == null) && /firefox/.test( navigator.userAgent.toLowerCase() )),
     			  ie: Boolean(document.all && !window.opera),
@@ -82,6 +86,8 @@ let beta,
     		var antikey = (this.next == 1 ? "_2" : "_1");
 
     		var t = this;
+        console.log(this.actual)
+
     		this.timeout = setTimeout(function() {t.doLoop();}, this.actual._length + this.playDelay);
 
     		if(this.is.opera) this.actual[antikey].pause();
@@ -96,6 +102,7 @@ let beta,
     }
 
     SeamlessLoop.prototype.start = function(id) {
+      console.log("start", id, this)
     	if(id != "") {
     		this.actual = this.audios[id];
     	}
@@ -143,6 +150,7 @@ let beta,
     };
 
     SeamlessLoop.prototype.addUri = function(uri, length, id) {
+      console.log(uri, id)
     	this.audios[id] = new Array();
     	this.audios[id]._length = length;
     	var t = this;
@@ -161,6 +169,7 @@ let beta,
     	this.audios[id]._2.load();
     	this.audios[id]._1.volume = this._volume;
     	this.audios[id]._2.volume = this._volume;
+      console.log(this.audios)
     };
 
 
@@ -169,21 +178,33 @@ let beta,
 // ambiance.play();
 
 //const cocotte = document.getElementById("cocotte");
+
+// var loop = new SeamlessLoop();
+// loop.addUri('ambiance.wav', 3000,"amb");
+// loop.callback(soundsLoaded);
+// function soundsLoaded() {
+//     var n = 1;
+//     loop.start("amb" + n);
+//     console.log("tutut")
+// };
+
 //window.onload = function () {}
 
+
 var loop = new SeamlessLoop();
-loop.addUri('ambiance.wav', 3000,"amb");
+loop.addUri('https://www2.cs.uic.edu/~i101/SoundFiles/BabyElephantWalk60.wav', 3000,"amb1");
 loop.callback(soundsLoaded);
 function soundsLoaded() {
+    console.log('init sounds loadd', loop)
     var n = 1;
     loop.start("amb" + n);
     console.log("tutut")
 };
 
-
 function bannerAuthorisation() {
 
   document.getElementById("ambiance").play();
+
 
   if (
     window.DeviceOrientationEvent &&
@@ -316,7 +337,7 @@ function changeAngle(){
 //     loop.start("sound1" + n);
 // };
 //
-// ;//loop.stop();
+// loop.start();//loop.stop();
 // /**
 // document.getElementById("start").addEventListener("click", function() {
 // refreshInfo();

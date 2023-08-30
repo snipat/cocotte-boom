@@ -40,7 +40,7 @@
  * 		loop.stop();
  */
 
-function SeamlessLoop() {
+export function SeamlessLoop() {
 	this.is = {
 			  ff: Boolean(!(window.mozInnerScreenX == null) && /firefox/.test( navigator.userAgent.toLowerCase() )),
 			  ie: Boolean(document.all && !window.opera),
