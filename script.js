@@ -192,7 +192,7 @@ let beta,
 
 
 var loop = new SeamlessLoop();
-loop.addUri('ambiancemid.wav', 1000, "sound1");
+loop.addUri('https://github.com/snipat/cocotte-boom/blob/main/ambiance.wav', 1000, "sound1");
 loop.callback(soundsLoaded);
 function soundsLoaded() {
     console.log('init sounds loadd', loop)
