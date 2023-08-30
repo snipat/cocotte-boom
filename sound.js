@@ -1,11 +1,17 @@
-var loop = new SeamlessLoop();
+const loopify = function (){
+loopify("ambiance.wav",function(err,loop){
 
-loop.addUri(document.getElementById("ambiance"), 2000, "sound1");
-loop.addUri(document.getElementById("ambiancemid"), 4000, "sound2");
+  // If something went wrong, `err` is supplied
+  if (err) {
+    return console.err(err);
+  }
 
-loop.callback(soundsLoaded);
+  // Play it whenever you want
 
-function soundsLoaded() {
-    var n = 1;
-    loop.start("sound1" + n);
-};
+  // Stop it later if you feel like it
+  //loop.stop();
+
+
+});
+}
+loop.play();
