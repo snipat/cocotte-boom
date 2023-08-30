@@ -316,7 +316,7 @@ loop.callback(soundsLoaded);
 
 function soundsLoaded() {
     var n = 1;
-    loop.start("sound" + n);
+    loop.start("sound1" + n);
 };
 
 loop.start();//loop.stop();
