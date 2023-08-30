@@ -105,8 +105,8 @@ function changeColor() {
   } else if (pression >= 0 && pression < 500) {
     document.getElementById("jauge").style.color = "green";
   } else if (pression >= 500 && pression < 1000) {
-    document.getElementById("ambiance").remove();
-
+    document.getElementById("ambiance").pause();
+// enlever JQUERY
     // audio.pause();
     // audio.currentTime = 0;
     // document.getElementById("ambiancemid").play();
@@ -116,6 +116,7 @@ function changeColor() {
   } else if (pression >= 1000 && pression <= 2000) {
     document.getElementById("red").style.opacity = "1";
     document.getElementById("ambiancemid").play();
+
   } else {
     gameover = true;
     //explosion.play();
