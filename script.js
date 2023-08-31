@@ -166,8 +166,6 @@ function SeamlessLoop() {
     console.log(this.audios)
   };
 
-
-
 var loop = new SeamlessLoop();
 loop.addUri('ambiance.wav', 2000, 'sound1');
 loop.addUri('https://www2.cs.uic.edu/~i101/SoundFiles/StarWars3.wav', 2000, 'sound2');
@@ -178,11 +176,16 @@ function soundsLoaded() {
     loop.start('sound'+n);
 }
 
-var pace = function(){
+// var pace = function(){
+//     n++;
+//     loop.update();
+// }
+
+
+function pace(){
     n++;
     loop.update();
 }
-
 
 // n=loop.n;
 // var encoder = new BASE64UTF8();
@@ -274,8 +277,7 @@ function changeColor() {
     document.getElementById("jauge").style.color = "orange";
     document.getElementById("orange").style.opacity = "1";
     cocotte.classList.replace('base','bouge');
-    soundsLoaded.stop();
-    // pace('sound' + 3, false);
+    pace('sound' + 2, false);
   } else if (pression >= 1000 && pression <= 2000) {
     document.getElementById("red").style.opacity = "1";
     // pace('sound' + 2, false);
@@ -284,8 +286,6 @@ function changeColor() {
     document.getElementById("explosion.wav").play();
   }
 }
-
-
 
 function changeAngle(){
   if((beta >= 5 && beta < 10) || (beta <= -5 && beta > -10)){
