@@ -1,7 +1,7 @@
 
 let beta,
     gamma,
-    pression = 0;
+    pression = prompt("Change la pression");
     gameover = false;
     var n = 1;
 
@@ -272,7 +272,7 @@ function changeColor() {
     document.getElementById("jauge").style.color = "orange";
     document.getElementById("orange").style.opacity = "1";
     cocotte.classList.replace('base','bouge');
-    pace("sound" + 2, false);
+    pace(n++,"sound" + 2, false);
     //document.getElementById("ambiancemid").play();
   } else if (pression >= 1000 && pression <= 2000) {
     document.getElementById("red").style.opacity = "1";
@@ -306,6 +306,7 @@ function changeAngle(){
     document.getElementById("gameZone").style.backgroundColor="red";
   }
 }
+
 
 // function refreshInfo() {
 //  pression=0;
