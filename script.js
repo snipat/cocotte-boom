@@ -1,7 +1,7 @@
 
 let beta,
     gamma,
-    pression = prompt("Change la pression");
+    pression = 0;
     gameover = false;
     var n = 1;
 
