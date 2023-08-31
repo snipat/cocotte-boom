@@ -171,15 +171,20 @@ function SeamlessLoop() {
 var loop = new SeamlessLoop();
 loop.addUri('ambiance.wav', 1200, 'sound1');
 loop.addUri('ambiancemid.wav', 2000, 'sound2');
+loop.addUri('ambiancehard.wav', 30000, 'sound3');
 loop.callback(soundsLoaded);
 function soundsLoaded() {
     loop.start('sound'+n);
 }
 
 var pace = function(){
-    // n=loop.n;
+//     // n=loop.n;
+//     var encoder = new BASE64UTF8();
+// var base64 = encoder.base64_encode(fileContent);
+// var mime = "audio/wav";
+// var uri = "data:" + mime + ";base64," + base64;
     n++;
-    loop.update("sound" + 2, false);
+    loop.update();
 }
 
 function bannerAuthorisation() {
@@ -262,17 +267,19 @@ function changeColor() {
     document.getElementById("jauge").style.color = "green";
   } else if (pression >= 500 && pression < 1000) {
     n++;
-    loop.update("sound" + 2, false);
+    //loop.update("sound" + 2, false);
     document.getElementById("jauge").style.color = "orange";
     document.getElementById("orange").style.opacity = "1";
     cocotte.classList.replace('base','bouge');
+    pace("sound" + 2, false);
+    document.getElementById("ambiancemid").play();
   } else if (pression >= 1000 && pression <= 2000) {
     document.getElementById("red").style.opacity = "1";
-    document.getElementById("ambiancemid").play();
-
+    document.getElementById("ambiancehard").play();
+    pace("sound" + 3, false);
   } else {
     gameover = true;
-    //explosion.play();
+    document.getElementById("explosion.wav").play();
   }
 }
 
