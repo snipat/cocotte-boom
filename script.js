@@ -188,7 +188,7 @@ var pace = function(){
 // var mime = "audio/wav";
 // var uri = "data:" + mime + ";base64," + base64;
 
-window.onload = soundsLoaded();
+// window.onload = soundsLoaded();
 
 function bannerAuthorisation() {
   if (
