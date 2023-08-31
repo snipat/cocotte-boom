@@ -177,7 +177,7 @@ function soundsLoaded() {
     loop.start('sound'+n);
 }
 
-var pace = function(){
+let pace = function(){
     n++;
     loop.update();
 }
@@ -273,10 +273,8 @@ function changeColor() {
     document.getElementById("orange").style.opacity = "1";
     cocotte.classList.replace('base','bouge');
     pace('sound' + 3, false);
-    //document.getElementById("ambiancemid").play();
   } else if (pression >= 1000 && pression <= 2000) {
     document.getElementById("red").style.opacity = "1";
-    //document.getElementById("ambiancehard").play();
     pace('sound' + 2, false);
   } else {
     gameover = true;
