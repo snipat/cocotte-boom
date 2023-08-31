@@ -266,16 +266,14 @@ function changeColor() {
   } else if (pression >= 0 && pression < 500) {
     document.getElementById("jauge").style.color = "green";
   } else if (pression >= 500 && pression < 1000) {
-    n++;
-    //loop.update("sound" + 2, false);
     document.getElementById("jauge").style.color = "orange";
     document.getElementById("orange").style.opacity = "1";
     cocotte.classList.replace('base','bouge');
     pace("sound" + 2, false);
-    document.getElementById("ambiancemid").play();
+    //document.getElementById("ambiancemid").play();
   } else if (pression >= 1000 && pression <= 2000) {
     document.getElementById("red").style.opacity = "1";
-    document.getElementById("ambiancehard").play();
+    //document.getElementById("ambiancehard").play();
     pace("sound" + 3, false);
   } else {
     gameover = true;
