@@ -188,7 +188,7 @@ var pace = function(){
 }
 
 
-window.onload = soundsLoaded();
+// window.onload = soundsLoaded();
 
 function bannerAuthorisation() {
   if (
@@ -219,7 +219,6 @@ function clickRequestDeviceOrientationEvent() {
           changeColor();
           increasePression();
           changeAngle();
-
           document.getElementById("roulis").innerHTML = "Roulis : " + beta;
           document.getElementById("tangage").innerHTML = "Tangage : " + gamma;
         });
@@ -273,7 +272,7 @@ function changeColor() {
     document.getElementById("jauge").style.color = "orange";
     document.getElementById("orange").style.opacity = "1";
     cocotte.classList.replace('base','bouge');
-    pace("sound" + 2, false);
+    // pace("sound" + 2, false);
     //document.getElementById("ambiancemid").play();
   } else if (pression >= 1000 && pression <= 2000) {
     document.getElementById("red").style.opacity = "1";
