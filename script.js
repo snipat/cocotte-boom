@@ -178,8 +178,8 @@ function soundsLoaded() {
 }
 
 var pace = function(){
-//     // n=loop.n;
-//     var encoder = new BASE64UTF8();
+// n=loop.n;
+// var encoder = new BASE64UTF8();
 // var base64 = encoder.base64_encode(fileContent);
 // var mime = "audio/wav";
 // var uri = "data:" + mime + ";base64," + base64;
@@ -216,6 +216,7 @@ function clickRequestDeviceOrientationEvent() {
           changeColor();
           increasePression();
           changeAngle();
+          pace();
           document.getElementById("roulis").innerHTML = "Roulis : " + beta;
           document.getElementById("tangage").innerHTML = "Tangage : " + gamma;
         });
