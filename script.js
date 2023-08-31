@@ -276,7 +276,7 @@ function gameplay() {
     document.getElementById("jauge").style.color = "orange";
     document.getElementById("orange").style.opacity = "1";
     cocotte.classList.replace('base','bouge');
-    window.pace('sound' + 2, false);
+    window.pace('sound' + n, false);
   } else if (pression >= 1000 && pression <= 2000) {
     document.getElementById("red").style.opacity = "1";
   } else {
