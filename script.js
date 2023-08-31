@@ -176,16 +176,16 @@ function soundsLoaded() {
     loop.start('sound'+n);
 }
 
-// var pace = function(){
-//     n++;
-//     loop.update();
-// }
-
-
-function pace(){
+var pace = function(){
     n++;
     loop.update();
 }
+
+
+// function pace(){
+//     n++;
+//     loop.update();
+// }
 
 // n=loop.n;
 // var encoder = new BASE64UTF8();
@@ -221,7 +221,7 @@ function clickRequestDeviceOrientationEvent() {
           document.getElementById("autorisation").style.display = "none";
           beta = Math.round(e.beta);
           gamma = Math.round(e.gamma);
-          changeColor();
+          gameplay();
           increasePression();
           changeAngle();
           document.getElementById("roulis").innerHTML = "Roulis : " + beta;
@@ -268,7 +268,7 @@ function increasePression() {
   }
 }
 
-function changeColor() {
+function gameplay() {
   if (pression == 0) {
     document.getElementById("jauge").style.color = "purple";
   } else if (pression >= 0 && pression < 500) {
@@ -277,7 +277,8 @@ function changeColor() {
     document.getElementById("jauge").style.color = "orange";
     document.getElementById("orange").style.opacity = "1";
     cocotte.classList.replace('base','bouge');
-    pace();
+    //pace();
+    document.pace();
   } else if (pression >= 1000 && pression <= 2000) {
     document.getElementById("red").style.opacity = "1";
     // pace('sound' + 2, false);
