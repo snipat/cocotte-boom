@@ -276,12 +276,10 @@ function gameplay() {
     document.getElementById("jauge").style.color = "orange";
     document.getElementById("orange").style.opacity = "1";
     cocotte.classList.replace('base','bouge');
-    console.log("tutu")
-    // pace();
-    console.log(SeamlessLoop.n())
+    pace();
   } else if (pression >= 1000 && pression <= 2000) {
     document.getElementById("red").style.opacity = "1";
-    // pace('sound' + 2, false);
+    pace('sound' + 2, false);
   } else {
     gameover = true;
     document.getElementById("explosion.wav").play();
