@@ -178,17 +178,17 @@ function soundsLoaded() {
 }
 
 var pace = function(){
+    n++;
+    loop.update();
+}
+
 // n=loop.n;
 // var encoder = new BASE64UTF8();
 // var base64 = encoder.base64_encode(fileContent);
 // var mime = "audio/wav";
 // var uri = "data:" + mime + ";base64," + base64;
-    n++;
-    loop.update();
-}
 
-
-// window.onload = soundsLoaded();
+window.onload = soundsLoaded();
 
 function bannerAuthorisation() {
   if (
