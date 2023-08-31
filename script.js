@@ -188,7 +188,7 @@ var pace = function(){
 // var mime = "audio/wav";
 // var uri = "data:" + mime + ";base64," + base64;
 
-// window.onload = soundsLoaded();
+// window.onload =
 
 function bannerAuthorisation() {
   if (
@@ -272,12 +272,12 @@ function changeColor() {
     document.getElementById("jauge").style.color = "orange";
     document.getElementById("orange").style.opacity = "1";
     cocotte.classList.replace('base','bouge');
-    // pace("sound" + 2, false);
+    pace("sound" + 2, false);
     //document.getElementById("ambiancemid").play();
   } else if (pression >= 1000 && pression <= 2000) {
     document.getElementById("red").style.opacity = "1";
     //document.getElementById("ambiancehard").play();
-    // pace("sound" + 3, false);
+    pace("sound" + 3, false);
   } else {
     gameover = true;
     document.getElementById("explosion.wav").play();
