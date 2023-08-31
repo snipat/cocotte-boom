@@ -176,16 +176,15 @@ function soundsLoaded() {
     loop.start('sound'+n);
 }
 
-var pace = function(){
-    n++;
-    loop.update();
-}
-
-
-// function pace(){
+// var pace = function(){
 //     n++;
 //     loop.update();
 // }
+
+function pace(){
+    n++;
+    loop.update();
+}
 
 // n=loop.n;
 // var encoder = new BASE64UTF8();
@@ -279,7 +278,6 @@ function gameplay() {
     cocotte.classList.replace('base','bouge');
     //pace();
     document.pace();
-    console.log(pace.n)
   } else if (pression >= 1000 && pression <= 2000) {
     document.getElementById("red").style.opacity = "1";
     // pace('sound' + 2, false);
