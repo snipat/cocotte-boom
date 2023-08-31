@@ -216,7 +216,6 @@ function clickRequestDeviceOrientationEvent() {
           changeColor();
           increasePression();
           changeAngle();
-          soundsLoaded();
           document.getElementById("roulis").innerHTML = "Roulis : " + beta;
           document.getElementById("tangage").innerHTML = "Tangage : " + gamma;
         });
@@ -231,6 +230,7 @@ function clickRequestDeviceOrientationEvent() {
     });
 }
 
+soundsLoaded();
 //function test() {
 //  document.getElementById("jauge").innerHTML = pression;
 //}
