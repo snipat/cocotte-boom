@@ -173,6 +173,7 @@ loop.addUri('ambiance.wav', 2000, 'sound1');
 loop.addUri('https://www2.cs.uic.edu/~i101/SoundFiles/StarWars3.wav', 2000, 'sound2');
 loop.addUri('ambiancehard.wav', 30000, 'sound3');
 loop.callback(soundsLoaded);
+
 function soundsLoaded() {
     loop.start('sound'+n);
 }
@@ -273,7 +274,7 @@ function changeColor() {
     document.getElementById("jauge").style.color = "orange";
     document.getElementById("orange").style.opacity = "1";
     cocotte.classList.replace('base','bouge');
-    pace();
+    soundsLoaded.stop();
     // pace('sound' + 3, false);
   } else if (pression >= 1000 && pression <= 2000) {
     document.getElementById("red").style.opacity = "1";
