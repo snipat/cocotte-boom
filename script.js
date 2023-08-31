@@ -177,10 +177,11 @@ function soundsLoaded() {
     loop.start('sound'+n);
 }
 
-let pace = function(){
+var pace = function(){
     n++;
     loop.update();
 }
+
 
 // n=loop.n;
 // var encoder = new BASE64UTF8();
@@ -272,10 +273,11 @@ function changeColor() {
     document.getElementById("jauge").style.color = "orange";
     document.getElementById("orange").style.opacity = "1";
     cocotte.classList.replace('base','bouge');
-    pace('sound' + 3, false);
+    pace();
+    // pace('sound' + 3, false);
   } else if (pression >= 1000 && pression <= 2000) {
     document.getElementById("red").style.opacity = "1";
-    pace('sound' + 2, false);
+    // pace('sound' + 2, false);
   } else {
     gameover = true;
     document.getElementById("explosion.wav").play();
