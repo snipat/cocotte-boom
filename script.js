@@ -170,7 +170,7 @@ function SeamlessLoop() {
 
 var loop = new SeamlessLoop();
 loop.addUri('ambiance.wav', 1200, 'sound1');
-loop.addUri('ambiancemid.wav', 2000, 'sound2');
+loop.addUri('https://www2.cs.uic.edu/~i101/SoundFiles/StarWars3.wav', 2000, 'sound2');
 loop.addUri('ambiancehard.wav', 30000, 'sound3');
 loop.callback(soundsLoaded);
 function soundsLoaded() {
