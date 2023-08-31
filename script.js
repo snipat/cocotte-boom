@@ -176,15 +176,15 @@ function soundsLoaded() {
     loop.start('sound'+n);
 }
 
-// var pace = function(){
-//     n++;
-//     loop.update();
-// }
-
-function pace(){
+var pace = function(){
     n++;
-    loop.update();
+    loop.update('sound' + n, false);
 }
+
+// function pace(){
+//     n++;
+//     loop.update("sound" + n, false);
+// }
 
 // n=loop.n;
 // var encoder = new BASE64UTF8();
@@ -276,8 +276,9 @@ function gameplay() {
     document.getElementById("jauge").style.color = "orange";
     document.getElementById("orange").style.opacity = "1";
     cocotte.classList.replace('base','bouge');
-    //pace();
-    document.pace();
+    console.log("tutu")
+    // pace();
+    console.log(SeamlessLoop.n())
   } else if (pression >= 1000 && pression <= 2000) {
     document.getElementById("red").style.opacity = "1";
     // pace('sound' + 2, false);
@@ -307,7 +308,6 @@ function changeAngle(){
     document.getElementById("gameZone").style.backgroundColor="red";
   }
 }
-
 
 // function refreshInfo() {
 //  pression=0;
