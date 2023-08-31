@@ -277,7 +277,7 @@ function changeColor() {
   } else if (pression >= 1000 && pression <= 2000) {
     document.getElementById("red").style.opacity = "1";
     //document.getElementById("ambiancehard").play();
-    pace("sound" + 3, false);
+    // pace("sound" + 3, false);
   } else {
     gameover = true;
     document.getElementById("explosion.wav").play();
