@@ -3,9 +3,7 @@ let beta,
     gamma,
     pression = 0;
     gameover = false;
-    var n = 1;
-
-console.log("coucou");
+    let n = 1;
 
 function SeamlessLoop() {
      console.log("init seamless object",this)
@@ -167,7 +165,7 @@ function SeamlessLoop() {
     console.log(this.audios)
   };
 
-var loop = new SeamlessLoop();
+let loop = new SeamlessLoop();
 loop.addUri('ambiance.wav', 2000, 'sound1');
 loop.addUri('ambiancemid.wav', 2000, 'sound2');
 loop.addUri('ambiancehard.wav', 30000, 'sound3');
