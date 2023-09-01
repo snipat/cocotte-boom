@@ -181,10 +181,7 @@ function soundsLoaded() {
 // }
 
 
-function pace(){
-    n++;
-    loop.update();
-}
+
 
 // n=loop.n;
 // var encoder = new BASE64UTF8();
@@ -268,6 +265,10 @@ function increasePression() {
 }
 
 function changeColor() {
+  function pace(){
+      n++;
+      loop.update();
+  }
   if (pression == 0) {
     document.getElementById("jauge").style.color = "purple";
   } else if (pression >= 0 && pression < 500) {
@@ -276,7 +277,7 @@ function changeColor() {
     document.getElementById("jauge").style.color = "orange";
     document.getElementById("orange").style.opacity = "1";
     cocotte.classList.replace('base','bouge');
-    document.getElementById("game").pace();
+    pace();
   } else if (pression >= 1000 && pression <= 2000) {
     document.getElementById("red").style.opacity = "1";
     // pace('sound' + 2, false);
