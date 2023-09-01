@@ -5,6 +5,7 @@ let beta,
     gameover = false;
     var n = 1;
 
+console.log("coucou");
 
 function SeamlessLoop() {
      console.log("init seamless object",this)
