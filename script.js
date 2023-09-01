@@ -175,12 +175,15 @@ function soundsLoaded() {
     loop.start('sound'+n);
 }
 
-// var pace = function(){
+let pace = function(){
+    n++;
+    loop.update();
+}
+
+// function pace(){
 //     n++;
 //     loop.update();
 // }
-
-
 
 
 // n=loop.n;
@@ -265,10 +268,7 @@ function increasePression() {
 }
 
 function changeColor() {
-  function pace(){
-      n++;
-      loop.update();
-  }
+
   if (pression == 0) {
     document.getElementById("jauge").style.color = "purple";
   } else if (pression >= 0 && pression < 500) {
