@@ -5,6 +5,9 @@ let beta,
     gameover = false;
     let n = 1;
 
+    console.log("coucou", pression)
+
+
 function SeamlessLoop() {
      console.log("init seamless object",this)
     	this.is = {
@@ -315,7 +318,6 @@ function changeAngle(){
   }
 }
 
-console.log("coucou", pression)
 // function refreshInfo() {
 //  pression=0;
 //}
