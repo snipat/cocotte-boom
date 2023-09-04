@@ -1,7 +1,7 @@
 
 let beta,
     gamma,
-    pression = 990;
+    pression = 0;
     gameover = false;
     let n = 1;
 
