@@ -315,6 +315,7 @@ function changeAngle(){
   }
 }
 
+console.log("coucou", pression)
 // function refreshInfo() {
 //  pression=0;
 //}
