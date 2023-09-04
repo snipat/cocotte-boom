@@ -5,7 +5,6 @@ let beta,
     gameover = false;
     let n = 1;
 
-    console.log("coucou", pression)
 
 
 function SeamlessLoop() {
@@ -217,6 +216,7 @@ function bannerAuthorisation() {
 
 function clickRequestDeviceOrientationEvent() {
 
+
   window.DeviceOrientationEvent.requestPermission()
     .then((response) => {
       if (response === "granted") {
@@ -280,6 +280,8 @@ function changeColor() {
 
   if (pression == 0) {
     document.getElementById("jauge").style.color = "purple";
+    console.log("coucou", pression)
+
   } else if (pression >= 0 && pression < 500) {
     document.getElementById("jauge").style.color = "green";
   } else if (pression >= 500 && pression < 1000) {
