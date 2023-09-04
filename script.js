@@ -1,7 +1,7 @@
 
 let beta,
     gamma,
-    pression = 0;
+    pression = 990;
     gameover = false;
     let n = 1;
 
@@ -177,7 +177,8 @@ function soundsLoaded() {
 
 let pace = function(){
     n++;
-    loop.update();
+    loop.update("sound" + n, true);
+    console.log("test");
 }
 
 // function pace(){
@@ -267,6 +268,11 @@ function increasePression() {
   }
 }
 
+function increment(){
+    pression++;
+    console.log("increment"+ pression)
+}
+
 function changeColor() {
 
   if (pression == 0) {
@@ -277,10 +283,11 @@ function changeColor() {
     document.getElementById("jauge").style.color = "orange";
     document.getElementById("orange").style.opacity = "1";
     cocotte.classList.replace('base','bouge');
-    pace();
+    console.log('avant');
+
   } else if (pression >= 1000 && pression <= 2000) {
     document.getElementById("red").style.opacity = "1";
-    // pace('sound' + 2, false);
+    pace("sound" + n,true);
   } else {
     gameover = true;
     document.getElementById("explosion.wav").play();
@@ -307,7 +314,6 @@ function changeAngle(){
     document.getElementById("gameZone").style.backgroundColor="red";
   }
 }
-
 
 // function refreshInfo() {
 //  pression=0;
