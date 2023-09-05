@@ -286,13 +286,8 @@ function changeColor() {
     document.getElementById("jauge").style.color = "orange";
     document.getElementById("orange").style.opacity = "1";
     cocotte.classList.replace('base','bouge');
-    console.log('avant');
-    pace(2);
-  } else if (pression >= 1000 && pression <= 2000) {
-    console.log("pression 1000");
+      } else if (pression >= 1000 && pression <= 2000) {
     document.getElementById("red").style.opacity = "1";
-    pace(3);
-    console.log("pression 2OOO");
   } else {
     gameover = true;
     document.getElementById("explosion").play();
