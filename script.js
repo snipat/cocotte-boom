@@ -176,10 +176,9 @@ function soundsLoaded() {
     loop.start('sound'+n);
 }
 
-let pace = function(num){
-    n=num;
+let pace = function(){
+    n++;
     loop.update("sound" + n, true);
-    console.log("test",n);
 }
 
 // function pace(){
