@@ -60,8 +60,8 @@
             <label for="menuDifficulty3">Difficile</label>
         </fieldset>
         <a href="#rules" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-btn-mini">Comment jouer ?</a>
-        <a id="start" href="#game" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-btn-mini" onclick="changeColor();
-        increasePression();        changeAngle();soundsLoaded();">Jouer !</a>
+        <a id="start" href="#game" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-btn-mini"
+        onclick="bannerAuthorisation();">Jouer !</a>
     </div>
 </div>
 <!-- On crée la page Rules -->
@@ -77,7 +77,7 @@
         <a href="#index" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" data-rel="back">J'ai compris!</a>
     </div>
 </div>
-<div data-role="page" id="game" onclick="increment();">
+<div data-role="page" id="game">
   <div data-role="main" class="gameZone" id="gameZone" >
     <div class="gameZone">
       <div id="roulis">Roulis : capteur de mouvement non autorisé</div>
