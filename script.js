@@ -225,7 +225,6 @@ function clickRequestDeviceOrientationEvent() {
           gameplay();
           increasePression();
           angle();
-          pace();
           document.getElementById("roulis").innerHTML = "Roulis : " + beta;
           document.getElementById("tangage").innerHTML = "Tangage : " + gamma;
         });
@@ -275,6 +274,14 @@ function increasePression() {
 //     pression=pression+100;
 //     console.log("increment"+ pression)
 // }
+//isoler stage ou ne l'apper que'une fois
+function stage(){
+  if(stage=1){
+    pace()}
+else ()
+
+  }
+};
 
 function gameplay() {
   document.getElementById("jauge").innerHTML = "Pression : " + pression;
@@ -283,6 +290,7 @@ function gameplay() {
     document.getElementById("jauge").style.color = "purple";
   } else if (pression >= 0 && pression < 500) {
     document.getElementById("jauge").style.color = "green";
+    stage=1;
   } else if (pression >= 500 && pression < 1000) {
     document.getElementById("jauge").style.color = "orange";
     document.getElementById("orange").style.opacity = "1";
