@@ -302,11 +302,11 @@ function changeColor() {
   } else if (pression >= 1000 && pression <= 2000) {
     console.log("pression 1000");
     document.getElementById("red").style.opacity = "1";
-    pace("sound" + n,true);
+    pace();
     console.log("pression 2OOO");
   } else {
     gameover = true;
-    document.getElementById("explosion.wav").play();
+    document.getElementById("explosion").play();
 
   }
 }
