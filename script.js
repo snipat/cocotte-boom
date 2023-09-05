@@ -1,10 +1,9 @@
 
 let beta,
     gamma,
-    pression = 0;
+    pression = 2003;
     gameover = false;
     let n = 1;
-
 
 
 function SeamlessLoop() {
@@ -180,7 +179,7 @@ function soundsLoaded() {
 let pace = function(){
     n++;
     loop.update("sound" + n, true);
-    console.log("test");
+    console.log("test",n);
 }
 
 // function pace(){
@@ -207,10 +206,12 @@ function bannerAuthorisation() {
 //  banner.onclick = clickRequestDeviceOrientationEvent();
     document.querySelector("body").appendChild(banner);
   } else {
-    alert("Essaye avec un iphone");
-    alert(typeof window.DeviceOrientationEvent);
-    alert(typeof window.DeviceOrientationEvent.requestPermission);
-    alert(typeof DeviceOrientationEvent.requestPermission);
+    const banner = document.createElement("div");
+    banner.innerHTML = `<div id="autorisation" style="z-index: 1; position: absolute; width: 100%; background-color:#000; color: #fff" onclick="clickRequestDeviceOrientationEvent()"><p style="padding: 10px">Cliquez ici pour autoriser l'accès à votre capteur de mouvements.</p></div>`;
+    // alert("Essaye avec un iphone");
+    // alert(typeof window.DeviceOrientationEvent);
+    // alert(typeof window.DeviceOrientationEvent.requestPermission);
+    // alert(typeof DeviceOrientationEvent.requestPermission);
   }
 }
 
@@ -231,9 +232,19 @@ function clickRequestDeviceOrientationEvent() {
           document.getElementById("tangage").innerHTML = "Tangage : " + gamma;
         });
       } else {
-        alert(
-          "Désolé, vous ne pouvez pas jouer à ce jeu car votre appareil n'a pas de capteur de mouvement."
-        );
+        // alert(
+        //   "Désolé, vous ne pouvez pas jouer à ce jeu car votre appareil n'a pas de capteur de mouvement."
+        // );
+        window.addEventListener("deviceorientation", (e) => {
+          document.getElementById("autorisation").style.display = "none";
+          beta = Math.round(e.beta);
+          gamma = Math.round(e.gamma);
+          changeColor();
+          increasePression();
+          changeAngle();
+          document.getElementById("roulis").innerHTML = "Roulis : " + beta;
+          document.getElementById("tangage").innerHTML = "Tangage : " + gamma;
+          });
       }
     })
     .catch((e) => {
@@ -280,8 +291,6 @@ function changeColor() {
 
   if (pression == 0) {
     document.getElementById("jauge").style.color = "purple";
-    console.log("coucou", pression)
-
   } else if (pression >= 0 && pression < 500) {
     document.getElementById("jauge").style.color = "green";
   } else if (pression >= 500 && pression < 1000) {
@@ -291,11 +300,14 @@ function changeColor() {
     console.log('avant');
 
   } else if (pression >= 1000 && pression <= 2000) {
+    console.log("pression 1000");
     document.getElementById("red").style.opacity = "1";
     pace("sound" + n,true);
+    console.log("pression 2OOO");
   } else {
     gameover = true;
     document.getElementById("explosion.wav").play();
+
   }
 }
 
