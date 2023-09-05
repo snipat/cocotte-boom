@@ -3,7 +3,7 @@ let beta,
     gamma,
     pression = 0;
     gameover = false;
-    let n = 1;
+    let n = 0;
 
 
 function SeamlessLoop() {
@@ -224,7 +224,8 @@ function clickRequestDeviceOrientationEvent() {
           gamma = Math.round(e.gamma);
           gameplay();
           increasePression();
-          changeAngle();
+          angle();
+          pace();
           document.getElementById("roulis").innerHTML = "Roulis : " + beta;
           document.getElementById("tangage").innerHTML = "Tangage : " + gamma;
         });
@@ -275,7 +276,7 @@ function increasePression() {
 //     console.log("increment"+ pression)
 // }
 
-function changeColor() {
+function gameplay() {
   document.getElementById("jauge").innerHTML = "Pression : " + pression;
 
   if (pression == 0) {
@@ -295,7 +296,7 @@ function changeColor() {
   }
 }
 
-function changeAngle(){
+function angle(){
   if((beta >= 5 && beta < 10) || (beta <= -5 && beta > -10)){
     document.getElementById("gameZone").style.backgroundColor="green";
   }
