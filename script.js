@@ -3,7 +3,7 @@ let beta,
     gamma,
     pression = 0;
     gameover = false;
-    var n = 1;
+    let n = 1;
 
 
 function SeamlessLoop() {
@@ -166,7 +166,7 @@ function SeamlessLoop() {
     console.log(this.audios)
   };
 
-var loop = new SeamlessLoop();
+let loop = new SeamlessLoop();
 loop.addUri('ambiance.wav', 2000, 'sound1');
 loop.addUri('ambiancemid.wav', 2000, 'sound2');
 loop.addUri('ambiancehard.wav', 30000, 'sound3');
@@ -176,15 +176,16 @@ function soundsLoaded() {
     loop.start('sound'+n);
 }
 
-var pace = function(){
+let pace = function(){
     n++;
-    loop.update('sound' + n, false);
+    loop.update("sound" + n, true);
 }
 
 // function pace(){
 //     n++;
-//     loop.update("sound" + n, false);
+//     loop.update();
 // }
+
 
 // n=loop.n;
 // var encoder = new BASE64UTF8();
@@ -204,14 +205,15 @@ function bannerAuthorisation() {
 //  banner.onclick = clickRequestDeviceOrientationEvent();
     document.querySelector("body").appendChild(banner);
   } else {
-    alert("Essaye avec un iphone");
-    alert(typeof window.DeviceOrientationEvent);
-    alert(typeof window.DeviceOrientationEvent.requestPermission);
-    alert(typeof DeviceOrientationEvent.requestPermission);
+    // alert("Essaye avec un iphone");
+    // alert(typeof window.DeviceOrientationEvent);
+    // alert(typeof window.DeviceOrientationEvent.requestPermission);
+    // alert(typeof DeviceOrientationEvent.requestPermission);
   }
 }
 
 function clickRequestDeviceOrientationEvent() {
+
 
   window.DeviceOrientationEvent.requestPermission()
     .then((response) => {
@@ -230,6 +232,7 @@ function clickRequestDeviceOrientationEvent() {
         alert(
           "Désolé, vous ne pouvez pas jouer à ce jeu car votre appareil n'a pas de capteur de mouvement."
         );
+
       }
     })
     .catch((e) => {
@@ -241,10 +244,10 @@ function clickRequestDeviceOrientationEvent() {
 //  document.getElementById("jauge").innerHTML = pression;
 //}
 
+
+
 function increasePression() {
-  document.getElementById("jauge").innerHTML = "Pression : " + pression;
   if (gameover) {
-    document.getElementById("jauge").style.color = "purple";
   } else {
     if ((beta >= 5 && beta < 10) || (beta <= -5 && beta > -10)) {
       pression += 2;
@@ -267,7 +270,14 @@ function increasePression() {
   }
 }
 
-function gameplay() {
+// function increment(){
+//     pression=pression+100;
+//     console.log("increment"+ pression)
+// }
+
+function changeColor() {
+  document.getElementById("jauge").innerHTML = "Pression : " + pression;
+
   if (pression == 0) {
     document.getElementById("jauge").style.color = "purple";
   } else if (pression >= 0 && pression < 500) {
@@ -276,12 +286,12 @@ function gameplay() {
     document.getElementById("jauge").style.color = "orange";
     document.getElementById("orange").style.opacity = "1";
     cocotte.classList.replace('base','bouge');
-    window.pace('sound' + n, false);
-  } else if (pression >= 1000 && pression <= 2000) {
+      } else if (pression >= 1000 && pression <= 2000) {
     document.getElementById("red").style.opacity = "1";
   } else {
     gameover = true;
-    document.getElementById("explosion.wav").play();
+    document.getElementById("explosion").play();
+
   }
 }
 
