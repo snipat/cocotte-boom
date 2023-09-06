@@ -222,6 +222,7 @@ function clickRequestDeviceOrientationEvent() {
           gameplay();
           increasePression();
           angle();
+          soundsLoaded();
           document.getElementById("roulis").innerHTML = "Roulis : " + beta;
           document.getElementById("tangage").innerHTML = "Tangage : " + gamma;
         });
