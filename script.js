@@ -3,7 +3,7 @@ let beta,
     gamma,
     pression = 0;
     gameover = false;
-    let n = 1;
+    n = 1;
     sound1=false;
 
 
@@ -238,8 +238,7 @@ function clickRequestDeviceOrientationEvent() {
           increasePression();
           changeColor();
           changeAngle();
-          document.getElementById("jauge").innerHTML = pression;
-
+          document.getElementById("jauge").innerHTML = "Pressions : "+ pression;
           document.getElementById("roulis").innerHTML = "Roulis : " + beta;
           document.getElementById("tangage").innerHTML = "Tangage : " + gamma;
         });
