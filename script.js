@@ -6,7 +6,6 @@ let beta,
     n = 1;
     sound1=false;
 
-
 function SeamlessLoop() {
      console.log("init seamless object",this)
     	this.is = {
@@ -191,14 +190,10 @@ function changeSound(){
   }
 }
 
-
-
-
 // function pace(){
 //     n++;
 //     loop.update();
 // }
-
 
 // n=loop.n;
 // var encoder = new BASE64UTF8();
@@ -226,8 +221,6 @@ function bannerAuthorisation() {
 }
 
 function clickRequestDeviceOrientationEvent() {
-
-
   window.DeviceOrientationEvent.requestPermission()
     .then((response) => {
       if (response === "granted") {
@@ -238,6 +231,7 @@ function clickRequestDeviceOrientationEvent() {
           increasePression();
           changeColor();
           changeAngle();
+          soundsLoaded();
           document.getElementById("jauge").innerHTML = "Pressions : "+ pression;
           document.getElementById("roulis").innerHTML = "Roulis : " + beta;
           document.getElementById("tangage").innerHTML = "Tangage : " + gamma;
@@ -254,7 +248,6 @@ function clickRequestDeviceOrientationEvent() {
 }
 
 function increasePression() {
-
   if (gameover) {
   } else {
     if ((beta >= 5 && beta < 10) || (beta <= -5 && beta > -10)) {
@@ -278,13 +271,12 @@ function increasePression() {
   }
 }
 
-function increment(){
-    pression=pression+100;
-    console.log("increment"+ pression)
-}
+// function increment(){
+//     pression=pression+100;
+//     console.log("increment"+ pression)
+// }
 
 function changeColor() {
-
   if (pression == 0) {
     document.getElementById("jauge").style.color = "purple";
   } else if (pression >= 0 && pression < 500) {
