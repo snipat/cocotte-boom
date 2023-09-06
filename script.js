@@ -238,6 +238,8 @@ function clickRequestDeviceOrientationEvent() {
           increasePression();
           changeColor();
           changeAngle();
+          document.getElementById("jauge").innerHTML = pression;
+
           document.getElementById("roulis").innerHTML = "Roulis : " + beta;
           document.getElementById("tangage").innerHTML = "Tangage : " + gamma;
         });
@@ -252,11 +254,8 @@ function clickRequestDeviceOrientationEvent() {
     });
 }
 
-function displayPression() {
- document.getElementById("jauge").innerHTML = pression;
-}
-
 function increasePression() {
+
   if (gameover) {
   } else {
     if ((beta >= 5 && beta < 10) || (beta <= -5 && beta > -10)) {
@@ -295,9 +294,6 @@ function changeColor() {
     document.getElementById("jauge").style.color = "orange";
     document.getElementById("orange").style.opacity = "1";
     cocotte.classList.replace('base','bouge');
-    console.log('avant');
-    sound1=true;
-    console.log('après');
   } else if (pression >= 1000 && pression <= 2000) {
     document.getElementById("red").style.opacity = "1";
   } else {
