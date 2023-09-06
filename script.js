@@ -5,7 +5,6 @@ let beta,
     gameover = false;
     let n = 0;
 
-
 function SeamlessLoop() {
      console.log("init seamless object",this)
     	this.is = {
@@ -178,7 +177,7 @@ function soundsLoaded() {
 
 let pace = function(){
     n++;
-    loop.update("sound" + n, true);
+    loop.update("sound" + n, false);
 }
 
 // function pace(){
@@ -197,23 +196,21 @@ let pace = function(){
 
 function bannerAuthorisation() {
   if (
-    window.DeviceOrientationEvent &&
-    typeof window.DeviceOrientationEvent.requestPermission === "function"
+    window.DeviceOrientationEvent && typeof window.DeviceOrientationEvent.requestPermission === "function"
   ) {
     const banner = document.createElement("div");
     banner.innerHTML = `<div id="autorisation" style="z-index: 1; position: absolute; width: 100%; background-color:#000; color: #fff" onclick="clickRequestDeviceOrientationEvent()"><p style="padding: 10px">Cliquez ici pour autoriser l'accès à votre capteur de mouvements.</p></div>`;
 //  banner.onclick = clickRequestDeviceOrientationEvent();
     document.querySelector("body").appendChild(banner);
   } else {
-    // alert("Essaye avec un iphone");
-    // alert(typeof window.DeviceOrientationEvent);
-    // alert(typeof window.DeviceOrientationEvent.requestPermission);
-    // alert(typeof DeviceOrientationEvent.requestPermission);
+    alert("Essaye avec un iphone");
+    alert(typeof window.DeviceOrientationEvent);
+    alert(typeof window.DeviceOrientationEvent.requestPermission);
+    alert(typeof DeviceOrientationEvent.requestPermission);
   }
 }
 
 function clickRequestDeviceOrientationEvent() {
-
 
   window.DeviceOrientationEvent.requestPermission()
     .then((response) => {
@@ -274,12 +271,12 @@ function increasePression() {
 //     pression=pression+100;
 //     console.log("increment"+ pression)
 // }
-//isoler stage ou ne l'apper que'une fois
-function stage(){
-  if(stage=1){
-    pace()}
-else ()
-
+//faire appel à pace avec un callback comme gameover=true
+function track(){
+  if(pression >= 1 && pression < 2){
+  pace();
+  } else if (pression >= 1001 && pression < 1002) {
+  pace();
   }
 };
 
@@ -290,7 +287,6 @@ function gameplay() {
     document.getElementById("jauge").style.color = "purple";
   } else if (pression >= 0 && pression < 500) {
     document.getElementById("jauge").style.color = "green";
-    stage=1;
   } else if (pression >= 500 && pression < 1000) {
     document.getElementById("jauge").style.color = "orange";
     document.getElementById("orange").style.opacity = "1";
