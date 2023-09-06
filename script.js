@@ -4,7 +4,7 @@ let beta,
     pression = 0;
     gameover = false;
     n = 1;
-    sound1=false;
+    // sound1=false;
 
 function SeamlessLoop() {
      console.log("init seamless object",this)
@@ -181,14 +181,14 @@ let pace = function(){
     loop.update("sound" + n, false);
 }
 
-function changeSound(){
-  if(sound1=true){
-    pace();
-    sound1=false;
-  } else {
-    console.log(n, échec)
-  }
-}
+// function changeSound(){
+//   if(sound1=true){
+//     pace();
+//     sound1=false;
+//   } else {
+//     console.log(n, échec)
+//   }
+// }
 
 // function pace(){
 //     n++;
