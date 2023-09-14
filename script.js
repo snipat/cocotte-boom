@@ -6,6 +6,21 @@ let beta,
     n = 1;
     // sound1=false;
 
+let loop = new SeamlessLoop();
+    loop.addUri('ambiance.wav', 2000, 'sound1');
+    loop.addUri('ambiancemid.wav', 2000, 'sound2');
+    loop.addUri('ambiancehard.wav', 30000, 'sound3');
+    loop.callback(soundsLoaded);
+
+  function soundsLoaded() {
+      loop.start('sound'+n);
+  }
+
+  let pace = function(){
+      n++;
+      loop.update("sound" + n, false);
+  }
+
 function SeamlessLoop() {
      console.log("init seamless object",this)
     	this.is = {
@@ -166,20 +181,7 @@ function SeamlessLoop() {
     console.log(this.audios)
   };
 
-let loop = new SeamlessLoop();
-loop.addUri('ambiance.wav', 2000, 'sound1');
-loop.addUri('ambiancemid.wav', 2000, 'sound2');
-loop.addUri('ambiancehard.wav', 30000, 'sound3');
-loop.callback(soundsLoaded);
 
-function soundsLoaded() {
-    loop.start('sound'+n);
-}
-
-let pace = function(){
-    n++;
-    loop.update("sound" + n, false);
-}
 
 // function changeSound(){
 //   if(sound1=true){
