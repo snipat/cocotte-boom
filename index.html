@@ -14,7 +14,11 @@
     <!-- Nom de la webapp sur le bureau-->
     <meta name="apple-mobile-web-app-title" content="Cocotte">
     <meta name="mobile-web-app-title" content="Cocotte">
-    <!--On appelle jQuery Mobile pour préparer la UI de notre webApp
+    <!--
+
+    document.addEventListener("DOMContentLoaded", function(event) {  });
+
+     On appelle jQuery Mobile pour préparer la UI de notre webApp
         On appelle addtohomescreen.css et addtohomescreen.min.js
         pour donner un message d'information aux utilisateurs afin de leur
         indiquer que la webApp est enregistrable sur tablette et smartphone
@@ -23,7 +27,8 @@
     <link rel="stylesheet" href="cocotte.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-    <script src="script.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+
 </head>
 <body>
     <!-- On créé la page home -->
@@ -60,8 +65,7 @@
             <label for="menuDifficulty3">Difficile</label>
         </fieldset>
         <a href="#rules" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-btn-mini">Comment jouer ?</a>
-        <a id="start" href="#game" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-btn-mini"
-        onclick="bannerAuthorisation();">Jouer !</a>
+        <a id="start" href="#game" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-btn-mini" onclick="DOMContentLoaded();">Jouer !</a>
     </div>
 </div>
 <!-- On crée la page Rules -->
