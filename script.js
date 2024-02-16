@@ -3,10 +3,26 @@ let beta,
     gamma,
     pression = 0;
     gameover = false;
-    let n = 0;
+    n = 1;
+    // sound1=false;
+
+let loop = new SeamlessLoop();
+    loop.addUri('ambiance.wav', 2000, 'sound1');
+    loop.addUri('ambiancemid.wav', 2000, 'sound2');
+    loop.addUri('ambiancehard.wav', 30000, 'sound3');
+    loop.callback(soundsLoaded);
+
+  function soundsLoaded() {
+      loop.start('sound'+n);
+  }
+
+  let pace = function(){
+      n++;
+      loop.update("sound" + n, false);
+  }
 
 
-function SeamlessLoop() {
+   function SeamlessLoop() {
      console.log("init seamless object",this)
     	this.is = {
     			  ff: Boolean(!(window.mozInnerScreenX == null) && /firefox/.test( navigator.userAgent.toLowerCase() )),
@@ -100,100 +116,104 @@ function SeamlessLoop() {
     		return Boolean(this._load == this._total);
     	};
     }
-  SeamlessLoop.prototype.start = function(id) {
-    console.log("start", id, this)
-  	if(id != "") {
-  		this.actual = this.audios[id];
-  	}
-  	this.doLoop();
-  };
-  SeamlessLoop.prototype.volume = function(vol) {
-  	if(typeof vol != "undefined") {
-  		this.actual._1.volume = vol;
-          	this.actual._2.volume = vol;
-  		this._volume = vol;
-  	}
 
-  	return vol;
-  };
-  SeamlessLoop.prototype.stop = function() {
-  	clearTimeout(this.timeout);
-  	this.actual._1.currentTime = 0;
-  	this.actual._1.pause();
-  	this.actual._2.currentTime = 0;
-  	this.actual._2.pause();
-  };
-  SeamlessLoop.prototype.callback = function(cb_loaded) {
-  	this.cb_loaded = cb_loaded;
-  	if(this.isLoaded() == true) cb_loaded();
-  	else this.cb_loaded_flag = true;
-  };
-  SeamlessLoop.prototype.update = function(id, sync) {
-  	//var key = (this.next == 1 ? "_1" : "_2");
-  	var antikey = (this.next == 1 ? "_2" : "_1");
+    SeamlessLoop.prototype.start = function(id) {
+      console.log("start", id, this)
+    	if(id != "") {
+    		this.actual = this.audios[id];
+    	}
+    	this.doLoop();
+    };
 
-  	this.old = this.actual[antikey];
-  	this.actual = this.audios[id];
-  	if(sync == false) {
-  		if(this.old.paused == false) {
-  			this.dropOld = true;
-  			if(this.is.opera) this.old.pause();
-  		}
-  		clearTimeout(this.timeout);
-  		this.doLoop();
-  	}
-  };
-  SeamlessLoop.prototype.addUri = function(uri, length, id) {
-    console.log(uri, id)
-  	this.audios[id] = new Array();
-  	this.audios[id]._length = length;
-  	var t = this;
-  	this.audios[id]._1_isLoaded = new Boolean();
-  	this.audios[id]._2_isLoaded = new Boolean();
-  	this.audios[id]._1 = new Audio(uri);
-  	this.audios[id]._2 = new Audio(uri);
-  	this._total++;
-  	this.audios[id]._1.addEventListener("canplaythrough", function() {t._eventCanplaythrough(t.audios[id]._1_isLoaded);});
-  	this.audios[id]._2.addEventListener("canplaythrough", function() {t._eventCanplaythrough(t.audios[id]._2_isLoaded);});
-  	this.audios[id]._1.addEventListener("playing", function() {t._eventPlaying(t.audios[id]._2);});
-  	this.audios[id]._2.addEventListener("playing", function() {t._eventPlaying(t.audios[id]._1);});
-  	this.audios[id]._1.addEventListener("ended", function() {t._eventEnded(t.audios[id]._1);});
-  	this.audios[id]._2.addEventListener("ended", function() {t._eventEnded(t.audios[id]._2);});
-  	this.audios[id]._1.load();
-  	this.audios[id]._2.load();
-  	this.audios[id]._1.volume = this._volume;
-  	this.audios[id]._2.volume = this._volume;
-    console.log(this.audios)
-  };
+    SeamlessLoop.prototype.volume = function(vol) {
+    	if(typeof vol != "undefined") {
+    		this.actual._1.volume = vol;
+            	this.actual._2.volume = vol;
+    		this._volume = vol;
+    	}
 
-let loop = new SeamlessLoop();
-loop.addUri('ambiance.wav', 2000, 'sound1');
-loop.addUri('ambiancemid.wav', 2000, 'sound2');
-loop.addUri('ambiancehard.wav', 30000, 'sound3');
+    	return vol;
+    };
+
+    SeamlessLoop.prototype.stop = function() {
+    	clearTimeout(this.timeout);
+    	this.actual._1.currentTime = 0;
+    	this.actual._1.pause();
+    	this.actual._2.currentTime = 0;
+    	this.actual._2.pause();
+    };
+
+    SeamlessLoop.prototype.callback = function(cb_loaded) {
+    	this.cb_loaded = cb_loaded;
+    	if(this.isLoaded() == true) cb_loaded();
+    	else this.cb_loaded_flag = true;
+    };
+
+    SeamlessLoop.prototype.update = function(id, sync) {
+    	//var key = (this.next == 1 ? "_1" : "_2");
+    	var antikey = (this.next == 1 ? "_2" : "_1");
+
+    	this.old = this.actual[antikey];
+    	this.actual = this.audios[id];
+    	if(sync == false) {
+    		if(this.old.paused == false) {
+    			this.dropOld = true;
+    			if(this.is.opera) this.old.pause();
+    		}
+    		clearTimeout(this.timeout);
+    		this.doLoop();
+    	}
+    };
+
+    SeamlessLoop.prototype.addUri = function(uri, length, id) {
+      console.log(uri, id)
+    	this.audios[id] = new Array();
+    	this.audios[id]._length = length;
+    	var t = this;
+    	this.audios[id]._1_isLoaded = new Boolean();
+    	this.audios[id]._2_isLoaded = new Boolean();
+    	this.audios[id]._1 = new Audio(uri);
+    	this.audios[id]._2 = new Audio(uri);
+    	this._total++;
+    	this.audios[id]._1.addEventListener("canplaythrough", function() {t._eventCanplaythrough(t.audios[id]._1_isLoaded);});
+    	this.audios[id]._2.addEventListener("canplaythrough", function() {t._eventCanplaythrough(t.audios[id]._2_isLoaded);});
+    	this.audios[id]._1.addEventListener("playing", function() {t._eventPlaying(t.audios[id]._2);});
+    	this.audios[id]._2.addEventListener("playing", function() {t._eventPlaying(t.audios[id]._1);});
+    	this.audios[id]._1.addEventListener("ended", function() {t._eventEnded(t.audios[id]._1);});
+    	this.audios[id]._2.addEventListener("ended", function() {t._eventEnded(t.audios[id]._2);});
+    	this.audios[id]._1.load();
+    	this.audios[id]._2.load();
+    	this.audios[id]._1.volume = this._volume;
+    	this.audios[id]._2.volume = this._volume;
+      console.log(this.audios)
+    };
+
+
+// const whistle = document.getElementById("whistle");
+// const ambiance = document.getElementById("ambiance");
+// ambiance.play();
+
+//const cocotte = document.getElementById("cocotte");
+
+// var loop = new SeamlessLoop();
+// loop.addUri('ambiance.wav', 3000,"amb");
+// loop.callback(soundsLoaded);
+// function soundsLoaded() {
+//     var n = 1;
+//     loop.start("amb" + n);
+//     console.log("tutut")
+// };
+
+
+
+var loop = new SeamlessLoop();
+loop.addUri('https://github.com/snipat/cocotte-boom/blob/main/ambiance.wav', 1000, "sound1");
 loop.callback(soundsLoaded);
-
 function soundsLoaded() {
-    loop.start('sound'+n);
-}
-
-let pace = function(){
-    n++;
-    loop.update("sound" + n, true);
-}
-
-// function pace(){
-//     n++;
-//     loop.update();
-// }
-
-
-// n=loop.n;
-// var encoder = new BASE64UTF8();
-// var base64 = encoder.base64_encode(fileContent);
-// var mime = "audio/wav";
-// var uri = "data:" + mime + ";base64," + base64;
-
-// window.onload =
+    console.log('init sounds loadd', loop)
+    var n = 1;
+    loop.start("sound" + n);
+};
 
 function bannerAuthorisation() {
   if (
@@ -205,16 +225,13 @@ function bannerAuthorisation() {
 //  banner.onclick = clickRequestDeviceOrientationEvent();
     document.querySelector("body").appendChild(banner);
   } else {
-    // alert("Essaye avec un iphone");
-    // alert(typeof window.DeviceOrientationEvent);
-    // alert(typeof window.DeviceOrientationEvent.requestPermission);
-    // alert(typeof DeviceOrientationEvent.requestPermission);
+    alert("Essaye avec un iphone");
+    alert(typeof window.DeviceOrientationEvent);
+    alert(typeof window.DeviceOrientationEvent.requestPermission);
+    alert(typeof DeviceOrientationEvent.requestPermission);
   }
 }
-
 function clickRequestDeviceOrientationEvent() {
-
-
   window.DeviceOrientationEvent.requestPermission()
     .then((response) => {
       if (response === "granted") {
@@ -222,9 +239,11 @@ function clickRequestDeviceOrientationEvent() {
           document.getElementById("autorisation").style.display = "none";
           beta = Math.round(e.beta);
           gamma = Math.round(e.gamma);
-          gameplay();
           increasePression();
-          angle();
+          changeColor();
+          changeAngle();
+          soundsLoaded();
+          document.getElementById("jauge").innerHTML = "Pressions : "+ pression;
           document.getElementById("roulis").innerHTML = "Roulis : " + beta;
           document.getElementById("tangage").innerHTML = "Tangage : " + gamma;
         });
@@ -232,17 +251,12 @@ function clickRequestDeviceOrientationEvent() {
         alert(
           "Désolé, vous ne pouvez pas jouer à ce jeu car votre appareil n'a pas de capteur de mouvement."
         );
-
       }
     })
     .catch((e) => {
       console.error(e);
     });
 }
-
-//function test() {
-//  document.getElementById("jauge").innerHTML = pression;
-//}
 
 function increasePression() {
   if (gameover) {
@@ -272,37 +286,33 @@ function increasePression() {
 //     pression=pression+100;
 //     console.log("increment"+ pression)
 // }
-//isoler stage ou ne l'apper que'une fois
-function stage(){
-  if(stage=1){
-    pace()}
-else ()
 
-  }
-};
+function changeColor() {
 
-function gameplay() {
-  document.getElementById("jauge").innerHTML = "Pression : " + pression;
 
   if (pression == 0) {
     document.getElementById("jauge").style.color = "purple";
   } else if (pression >= 0 && pression < 500) {
     document.getElementById("jauge").style.color = "green";
-    stage=1;
   } else if (pression >= 500 && pression < 1000) {
+    document.getElementById("ambiance").pause();
+// enlever JQUERY
+    // audio.pause();
+    // audio.currentTime = 0;
+    // document.getElementById("ambiancemid").play();
     document.getElementById("jauge").style.color = "orange";
     document.getElementById("orange").style.opacity = "1";
     cocotte.classList.replace('base','bouge');
-      } else if (pression >= 1000 && pression <= 2000) {
+    loop.stop();
+  } else if (pression >= 1000 && pression <= 2000) {
     document.getElementById("red").style.opacity = "1";
   } else {
     gameover = true;
     document.getElementById("explosion").play();
-
   }
 }
 
-function angle(){
+function changeAngle(){
   if((beta >= 5 && beta < 10) || (beta <= -5 && beta > -10)){
     document.getElementById("gameZone").style.backgroundColor="green";
   }
@@ -322,6 +332,25 @@ function angle(){
     document.getElementById("gameZone").style.backgroundColor="red";
   }
 }
+
+
+
+
+// loop.addUri(document.getElementById("ambiance"), 2000, "sound1");
+// loop.addUri(document.getElementById("ambiancemid"), 4000, "sound2");
+//
+// loop.callback(soundsLoaded);
+//
+// function soundsLoaded() {
+//     var n = 1;
+//     loop.start("sound1" + n);
+// };
+//
+// loop.start();//loop.stop();
+// /**
+// document.getElementById("start").addEventListener("click", function() {
+// refreshInfo();
+// });
 
 // function refreshInfo() {
 //  pression=0;
