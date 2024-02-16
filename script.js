@@ -244,8 +244,6 @@ function clickRequestDeviceOrientationEvent() {
 //  document.getElementById("jauge").innerHTML = pression;
 //}
 
-
-
 function increasePression() {
   if (gameover) {
   } else {
