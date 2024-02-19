@@ -1,3 +1,4 @@
+// window.onload =
 
 let beta,
     gamma,
@@ -5,7 +6,6 @@ let beta,
     gameover = false;
     let n = 1;
     sound1=false;
-
 
 function SeamlessLoop() {
      console.log("init seamless object",this)
@@ -168,7 +168,7 @@ function SeamlessLoop() {
   };
 
 let loop = new SeamlessLoop();
-loop.addUri('ambiance.wav', 2000, 'sound1');
+loop.addUri('ambiance.wav', 1800, 'sound1');
 loop.addUri('ambiancemid.wav', 2000, 'sound2');
 loop.addUri('ambiancehard.wav', 30000, 'sound3');
 loop.callback(soundsLoaded);
@@ -191,22 +191,10 @@ function changeSound(){
   }
 }
 
-
-
-
 // function pace(){
 //     n++;
 //     loop.update();
 // }
-
-
-// n=loop.n;
-// var encoder = new BASE64UTF8();
-// var base64 = encoder.base64_encode(fileContent);
-// var mime = "audio/wav";
-// var uri = "data:" + mime + ";base64," + base64;
-
-// window.onload =
 
 function bannerAuthorisation() {
   if (
@@ -219,15 +207,13 @@ function bannerAuthorisation() {
     document.querySelector("body").appendChild(banner);
   } else {
     alert("Essaye avec un iphone");
-    alert(typeof window.DeviceOrientationEvent);
-    alert(typeof window.DeviceOrientationEvent.requestPermission);
-    alert(typeof DeviceOrientationEvent.requestPermission);
+    console.log(typeof window.DeviceOrientationEvent);
+    console.log(typeof window.DeviceOrientationEvent.requestPermission);
+    console.log(typeof DeviceOrientationEvent.requestPermission);
   }
 }
 
 function clickRequestDeviceOrientationEvent() {
-
-
   window.DeviceOrientationEvent.requestPermission()
     .then((response) => {
       if (response === "granted") {
@@ -295,9 +281,7 @@ function changeColor() {
     document.getElementById("jauge").style.color = "orange";
     document.getElementById("orange").style.opacity = "1";
     cocotte.classList.replace('base','bouge');
-    console.log('avant');
     sound1=true;
-    console.log('après');
   } else if (pression >= 1000 && pression <= 2000) {
     document.getElementById("red").style.opacity = "1";
   } else {
