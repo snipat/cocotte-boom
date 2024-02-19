@@ -190,20 +190,19 @@ let loop = new SeamlessLoop();
      console.log(this.audios)
    };
 
-// const whistle = document.getElementById("whistle");
-// const ambiance = document.getElementById("ambiance");
-// ambiance.play();
+ const whistle = document.getElementById("whistle");
+ const ambiance = document.getElementById("ambiance");
+ ambiance.play();
 
-//const cocotte = document.getElementById("cocotte");
-
-// var loop = new SeamlessLoop();
-// loop.addUri('ambiance.wav', 3000,"amb");
-// loop.callback(soundsLoaded);
-// function soundsLoaded() {
-//     var n = 1;
-//     loop.start("amb" + n);
-//     console.log("tutut")
-// };
+const cocotte = document.getElementById("cocotte");
+ var loop = new SeamlessLoop();
+ loop.addUri('ambiance.wav', 3000,"amb");
+ loop.callback(soundsLoaded);
+ function soundsLoaded() {
+     var n = 1;
+     loop.start("amb" + n);
+     console.log("tutut")
+ };
 
 var loop = new SeamlessLoop();
 loop.addUri('https://github.com/snipat/cocotte-boom/blob/main/ambiance.wav', 1000, "sound1");
