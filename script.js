@@ -126,6 +126,8 @@ let beta,
     }
   }
 
+  /*
+
   let loop = new SeamlessLoop();
     loop.addUri('ambiance.wav', 2000, 'sound1');
     loop.addUri('ambiancemid.wav', 2000, 'sound2');
@@ -328,4 +330,4 @@ let beta,
      console.log('init sounds loadd', loop)
      var n = 1;
      loop.start("sound" + n);
-  };
+  }; */
