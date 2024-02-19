@@ -1,4 +1,4 @@
-function DOMContentLoaded(){
+function test(){
 console.log("coucou");
 }
 
