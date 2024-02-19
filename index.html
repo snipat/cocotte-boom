@@ -1,14 +1,108 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="script.js"></script>
-    <title>Document</title>
+    <title>Cocotte</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <!-- On définit le viewport (la fenêtre) pour donner ses dimention et signifier les possibilités de zoom de l'utilisateur (ici seul l'affiche normal est autorisé) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- Les 2 balises suivantes permettent d'indiquer au navigateur qu'il peut considérer le site en temps que Web app lorsque il est lancé depuis le bureau -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Style de la barre d'état (valeurs: default / black / black-translucent) -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <!-- Nom de la webapp sur le bureau-->
+    <meta name="apple-mobile-web-app-title" content="Cocotte">
+    <meta name="mobile-web-app-title" content="Cocotte">
+    <!--
+
+    document.addEventListener("DOMContentLoaded", function(event) {  });
+
+     On appelle jQuery Mobile pour préparer la UI de notre webApp
+        On appelle addtohomescreen.css et addtohomescreen.min.js
+        pour donner un message d'information aux utilisateurs afin de leur
+        indiquer que la webApp est enregistrable sur tablette et smartphone
+    -->
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="cocotte.css">
+<script src="script.js"></script>
 </head>
 <body>
-    <button onclick="test();">Click</button>
-    <button onclick="bannerAuthorisation();">Banner</button>
-
+    <!-- On créé la page home -->
+  <div data-role="page" id="home">
+      <!-- On ajoute un panel dans lequel on mettra les options réglables par le joueur -->
+      <!-- On ajoute la div principale de la page -->
+      <div role="main" class="content">
+        <div class="cocotte"></div>
+        <a href="#options" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-btn-mini">Démarrer</a>
+  </div>
+</div>
+<!-- On crée la page options -->
+<div id="options" data-role="page" class="content">
+    <!-- Titre du panel -->
+    <div data-role="header" data-theme="a">
+        <a href="#home" data-rel="back" class="ui-btn ui-btn-left ui-alt-icon ui-corner-all ui-btn-icon-notext ui-icon-carat-l">Back</a>
+        <h1>Cocotte - Options</h1>
+    </div>
+    <div role="main" class="ui-content">
+        <!-- On créé un slider (input type="range") pour choisir le nombre de donuts -->
+        <div class="full-width-slider">
+            <label for="menuGravity">Nombre de joueurs</label>
+            <input type="range" data-highlight="true" min="2" max="10" value="2" data-show-value="true" data-popup-enabled="true">
+        </div>
+        <br>
+        <!-- On créé un controlgroup (défini par jQueryMobile) dans lequel on place 3 boutons radio permettant de choisir la difficulté -->
+        <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+            <legend>Difficulté</legend>
+            <input type="radio" name="menuDifficulty" id="menuDifficulty1" value="1" checked="checked">
+            <label for="menuDifficulty1">Facile</label>
+            <input type="radio" name="menuDifficulty" id="menuDifficulty2" value="2">
+            <label for="menuDifficulty2">Moyen</label>
+            <input type="radio" name="menuDifficulty" id="menuDifficulty3" value="3">
+            <label for="menuDifficulty3">Difficile</label>
+        </fieldset>
+        <a href="#rules" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-btn-mini">Comment jouer ?</a>
+        <a id="start" href="#game" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-btn-mini" onclick="bannerAuthorisation();">Jouer !</a>
+        <button onclick="test();">Click</button>
+        <button onclick="bannerAuthorisation();">Banner</button>
+    </div>
+</div>
+<!-- On crée la page Rules -->
+<div id="rules" data-role="page" class="content">
+    <div data-role="header" data-theme="a">
+      <a href="#options" data-rel="back" class="ui-btn ui-btn-left ui-alt-icon ui-corner-all ui-btn-icon-notext ui-icon-carat-l">Back</a>
+      <h1>Règles</h1>
+    </div>
+    <div role="main" class="content">
+        <h3>Règle du jeu</h3>
+        <p>En cercle, les joueurs se passent une e sous pression jusqu'à ce qu'elle explose.</p>
+        <h4>Attention ! Si la cocotte est trop secouée, elle explosera plus rapidement.</h4>
+        <a href="#index" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" data-rel="back">J'ai compris!</a>
+    </div>
+</div>
+<div data-role="page" id="game">
+  <div data-role="main" class="gameZone" id="gameZone" >
+  <div data-role="main" class="gameZone" id="gameZone">
+    <div class="gameZone">
+      <div id="roulis">Roulis : capteur de mouvement non autorisé</div>
+      <div id="tangage">Tangage : capteur de mouvement non autorisé</div>
+      <div id="jauge">Pression :</div>
+      <div id="gameover" class="gameover">Game over !<a onclick='window.location.href="https://snipat.github.io/e-boom/#options" + (new Date()).getTime() + "#options" + z-index="3"'>Retour</a></div>
+  </div>
+    <audio id="ambiance" loop preload="auto" src="ambiance.wav"></audio>
+    <audio id="ambiancemid" loop preload="auto" src="ambiancemid.wav"></audio>
+    <audio id="ambiancehard" loop preload="auto" src="ambiancehard.wav"></audio>
+    <audio id="whistle" loop preload="auto" src="whistle.wav"></audio>
+    <audio id="explosion" loop preload="auto" src="explosion.wav"></audio>
+      <div class="feu">
+        <img id="cocotte" class="base" src="cocotte.png"/>
+        <div id="jaune" class="jaune"></div>
+        <div id="orange" class="orange"></div>
+        <div id="red" class="red"></div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

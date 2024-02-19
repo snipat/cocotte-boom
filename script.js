@@ -9,11 +9,11 @@ let beta,
     n = 1;
     // sound1=false;
 
-let loop = new SeamlessLoop();
-    loop.addUri('ambiance.wav', 2000, 'sound1');
-    loop.addUri('ambiancemid.wav', 2000, 'sound2');
-    loop.addUri('ambiancehard.wav', 30000, 'sound3');
-    loop.callback(soundsLoaded);
+//let loop = new SeamlessLoop();
+  //  loop.addUri('ambiance.wav', 2000, 'sound1');
+    //loop.addUri('ambiancemid.wav', 2000, 'sound2');
+    //loop.addUri('ambiancehard.wav', 30000, 'sound3');
+    //loop.callback(soundsLoaded);
 
   function soundsLoaded() {
       loop.start('sound'+n);
