@@ -305,9 +305,9 @@ function changeAngle(){
 
 function changeSound(){
   if (pression => 0 && pression < 500) {
-    document.getElementById("ambiance").play();
+    document.getElementById("beep1").play();
   } else if (pression >= 500 && pression < 2000) {
-    document.getElementById("ambiancemid").play();
+    document.getElementById("beep2").play();
   } else if (pression >= 2000 && pression <= 3500) {
     document.getElementById("ambiancehard").play();
   } else {
