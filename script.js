@@ -1,10 +1,8 @@
-window.onload = {
-
 let beta,
     gamma,
     pression = 0;
     gameover = false;
-    let n = 1;
+    let n = 2;
     sound1=false;
 
 function SeamlessLoop() {
@@ -224,6 +222,7 @@ function clickRequestDeviceOrientationEvent() {
           increasePression();
           changeColor();
           changeAngle();
+          displayPression();
           document.getElementById("roulis").innerHTML = "Roulis : " + beta;
           document.getElementById("tangage").innerHTML = "Tangage : " + gamma;
         });
@@ -309,7 +308,4 @@ function changeAngle(){
   else if (gamma >= 30 || gamma <= -30) {
     document.getElementById("gameZone").style.backgroundColor="red";
   }
-}
-
-displayPression();
 }
