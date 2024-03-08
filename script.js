@@ -6,7 +6,7 @@ let beta,
     gameover = false;
     let n = 1;
     sound1=false;
-/*
+
 function SeamlessLoop() {
      console.log("init seamless object",this)
     	this.is = {
@@ -189,7 +189,7 @@ function changeSound(){
   } else {
     console.log(n, échec)
   }
-}*/
+}
 
 // function pace(){
 //     n++;
