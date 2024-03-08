@@ -6,7 +6,7 @@ let beta,
     gameover = false;
     let n = 1;
     sound1=false;
-
+/*
 function SeamlessLoop() {
      console.log("init seamless object",this)
     	this.is = {
@@ -182,7 +182,7 @@ let pace = function(){
     loop.update("sound" + n, false);
 }
 
-/*function changeSound(){
+function changeSound(){
   if(sound1=true){
     pace();
     sound1=false;
@@ -240,7 +240,7 @@ function clickRequestDeviceOrientationEvent() {
 }
 
 function displayPression() {
- document.getElementById("jauge").innerHTML = "Pression"+ pression;
+ document.getElementById("jauge").innerHTML = "Pression : "+ pression;
 }
 
 function increasePression() {
