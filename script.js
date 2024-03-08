@@ -184,7 +184,7 @@ function changeSound(){
   if (gameover = true){
     document.getElementById("explosion").play();
   } else {
-
+    console.log("changeSound")
   }
 }
 
