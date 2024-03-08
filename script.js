@@ -181,7 +181,7 @@ let pace = function(){
     n++;
     loop.update("sound" + n, false);
 }
-
+/*
 function changeSound(){
   if(sound1=true){
     pace();
@@ -189,7 +189,7 @@ function changeSound(){
   } else {
     console.log(n, échec)
   }
-}
+}*/
 
 // function pace(){
 //     n++;
