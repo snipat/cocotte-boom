@@ -179,7 +179,7 @@ function soundsLoaded() {
 
 let pace = function(){
     n++;
-    loop.update("sound" + n, false);
+    loop.update("sound" + n, true);
 }
 /*
 function changeSound(){
