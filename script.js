@@ -282,7 +282,6 @@ function changeColor() {
     document.getElementById("jauge").style.color = "orange";
     document.getElementById("orange").style.opacity = "1";
     cocotte.classList.replace('base','bouge');
-    pace();
   } else if (pression >= 2000 && pression <= 3500) {
     document.getElementById("red").style.opacity = "1";
   } else {
