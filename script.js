@@ -180,14 +180,6 @@ let pace = function(){
     loop.update("sound" + n, true);
 }
 
-function changeSound(){
-  if (gameover = true){
-    document.getElementById("explosion").play();
-  } else {
-    console.log("changeSound")
-  }
-}
-
 // function pace(){
 //     n++;
 //     loop.update();
@@ -215,16 +207,16 @@ function clickRequestDeviceOrientationEvent() {
     .then((response) => {
       if (response === "granted") {
         window.addEventListener("deviceorientation", (e) => {
-          document.getElementById("autorisation").style.display = "none";
-          beta = Math.round(e.beta);
-          gamma = Math.round(e.gamma);
-          increasePression();
-          changeColor();
-          changeAngle();
-          displayPression();
-          changeSound();
-          document.getElementById("roulis").innerHTML = "Roulis : " + beta;
-          document.getElementById("tangage").innerHTML = "Tangage : " + gamma;
+            document.getElementById("autorisation").style.display = "none";
+            beta = Math.round(e.beta);
+            gamma = Math.round(e.gamma);
+            increasePression();
+            changeColor();
+            changeAngle();
+            displayPression();
+            changeSound();
+            document.getElementById("roulis").innerHTML = "Roulis : " + beta;
+            document.getElementById("tangage").innerHTML = "Tangage : " + gamma;
         });
       } else {
         alert(
@@ -307,5 +299,13 @@ function changeAngle(){
   }
   else if (gamma >= 30 || gamma <= -30) {
     document.getElementById("gameZone").style.backgroundColor="red";
+  }
+}
+
+function changeSound(){
+  if (gameover = true){
+    document.getElementById("explosion").play();
+  } else {
+    console.log("changeSound")
   }
 }
