@@ -181,7 +181,7 @@ let pace = function(){
     n++;
     loop.update("sound" + n, false);
 }
-/*
+
 function changeSound(){
   if(sound1=true){
     pace();
@@ -190,7 +190,7 @@ function changeSound(){
     console.log(n, échec)
   }
 }
-*/
+
 // function pace(){
 //     n++;
 //     loop.update();
@@ -282,8 +282,11 @@ function changeColor() {
     document.getElementById("orange").style.opacity = "1";
     cocotte.classList.replace('base','bouge');
     //sound1=true;
+    console.log("Sup 500")
   } else if (pression >= 1000 && pression <= 2000) {
     document.getElementById("red").style.opacity = "1";
+    console.log("Sup 1000")
+
     //pace();
   } else {
     gameover = true;
