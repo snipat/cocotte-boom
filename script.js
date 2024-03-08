@@ -2,7 +2,7 @@ let beta,
     gamma,
     pression = 0;
     gameover = false;
-    let n = 2;
+    let n = 1;
     sound1=false;
 
 function SeamlessLoop() {
@@ -179,15 +179,14 @@ let pace = function(){
     n++;
     loop.update("sound" + n, true);
 }
-/*
+
 function changeSound(){
-  if(sound1=true){
-    pace();
-    sound1=false;
+  if (gameover = true){
+    document.getElementById("explosion").play();
   } else {
-    console.log(n, échec)
+
   }
-}*/
+}
 
 // function pace(){
 //     n++;
@@ -309,3 +308,5 @@ function changeAngle(){
     document.getElementById("gameZone").style.backgroundColor="red";
   }
 }
+
+function
