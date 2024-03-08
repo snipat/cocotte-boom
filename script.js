@@ -182,14 +182,14 @@ let pace = function(){
     loop.update("sound" + n, false);
 }
 
-function changeSound(){
+/*function changeSound(){
   if(sound1=true){
     pace();
     sound1=false;
   } else {
     console.log(n, échec)
   }
-}
+}*/
 
 // function pace(){
 //     n++;
@@ -224,6 +224,7 @@ function clickRequestDeviceOrientationEvent() {
           increasePression();
           changeColor();
           changeAngle();
+          displayPression();
           document.getElementById("roulis").innerHTML = "Roulis : " + beta;
           document.getElementById("tangage").innerHTML = "Tangage : " + gamma;
         });
@@ -239,7 +240,7 @@ function clickRequestDeviceOrientationEvent() {
 }
 
 function displayPression() {
- document.getElementById("jauge").innerHTML = pression;
+ document.getElementById("jauge").innerHTML = "Pression"+ pression;
 }
 
 function increasePression() {
