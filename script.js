@@ -273,19 +273,6 @@ function increment(){
 }
 
 function changeColor() {
-  switch (pression == 0) {
-  case 1000;
-  document.getElementById("jauge").style.color = "purple";
-    break;
-  case 2000:
-  document.getElementById("jauge").style.color = "green";
-    break;
-   default:
-   document.getElementById("explosion").play();
- }
-}
-
-/*function changeColor() {
 
   if (pression == 0) {
     document.getElementById("jauge").style.color = "purple";
@@ -303,7 +290,7 @@ function changeColor() {
     gameover = true;
     document.getElementById("explosion").play();
   }
-}*/
+}
 
 function changeAngle(){
   if((beta >= 5 && beta < 10) || (beta <= -5 && beta > -10)){
