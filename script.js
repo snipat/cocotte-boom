@@ -1,4 +1,4 @@
-// window.onload =
+window.onload = {
 
 let beta,
     gamma,
@@ -312,3 +312,4 @@ function changeAngle(){
 }
 
 displayPression();
+}
