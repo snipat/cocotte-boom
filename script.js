@@ -224,7 +224,6 @@ function clickRequestDeviceOrientationEvent() {
           increasePression();
           changeColor();
           changeAngle();
-          displayPression();
           document.getElementById("roulis").innerHTML = "Roulis : " + beta;
           document.getElementById("tangage").innerHTML = "Tangage : " + gamma;
         });
@@ -267,10 +266,12 @@ function increasePression() {
   }
 }
 
+/*
 function increment(){
     pression=pression+100;
     console.log("increment"+ pression)
 }
+*/
 
 function changeColor() {
 
@@ -286,7 +287,6 @@ function changeColor() {
     document.getElementById("red").style.opacity = "1";
   } else {
     gameover = true;
-    document.getElementById("explosion").play();
   }
 }
 
@@ -310,3 +310,5 @@ function changeAngle(){
     document.getElementById("gameZone").style.backgroundColor="red";
   }
 }
+
+displayPression();
