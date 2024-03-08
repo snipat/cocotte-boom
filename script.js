@@ -271,7 +271,9 @@ function increment(){
     pression=pression+100;
     console.log("increment"+ pression)
 }
-switch (pression == 0) {
+
+function changeColor() {
+  switch (pression == 0) {
   case 1000;
   document.getElementById("jauge").style.color = "purple";
     break;
@@ -280,6 +282,7 @@ switch (pression == 0) {
     break;
    default:
    document.getElementById("explosion").play();
+ }
 }
 
 /*function changeColor() {
