@@ -4,7 +4,7 @@ let beta,
     gameover = false;
     let n = 1;
     sound1=false;
-
+/*
 function SeamlessLoop() {
      console.log("init seamless object",this)
     	this.is = {
@@ -184,6 +184,7 @@ let pace = function(){
 //     n++;
 //     loop.update();
 // }
+*/
 
 function bannerAuthorisation() {
   if (
@@ -303,9 +304,13 @@ function changeAngle(){
 }
 
 function changeSound(){
-  if (gameover = true){
-    document.getElementById("explosion").play();
+  if (pression => 0 && pression < 500) {
+    document.getElementById("ambiance").play();
+  } else if (pression >= 500 && pression < 2000) {
+    document.getElementById("ambiancemid").play();
+  } else if (pression >= 2000 && pression <= 3500) {
+    document.getElementById("ambiancehard").play();
   } else {
-    console.log("changeSound")
+    document.getElementById("explosion").play();
   }
 }
