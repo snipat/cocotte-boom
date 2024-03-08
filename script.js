@@ -309,5 +309,3 @@ function changeAngle(){
     document.getElementById("gameZone").style.backgroundColor="red";
   }
 }
-
-function
