@@ -18,19 +18,22 @@
       <script src="script.js"></script>
   </head>
   <body>
-    <div data-role="page" id="game" onclick="bannerAuthorisation();">
-      <div data-role="main" class="gameZone" id="gameZone">
-        <div class="gameZone">
+    <div id="game">
+      <div class="gameZone" id="gameZone">
+        <div>
+          <button onclick="amb();">Autoriser le son</button>
           <div id="roulis">Roulis : capteur de mouvement non autorisé</div>
           <div id="tangage">Tangage : capteur de mouvement non autorisé</div>
           <div id="jauge">Pression :</div>
-          <div id="gameover" class="gameover">Game over !<a onclick='window.location.href="https://snipat.github.io/e-boom/#options" + (new Date()).getTime() + "#options" + z-index="3"'>Retour</a></div>
+          <button onclick="bannerAuthorisation();">Tester l'appareil</button>
         </div>
-        <audio id="ambiance" preload="auto" autoplay src="ambiance.wav"></audio>
-        <audio id="ambiancemid" preload="auto" src="ambiancemid.wav"></audio>
-        <audio id="ambiancehard" preload="auto" src="ambiancehard.wav"></audio>
-        <audio id="whistle" preload="auto" src="whistle.wav"></audio>
-        <audio id="explosion" preload="auto" src="explosion.wav"></audio>
+        <div>
+          <audio id="ambiance" preload="auto" autoplay src="ambiance.wav"></audio>
+          <audio id="ambiancemid" preload="auto" src="ambiancemid.wav"></audio>
+          <audio id="ambiancehard" preload="auto" src="ambiancehard.wav"></audio>
+          <audio id="whistle" preload="auto" src="whistle.wav"></audio>
+          <audio id="explosion" preload="auto" src="explosion.wav"></audio>
+        </div>
         <div class="feu">
           <img id="cocotte" class="base" src="cocotte.png"/>
           <div id="jaune" class="jaune"></div>
