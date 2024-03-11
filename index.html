@@ -1,53 +1,43 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Cocotte</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <!-- On définit le viewport (la fenêtre) pour donner ses dimention et signifier les possibilités de zoom de l'utilisateur (ici seul l'affiche normal est autorisé) -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <!--
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="Cocotte">
-    <meta name="mobile-web-app-title" content="Cocotte">
-
-    document.addEventListener("DOMContentLoaded", function(event) {  });
-
-     On appelle jQuery Mobile pour préparer la UI de notre webApp
-        On appelle addtohomescreen.css et addtohomescreen.min.js
-        pour donner un message d'information aux utilisateurs afin de leur
-        indiquer que la webApp est enregistrable sur tablette et smartphone
-
-    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-    -->
-    <link rel="stylesheet" href="cocotte.css">
-    <script src="script.js"></script>
-</head>
-<body>
-<div data-role="page" id="game" onclick="bannerAuthorisation();">
-  <div data-role="main" class="gameZone" id="gameZone" >
-    <div class="gameZone">
-      <div id="roulis">Roulis : capteur de mouvement non autorisé</div>
-      <div id="tangage">Tangage : capteur de mouvement non autorisé</div>
-      <div id="jauge">Pression :</div>
-      <div id="gameover" class="gameover">Game over !<a onclick='window.location.href="https://snipat.github.io/e-boom/#options" + (new Date()).getTime() + "#options" + z-index="3"'>Retour</a></div>
-  </div>
-    <audio id="ambiance" src="beep.wav" preload="auto"></audio>
-    <audio id="ambiancemid" src="beep2.wav" preload="auto"></audio>
-    <audio id="ambiancehard" src="ambiancehard.wav" preload="auto"></audio>
-    <audio id="whistle" preload="auto" src="whistle.wav"></audio>
-    <audio id="explosion" preload="auto" src="explosion.wav"></audio>
-      <div class="feu">
-        <img id="cocotte" class="base" src="cocotte.png"/>
-        <div id="jaune" class="jaune"></div>
-        <div id="orange" class="orange"></div>
-        <div id="red" class="red"></div>
+  <head>
+      <meta charset="UTF-8">
+      <title>Cocotte Boom</title>
+      <link rel="icon" type="image/x-icon" href="favicon.ico">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+      <!--<meta name="mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-status-bar-style" content="default">
+      <meta name="apple-mobile-web-app-title" content="Cocotte">
+      <meta name="mobile-web-app-title" content="Cocotte">
+      document.addEventListener("DOMContentLoaded", function(event) {  });
+      <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+      <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>  -->
+      <link rel="stylesheet" href="cocotte.css">
+      <script src="script.js"></script>
+  </head>
+  <body>
+    <div data-role="page" id="game" onclick="bannerAuthorisation();">
+      <div data-role="main" class="gameZone" id="gameZone">
+        <div class="gameZone">
+          <div id="roulis">Roulis : capteur de mouvement non autorisé</div>
+          <div id="tangage">Tangage : capteur de mouvement non autorisé</div>
+          <div id="jauge">Pression :</div>
+          <div id="gameover" class="gameover">Game over !<a onclick='window.location.href="https://snipat.github.io/e-boom/#options" + (new Date()).getTime() + "#options" + z-index="3"'>Retour</a></div>
+        </div>
+        <audio id="ambiance" preload="auto" autoplay src="ambiance.wav"></audio>
+        <audio id="ambiancemid" preload="auto" src="ambiancemid.wav"></audio>
+        <audio id="ambiancehard" preload="auto" src="ambiancehard.wav"></audio>
+        <audio id="whistle" preload="auto" src="whistle.wav"></audio>
+        <audio id="explosion" preload="auto" src="explosion.wav"></audio>
+        <div class="feu">
+          <img id="cocotte" class="base" src="cocotte.png"/>
+          <div id="jaune" class="jaune"></div>
+          <div id="orange" class="orange"></div>
+          <div id="red" class="red"></div>
+        </div>
       </div>
     </div>
-  </div>
-</body>
+  </body>
 </html>

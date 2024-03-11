@@ -1,9 +1,14 @@
+document.addEventListener("DOMContentLoaded", function(event) {
+  amb();
+});
+
 let beta,
     gamma,
     pression = 0;
     gameover = false;
     let n = 1;
     sound1=false;
+
 /*
 function SeamlessLoop() {
      console.log("init seamless object",this)
@@ -268,7 +273,6 @@ function changeColor() {
 
   if (pression == 0) {
     document.getElementById("jauge").style.color = "purple";
-    document.getElementById("ambiance").play();
   } else if (pression >= 0 && pression < 500) {
     document.getElementById("jauge").style.color = "green";
   } else if (pression >= 500 && pression < 2000) {
@@ -302,3 +306,7 @@ function changeAngle(){
     document.getElementById("gameZone").style.backgroundColor="red";
   }
 }
+
+function amb(){
+  document.getElementById("ambiance").play();
+};
