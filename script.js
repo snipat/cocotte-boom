@@ -268,6 +268,7 @@ function changeColor() {
 
   if (pression == 0) {
     document.getElementById("jauge").style.color = "purple";
+    document.getElementById("ambiance").play();
   } else if (pression >= 0 && pression < 500) {
     document.getElementById("jauge").style.color = "green";
   } else if (pression >= 500 && pression < 2000) {
