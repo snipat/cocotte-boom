@@ -135,7 +135,7 @@ img {
 }
 
 #explosion {
-  opacity: 0.1;
+  display: none;
 }
 
 /* Hide the number input */
