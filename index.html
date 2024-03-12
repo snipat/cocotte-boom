@@ -21,15 +21,16 @@
     <div id="game">
       <div class="gameZone" id="gameZone">
         <div>
-          <button onclick="amb();">Autoriser le son</button>
           <div id="roulis">Roulis : capteur de mouvement non autorisé</div>
           <div id="tangage">Tangage : capteur de mouvement non autorisé</div>
           <div id="jauge">Pression :</div>
+          <br>
+          <button onclick="amb();">Autoriser le son</button>
           <button onclick="bannerAuthorisation();">Tester l'appareil</button>
         </div>
         <div>
-          <audio id="ambiance" preload="auto" autoplay src="ambiance.wav"></audio>
-          <audio id="ambiancemid" preload="auto" src="ambiancemid.wav"></audio>
+          <audio id="ambiance" loop preload="auto" src="ambiance.wav"></audio>
+          <audio id="ambiancemid" loop preload="auto" src="ambiancemid.wav"></audio>
           <audio id="ambiancehard" preload="auto" src="ambiancehard.wav"></audio>
           <audio id="whistle" preload="auto" src="whistle.wav"></audio>
           <audio id="explosion" preload="auto" src="explosion.wav"></audio>
