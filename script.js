@@ -281,11 +281,11 @@ function changeColor() {
     document.getElementById("ambiance").pause();
     document.getElementById("ambiancemid").play();
     cocotte.classList.replace('base','bouge');
-  } else if (pression >= 2000 && pression <= 3500) {
+  } else if (pression >= 2000 && pression < 3500) {
     document.getElementById("red").style.opacity = "1";
     document.getElementById("ambiancemid").pause();
     document.getElementById("ambiancehard").play();
-  } else if (pression > 3500) {
+  } else if (pression => 3500) {
     document.getElementById("ambiancehard").pause();
     document.getElementById("explosion").play();
   }
