@@ -317,6 +317,6 @@ function amb(){
   document.getElementById("ambiance").play();
 };
 
-function ambmid(){
-  document.getElementById("ambiancemid").play();
+function exp(){
+  document.getElementById("explosion").play();
 };
