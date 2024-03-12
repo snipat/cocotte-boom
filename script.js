@@ -286,7 +286,7 @@ function changeColor() {
     document.getElementById("ambiancemid").pause();
     document.getElementById("ambiancehard").play();
   } else {
-    gameover = true;
+    document.getElementById("ambiancehard").pause();
     document.getElementById("explosion").play();
   }
 }
