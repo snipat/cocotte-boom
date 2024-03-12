@@ -134,10 +134,6 @@ img {
   position: absolute;
 }
 
-#explosion {
-  display: none;
-}
-
 /* Hide the number input */
 #options .full-width-slider input {
   display: none;
