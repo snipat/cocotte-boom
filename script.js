@@ -2,20 +2,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
   amb();
 });
 
-function amb(pression){
-  var ambianceAudio = document.getElementById("ambiance");
-  var son = document.getElementById("ambiance");
-//  ambianceAudio.play();
-  if (pression >= 1) {
-         son.src = "beep.wav";
-       } else if (pression >= 1000) {
-         son.src = "beep2.wav";
-       } else if (pression >= 2000){
-         son.src = "explosion.wav";
-       }
-       son.play();
-}
-
 
 
 
@@ -329,4 +315,19 @@ function changeAngle(){
   else if (gamma >= 30 || gamma <= -30) {
 //    document.getElementById("gameZone").style.backgroundColor="red";
   }
+}
+
+
+function amb(pression){
+  var ambianceAudio = document.getElementById("ambiance");
+  var son = document.getElementById("ambiance");
+//  ambianceAudio.play();
+  if (pression >= 1) {
+         son.src = "beep.wav";
+       } else if (pression >= 1000) {
+         son.src = "beep2.wav";
+       } else if (pression >= 2000){
+         son.src = "explosion.wav";
+       }
+       son.play();
 }
