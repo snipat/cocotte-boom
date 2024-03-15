@@ -239,8 +239,8 @@ function displayPression() {
 }
 
 function increasePression() {
-  if (gameover) {
-    break;
+  if (gameover=true) {
+    return;
   } else {
     if ((beta >= 5 && beta < 10) || (beta <= -5 && beta > -10)) {
       pression += 2;
