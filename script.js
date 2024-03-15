@@ -14,7 +14,6 @@ function amb(pression){
          son.src = "explosion.wav";
        }
        son.play();
-
 }
 
 
