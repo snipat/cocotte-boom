@@ -240,7 +240,6 @@ function displayPression() {
 
 function increasePression() {
   if (gameover=true) {
-    break;
   } else {
     if ((beta >= 5 && beta < 10) || (beta <= -5 && beta > -10)) {
       pression += 2;
