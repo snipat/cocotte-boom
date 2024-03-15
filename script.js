@@ -1,12 +1,12 @@
-document.addEventListener("DOMContentLoaded", function(event) {
+document.addEventListener("click", function(event) {
   amb();
 });
 
 function amb(){
   var ambianceAudio = document.getElementById("ambiance");
-  // Jouer le son en mode muted pour qu'il démarre automatiquement
-  ambianceAudio.muted = true;
   ambianceAudio.play();
+  ambianceAudio.play();
+
 }
 
 
@@ -15,7 +15,7 @@ let beta,
     pression = 0,
     gameover = false;
     let n = 1,
-    sound1=false;
+    sound1 = false;
 
 /*
 function SeamlessLoop() {
@@ -289,11 +289,11 @@ function changeColor() {
     document.getElementById("ambiance").pause();
     document.getElementById("ambiancemid").play();
     cocotte.classList.replace('base','bouge');
-  } else if (pression >= 1000 && pression <= 2000) {
+  } else if (pression >= 1000 && pression < 2000) {
     document.getElementById("red").style.opacity = "1";
     document.getElementById("ambiancemid").pause();
     document.getElementById("ambiancehard").play();
-  } else if (pression > 2000) {
+  } else if (pression >= 2000) {
     document.getElementById("boom").play();
     document.getElementById("ambiancehard").pause();
     document.getElementById("explosion").style.display = "block";
