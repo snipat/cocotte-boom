@@ -219,8 +219,7 @@ function clickRequestDeviceOrientationEvent() {
             changeColor();
             changeAngle();
             displayPression();
-            document.getElementById("roulis").innerHTML = "Roulis : " + beta;
-            document.getElementById("tangage").innerHTML = "Tangage : " + gamma;
+
         });
       } else {
         alert(
@@ -235,10 +234,13 @@ function clickRequestDeviceOrientationEvent() {
 
 function displayPression() {
  document.getElementById("jauge").innerHTML = "Pression : "+ pression;
+ document.getElementById("roulis").innerHTML = "Roulis : " + beta;
+ document.getElementById("tangage").innerHTML = "Tangage : " + gamma;
 }
 
 function increasePression() {
   if (gameover) {
+    break;
   } else {
     if ((beta >= 5 && beta < 10) || (beta <= -5 && beta > -10)) {
       pression += 2;
@@ -274,13 +276,13 @@ function changeColor() {
     document.getElementById("jauge").style.color = "purple";
   } else if (pression >= 0 && pression < 500) {
     document.getElementById("jauge").style.color = "green";
-  } else if (pression >= 500 && pression < 2000) {
+  } else if (pression >= 500 && pression < 1500) {
     document.getElementById("jauge").style.color = "orange";
     document.getElementById("orange").style.opacity = "1";
     document.getElementById("ambiance").pause();
     document.getElementById("ambiancemid").play();
     cocotte.classList.replace('base','bouge');
-  } else if (pression >= 2000 && pression <= 3500) {
+  } else if (pression >= 1500 && pression <= 3500) {
     document.getElementById("red").style.opacity = "1";
     document.getElementById("ambiancemid").pause();
     document.getElementById("ambiancehard").play();
