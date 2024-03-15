@@ -215,8 +215,8 @@ function clickRequestDeviceOrientationEvent() {
             document.getElementById("autorisation").style.display = "none";
             beta = Math.round(e.beta);
             gamma = Math.round(e.gamma);
-            increasePression(pression);
-            changeColor();
+            increasePression();
+            changeColor(pression);
             changeAngle();
             displayPression();
         });
@@ -237,7 +237,7 @@ function displayPression() {
  document.getElementById("tangage").innerHTML = "Tangage : " + gamma;
 }
 
-function increasePression(pression) {
+function increasePression() {
   if (gameover) {
 
   } else {
@@ -269,7 +269,7 @@ function increment(){
 }
 */
 
-function changeColor() {
+function changeColor(pression) {
 
   if (pression == 0) {
     document.getElementById("jauge").style.color = "purple";
