@@ -316,5 +316,5 @@ function changeAngle(){
 
 function amb(){
   document.getElementById("ambiance").play();
-  break;
+  document.getElementById("ambiance").pause();
 };
