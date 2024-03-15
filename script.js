@@ -1,4 +1,4 @@
-document.addEventListener("click", function(event) {
+document.addEventListener("DOMContentLoaded", function(event) {
   amb();
 });
 
@@ -219,6 +219,7 @@ function clickRequestDeviceOrientationEvent() {
             changeColor(pression);
             changeAngle();
             displayPression();
+          //  amb();
         });
       } else {
         alert(
@@ -314,18 +315,9 @@ function changeAngle(){
   }
 }
 
-/*
-function amb(pression){
+
+function amb(){
   var ambianceAudio = document.getElementById("ambiance");
-  var son = document.getElementById("ambiance");
-//  ambianceAudio.play();
-  if (pression >= 1) {
-         son.src = "beep.wav";
-       } else if (pression >= 1000) {
-         son.src = "beep2.wav";
-       } else if (pression >= 2000){
-         son.src = "explosion.wav";
-       }
-       son.play();
-}
-*/
+
+  ambianceAudio.play();
+  }
