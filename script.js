@@ -5,8 +5,8 @@ document.addEventListener("click", function(event) {
 function amb(pression){
   var ambianceAudio = document.getElementById("ambiance");
   var son = document.getElementById("ambiance");
-  ambianceAudio.play();
-  if (pression >= 500) {
+//  ambianceAudio.play();
+  if (pression >= 1) {
          son.src = "ambiancemid.wav";
        } else if (pression >= 1000) {
          son.src = "ambiancehard.wav";
