@@ -5,8 +5,8 @@ document.addEventListener("click", function(event) {
 let beta,
     gamma,
     pression = 0,
-    gameover = false;
-    let n = 1,
+    gameover = false,
+    n = 1,
     sound1 = false;
 
 /*
@@ -215,7 +215,7 @@ function clickRequestDeviceOrientationEvent() {
             document.getElementById("autorisation").style.display = "none";
             beta = Math.round(e.beta);
             gamma = Math.round(e.gamma);
-            increasePression();
+            increasePression(pression);
             changeColor();
             changeAngle();
             displayPression();
@@ -237,7 +237,7 @@ function displayPression() {
  document.getElementById("tangage").innerHTML = "Tangage : " + gamma;
 }
 
-function increasePression() {
+function increasePression(pression) {
   if (gameover) {
 
   } else {
