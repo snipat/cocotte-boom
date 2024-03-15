@@ -7,13 +7,15 @@ function amb(pression){
   var son = document.getElementById("ambiance");
 //  ambianceAudio.play();
   if (pression >= 1) {
-         son.src = "ambiancemid.wav";
+         son.src = "beep.wav";
        } else if (pression >= 1000) {
-         son.src = "ambiancehard.wav";
+         son.src = "beep2.wav";
        } else if (pression >= 2000){
          son.src = "explosion.wav";
        }
 }
+
+      son.play();
 
 
 let beta,
@@ -300,7 +302,7 @@ function changeColor() {
 //    document.getElementById("ambiancemid").pause();
 //    document.getElementById("ambiancehard").play();
   } else if (pression >= 2000) {
-    document.getElementById("boom").play();
+  //  document.getElementById("boom").play();
   //  document.getElementById("ambiancehard").pause();
     document.getElementById("explosion").style.display = "block";
     gameover = true;
