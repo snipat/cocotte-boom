@@ -1,23 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Play Sound on Mobile</title>
-</head>
-<body>
-
-<audio id="myAudio">
-  <source src="beep.wav" loop type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var audio = document.getElementById("myAudio");
-        audio.play();
-    });
-</script>
-
-</body>
+<html lang="fr">
+  <head>
+      <meta charset="UTF-8">
+      <title>Cocotte Boom</title>
+      <link rel="icon" type="image/x-icon" href="favicon.ico">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+      <!--<meta name="mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-status-bar-style" content="default">
+      <meta name="apple-mobile-web-app-title" content="Cocotte">
+      <meta name="mobile-web-app-title" content="Cocotte">
+      document.addEventListener("DOMContentLoaded", function(event) {  });
+      <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+      <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>  -->
+      <link rel="stylesheet" href="cocotte.css">
+      <script src="script.js"></script>
+  </head>
+  <body>
+    <div id="game">
+      <div class="gameZone" id="gameZone">
+        <div>
+          <div id="roulis">Roulis : capteur de mouvement non autorisé</div>
+          <div id="tangage">Tangage : capteur de mouvement non autorisé</div>
+          <div id="jauge">Pression :</div>
+          <br>
+      <!--    <button onclick="amb();">Autoriser le son</button>-->
+          <button onclick="bannerAuthorisation();">Lancer le jeu</button>
+        </div>
+        <div>
+          <audio id="ambiance" autoplay loop preload="auto" src="ambiance.wav"></audio>
+          <audio id="ambiancemid" autoplay loop preload="auto" src="beep.wav"></audio>
+          <audio id="ambiancehard" autoplay loop preload="auto" src="beep2.wav"></audio>
+          <audio id="whistle" preload="auto" src="whistle.wav"></audio>
+          <audio id="boom" autoplay preload="auto" src="explosion.wav"></audio>
+        </div>
+        <div class="feu">
+          <img id="cocotte" class="base" src="cocotte.png"/>
+          <div id="jaune" class="jaune"></div>
+          <div id="orange" class="orange"></div>
+          <div id="red" class="red"></div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
