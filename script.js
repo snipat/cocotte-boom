@@ -278,16 +278,16 @@ function changeColor(pression) {
   } else if (pression >= 500 && pression < 1000) {
     document.getElementById("jauge").style.color = "orange";
     document.getElementById("orange").style.opacity = "1";
-//    document.getElementById("ambiance").pause();
-//    document.getElementById("ambiancemid").play();
+    document.getElementById("ambiance").pause();
+    document.getElementById("ambiancemid").play();
     cocotte.classList.replace('base','bouge');
   } else if (pression >= 1000 && pression < 2000) {
     document.getElementById("red").style.opacity = "1";
-//    document.getElementById("ambiancemid").pause();
-//    document.getElementById("ambiancehard").play();
+    document.getElementById("ambiancemid").pause();
+    document.getElementById("ambiancehard").play();
   } else if (pression >= 2000) {
-  //  document.getElementById("boom").play();
-  //  document.getElementById("ambiancehard").pause();
+  document.getElementById("boom").play();
+  document.getElementById("ambiancehard").pause();
     document.getElementById("explosion").style.display = "block";
     gameover = true;
   }
@@ -314,7 +314,7 @@ function changeAngle(){
   }
 }
 
-
+/*
 function amb(pression){
   var ambianceAudio = document.getElementById("ambiance");
   var son = document.getElementById("ambiance");
@@ -328,3 +328,4 @@ function amb(pression){
        }
        son.play();
 }
+*/
