@@ -219,7 +219,6 @@ function clickRequestDeviceOrientationEvent() {
             changeColor();
             changeAngle();
             displayPression();
-
         });
       } else {
         alert(
@@ -317,4 +316,5 @@ function changeAngle(){
 
 function amb(){
   document.getElementById("ambiance").play();
+  break;
 };
