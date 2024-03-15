@@ -2,6 +2,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
   amb();
 });
 
+function amb(){
+  document.getElementById("ambiance").play();
+  document.getElementById("ambiance").pause();
+};
+
 let beta,
     gamma,
     pression = 0,
@@ -275,19 +280,22 @@ function changeColor() {
     document.getElementById("jauge").style.color = "purple";
   } else if (pression >= 0 && pression < 500) {
     document.getElementById("jauge").style.color = "green";
+    document.getElementById("ambiance").play();
+
   } else if (pression >= 500 && pression < 1000) {
     document.getElementById("jauge").style.color = "orange";
     document.getElementById("orange").style.opacity = "1";
-    document.getElementById("ambiance").pause();
-    document.getElementById("ambiancemid").play();
+    //document.getElementById("ambiance").pause();
+    //document.getElementById("ambiancemid").play();
+    document.getElementById("ambiance").setAttribute('src', 'beep.wav');
     cocotte.classList.replace('base','bouge');
   } else if (pression >= 1000 && pression <= 2000) {
     document.getElementById("red").style.opacity = "1";
-    document.getElementById("ambiancemid").pause();
-    document.getElementById("ambiancehard").play();
+  //  document.getElementById("ambiancemid").pause();
+  //  document.getElementById("ambiancehard").play();
   } else if (pression > 2500) {
-    document.getElementById("boom").play();
-    document.getElementById("ambiancehard").pause();
+  //  document.getElementById("boom").play();
+  //  document.getElementById("ambiancehard").pause();
     document.getElementById("explosion").style.display = "block";
     gameover = true;
   }
@@ -313,8 +321,3 @@ function changeAngle(){
     document.getElementById("gameZone").style.backgroundColor="red";
   }
 }
-
-function amb(){
-  document.getElementById("ambiance").play();
-  document.getElementById("ambiance").pause();
-};
