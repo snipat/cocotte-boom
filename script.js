@@ -2,11 +2,17 @@ document.addEventListener("click", function(event) {
   amb();
 });
 
-function amb(){
+function amb(pression){
   var ambianceAudio = document.getElementById("ambiance");
+  var son = document.getElementById("ambiance");
   ambianceAudio.play();
-  ambianceAudio.play();
-
+  if (pression >= 500) {
+         son.src = "ambiancemid.wav";
+       } else if (pression >= 1000) {
+         son.src = "ambiancehard.wav";
+       } else if (pression >= 2000){
+         son.src = "explosion.wav";
+       }
 }
 
 
@@ -286,16 +292,16 @@ function changeColor() {
   } else if (pression >= 500 && pression < 1000) {
     document.getElementById("jauge").style.color = "orange";
     document.getElementById("orange").style.opacity = "1";
-    document.getElementById("ambiance").pause();
-    document.getElementById("ambiancemid").play();
+//    document.getElementById("ambiance").pause();
+//    document.getElementById("ambiancemid").play();
     cocotte.classList.replace('base','bouge');
   } else if (pression >= 1000 && pression < 2000) {
     document.getElementById("red").style.opacity = "1";
-    document.getElementById("ambiancemid").pause();
-    document.getElementById("ambiancehard").play();
+//    document.getElementById("ambiancemid").pause();
+//    document.getElementById("ambiancehard").play();
   } else if (pression >= 2000) {
     document.getElementById("boom").play();
-    document.getElementById("ambiancehard").pause();
+  //  document.getElementById("ambiancehard").pause();
     document.getElementById("explosion").style.display = "block";
     gameover = true;
   }
