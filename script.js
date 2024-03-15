@@ -1,9 +1,6 @@
-document.addEventListener("DOMContentLoaded", function(event) {
+document.addEventListener("click", function(event) {
   amb();
 });
-
-
-
 
 let beta,
     gamma,
