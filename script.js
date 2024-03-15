@@ -287,6 +287,7 @@ function changeColor() {
     document.getElementById("ambiancehard").play();
   } else if (pression > 3500 && pression <= 5000) {
     document.getElementById("boom").play();
+    document.getElementById("ambiancemid").pause();
     document.getElementById("explosion").style.display = "block";
     gameover = true;
   }
