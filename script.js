@@ -5,6 +5,7 @@ document.addEventListener("click", function(event) {
 function amb(pression){
   var ambianceAudio = document.getElementById("ambiance");
   var son = document.getElementById("ambiance");
+  son.play();
 //  ambianceAudio.play();
   if (pression >= 1) {
          son.src = "beep.wav";
@@ -15,7 +16,7 @@ function amb(pression){
        }
 }
 
-      son.play();
+
 
 
 let beta,
