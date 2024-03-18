@@ -286,10 +286,11 @@ function changeColor(pression) {
     document.getElementById("red").style.opacity = "1";
     document.getElementById("ambiancemid").pause();
     document.getElementById("ambiancehard").play();
-  } else if (pression >= 2000) {
-  document.getElementById("boom").play();
-  document.getElementById("ambiancehard").pause();
-    document.getElementById("explosion").style.display = "block";
+  } else if (pression >= 2000 && pression < 3000) {
+    document.getElementById("ambiancehard").pause();
+    document.getElementById("boom").play();
+    //document.getElementById("explosion").style.display = "block";
+  } else if (pression >= 3000 && pression < 5000) {
     gameover = true;
   }
 }
