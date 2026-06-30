@@ -117,9 +117,21 @@
 }
 
 .bouge {
-  animation: shake2 0.5s;
+  animation: shake2 0.4s;
   animation-iteration-count: infinite;
 }
+
+.saute {
+  animation: shake2 0.2s;
+  animation-iteration-count: infinite;
+}
+
+
+.bondit {
+  animation: shake2 0.1s;
+  animation-iteration-count: infinite;
+}
+
 
 @keyframes shake2 {
   0% { transform: translate(-52%, -50%) rotate(5deg); }

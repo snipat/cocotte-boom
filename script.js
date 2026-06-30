@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   document.getElementById("splash-version").innerHTML = v;
 });
 
-const VERSION = 22;
+const VERSION = 23;
 
 let beta,
     gamma,
@@ -107,9 +107,12 @@ function changeColor(pression) {
     document.getElementById("red").style.opacity = "1";
     document.getElementById("ambiancemid").pause();
     document.getElementById("ambiancehard").play();
+    cocotte.classList.replace('bouge','saute');
   } else if (pression >= 2000 && pression < 3000) {
     document.getElementById("ambiancehard").pause();
     document.getElementById("boom").play();
+    cocotte.classList.replace('saute','bondit');
+
     //document.getElementById("explosion").style.display = "block";
   } else if (pression >= 3000 && pression < 5000) {
     gameover = true;
