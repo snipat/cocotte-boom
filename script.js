@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   document.getElementById("version").innerHTML = "Version : " + VERSION;
 });
 
-const VERSION = 14;
+const VERSION = 15;
 
 let beta,
     gamma,
@@ -14,8 +14,6 @@ let beta,
 
 
 function lancerLeJeu() {
-  amb();
-
   if (
     window.DeviceOrientationEvent &&
     typeof window.DeviceOrientationEvent.requestPermission === "function"
@@ -24,6 +22,7 @@ function lancerLeJeu() {
       .then((response) => {
         if (response === "granted") {
           document.getElementById("splash").style.display = "none";
+          amb();
           window.addEventListener("deviceorientation", (e) => {
             beta = Math.round(e.beta);
             gamma = Math.round(e.gamma);
@@ -39,6 +38,7 @@ function lancerLeJeu() {
       .catch((e) => { console.error(e); });
   } else {
     document.getElementById("splash").style.display = "none";
+    amb();
     window.addEventListener("deviceorientation", (e) => {
       beta = Math.round(e.beta);
       gamma = Math.round(e.gamma);
