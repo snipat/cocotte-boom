@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   amb();
 });
 
-const VERSION = 5;
+const VERSION = 6;
 
 let beta,
     gamma,
@@ -94,6 +94,7 @@ function increment(){
 */
 
 function changeColor(pression) {
+  if (gameover) return;
 
   if (pression == 0) {
     document.getElementById("jauge").style.color = "purple";
