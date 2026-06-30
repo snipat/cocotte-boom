@@ -87,7 +87,7 @@
   margin-left: 25px;
 }
 
-#cocotte {
+#cocotte, #explosion {
   width:44%;
   height:auto;
   transform: translate(-50%, -50%);
