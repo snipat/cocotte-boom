@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   amb();
 });
 
-const VERSION = 7;
+const VERSION = 9;
 
 let beta,
     gamma,
@@ -104,7 +104,6 @@ function changeColor(pression) {
   } else if (pression >= 500 && pression < 1000) {
     document.getElementById("jauge").style.color = "orange";
     document.getElementById("orange").style.opacity = "1";
-    document.getElementById("ambiance").pause();
     document.getElementById("ambiancemid").play();
     cocotte.classList.replace('base','bouge');
   } else if (pression >= 1000 && pression < 2000) {
@@ -157,10 +156,11 @@ function retryGame() {
   document.getElementById("gameover-overlay").style.display = "none";
   document.getElementById("orange").style.opacity = "0.1";
   document.getElementById("red").style.opacity = "0.1";
-  ["ambiance", "ambiancemid", "ambiancehard", "boom"].forEach(function(id) {
+  ["ambiancemid", "ambiancehard", "boom"].forEach(function(id) {
     var el = document.getElementById(id);
     el.pause();
     el.currentTime = 0;
   });
+  document.getElementById("ambiance").play();
   document.getElementById("cocotte").className = "base";
 }
