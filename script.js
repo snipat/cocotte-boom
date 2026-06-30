@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   amb();
 });
 
-const VERSION = 9;
+const VERSION = 10;
 
 let beta,
     gamma,
@@ -116,7 +116,13 @@ function changeColor(pression) {
     //document.getElementById("explosion").style.display = "block";
   } else if (pression >= 3000 && pression < 5000) {
     gameover = true;
-    document.getElementById("gameover-overlay").style.display = "flex";
+    var explosion = document.getElementById("explosion");
+    explosion.src = "explosion.gif?" + Date.now();
+    explosion.style.display = "block";
+    setTimeout(function() {
+      explosion.style.display = "none";
+      document.getElementById("gameover-overlay").style.display = "flex";
+    }, 2000);
   }
 }
 
