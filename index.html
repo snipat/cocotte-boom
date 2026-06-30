@@ -12,12 +12,18 @@
       <meta name="apple-mobile-web-app-status-bar-style" content="default">
       <meta name="apple-mobile-web-app-title" content="Cocotte Boom">
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-      <link rel="stylesheet" href="cocotte.css?v=23">
-      <script src="script.js?v=23"></script>
+      <link rel="stylesheet" href="cocotte.css?v=24">
+      <script src="script.js?v=24"></script>
       <script>
         if ('serviceWorker' in navigator) {
           navigator.serviceWorker.register('/sw.js');
         }
+        document.addEventListener('touchmove', function(e) {
+          if (e.touches.length > 1) e.preventDefault();
+        }, { passive: false });
+        document.addEventListener('gesturestart', function(e) {
+          e.preventDefault();
+        }, { passive: false });
       </script>
 </head>
   <body>

@@ -117,34 +117,48 @@
 }
 
 .bouge {
-  animation: shake2 0.4s;
+  animation: shake 0.5s;
   animation-iteration-count: infinite;
 }
 
 .saute {
-  animation: shake2 0.2s;
+  animation: shake2 0.5s;
   animation-iteration-count: infinite;
 }
 
 
 .bondit {
-  animation: shake2 0.1s;
+  animation: shake3 0.5s;
   animation-iteration-count: infinite;
 }
 
 
 @keyframes shake2 {
-  0% { transform: translate(-52%, -50%) rotate(5deg); }
-  10% { transform: translate(-50%, -52%) rotate(-5deg); }
-  20% { transform: translate(-52%, -50%) rotate(5deg); }
+  0% { transform: translate(-52%, -50%) rotate(7deg); }
+  10% { transform: translate(-50%, -52%) rotate(-7deg); }
+  20% { transform: translate(-52%, -50%) rotate(7deg); }
   30% { transform: translate(-50%, -52%) rotate(0deg); }
-  40% { transform: translate(-52%, -50%) rotate(5deg); }
-  50% { transform: translate(-50%, -52%) rotate(-5deg); }
+  40% { transform: translate(-52%, -50%) rotate(7deg); }
+  50% { transform: translate(-50%, -52%) rotate(-7deg); }
   60% { transform: translate(-52%, -50%) rotate(0deg); }
-  70% { transform: translate(-50%, -52%) rotate(-5deg); }
-  80% { transform: translate(-52%, -50%) rotate(5deg); }
+  70% { transform: translate(-50%, -52%) rotate(-7deg); }
+  80% { transform: translate(-52%, -50%) rotate(7deg); }
   90% { transform: translate(-50%, -52%) rotate(0deg); }
-  100% { transform: translate(-52%, -50%) rotate(-5deg); }
+  100% { transform: translate(-52%, -50%) rotate(-7deg); }
+}
+
+@keyframes shake3 {
+  0% { transform: translate(-52%, -50%) rotate(10deg); }
+  10% { transform: translate(-50%, -52%) rotate(-10deg); }
+  20% { transform: translate(-52%, -50%) rotate(10deg); }
+  30% { transform: translate(-50%, -52%) rotate(0deg); }
+  40% { transform: translate(-52%, -50%) rotate(10deg); }
+  50% { transform: translate(-50%, -52%) rotate(-10deg); }
+  60% { transform: translate(-52%, -50%) rotate(0deg); }
+  70% { transform: translate(-50%, -52%) rotate(-10deg); }
+  80% { transform: translate(-52%, -50%) rotate(10deg); }
+  90% { transform: translate(-50%, -52%) rotate(0deg); }
+  100% { transform: translate(-52%, -50%) rotate(-10deg); }
 }
 
 .feu {
