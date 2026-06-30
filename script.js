@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   document.getElementById("splash-version").innerHTML = v;
 });
 
-const VERSION = 28;
+const VERSION = 29;
 
 let beta,
     gamma,
@@ -101,6 +101,7 @@ function changeColor(pression) {
   } else if (pression >= 500 && pression < 1000) {
     document.getElementById("jauge").style.color = "orange";
     document.getElementById("orange").style.opacity = "1";
+    document.getElementById("ambiance").pause();
     document.getElementById("ambiancemid").play();
     cocotte.classList.replace('base','bouge');
   } else if (pression >= 1000 && pression < 2000) {
@@ -109,7 +110,7 @@ function changeColor(pression) {
     document.getElementById("ambiancehigh").play();
     cocotte.classList.replace('bouge','saute');
   } else if (pression >= 2000 && pression < 3000) {
-    document.getElementById("ambiancehigh").play();
+    document.getElementById("ambiancehigh").pause();
     document.getElementById("bipall").play();
     cocotte.classList.replace('saute','bondit');
 
