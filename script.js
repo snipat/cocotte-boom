@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   document.getElementById("version").innerHTML = "Version : " + VERSION;
 });
 
-const VERSION = 15;
+const VERSION = 16;
 
 let beta,
     gamma,

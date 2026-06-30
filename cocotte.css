@@ -238,9 +238,13 @@ display: none;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100dvh;
     position: fixed;
     background-color: #EC6B49;
+}
+
+#splash {
+    height: 100dvh;
 }
 
 #game .gameZone > div:first-child {
