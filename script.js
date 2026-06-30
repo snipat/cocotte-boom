@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   document.getElementById("splash-version").innerHTML = v;
 });
 
-const VERSION = 26;
+const VERSION = 27;
 
 let beta,
     gamma,
