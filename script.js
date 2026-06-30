@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   amb();
 });
 
-const VERSION = 12;
+const VERSION = 13;
 
 let beta,
     gamma,
