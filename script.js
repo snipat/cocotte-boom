@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   document.getElementById("splash-version").innerHTML = v;
 });
 
-const VERSION = 19;
+const VERSION = 20;
 
 let beta,
     gamma,
@@ -45,7 +45,7 @@ function lancerLeJeu() {
       beta = Math.round(e.beta);
       gamma = Math.round(e.gamma);
       increasePression();
-      changeColor(pression);
+      changeColor();
       changeAngle();
       displayPression();
     });
