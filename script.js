@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 let beta,
     gamma,
-    pression = 2000,
+    pression = 0,
     gameover = false,
     n = 1,
     sound1 = false;
@@ -293,6 +293,7 @@ function changeColor(pression) {
     //document.getElementById("explosion").style.display = "block";
   } else if (pression >= 3000 && pression < 5000) {
     gameover = true;
+    document.getElementById("gameover-overlay").style.display = "flex";
   }
 }
 
@@ -320,4 +321,22 @@ function changeAngle(){
 function amb(){
   var ambianceAudio = document.getElementById("ambiance");
   ambianceAudio.play();
-  }
+}
+
+function closeGameOver() {
+  document.getElementById("gameover-overlay").style.display = "none";
+}
+
+function retryGame() {
+  pression = 2000;
+  gameover = false;
+  document.getElementById("gameover-overlay").style.display = "none";
+  document.getElementById("orange").style.opacity = "0.1";
+  document.getElementById("red").style.opacity = "0.1";
+  ["ambiance", "ambiancemid", "ambiancehard", "boom"].forEach(function(id) {
+    var el = document.getElementById(id);
+    el.pause();
+    el.currentTime = 0;
+  });
+  document.getElementById("cocotte").className = "base";
+}

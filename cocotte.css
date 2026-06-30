@@ -216,14 +216,56 @@ display: none;
   display: none;
 }
 
-#gameover {
-  visibility: hidden;
-  background-color: #fff;
-  border-color: #cd6464;
-  border-radius: 3px;
-  padding: 20px 20px;
-  z-index:1;
-  width: 50%;
-  margin: 0 auto;
+#gameover-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#gameover-popup {
+  background: #fff;
+  border-radius: 12px;
+  padding: 40px 32px 32px;
+  width: min(80vw, 320px);
   text-align: center;
+  position: relative;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+#gameover-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 48px;
+  height: 48px;
+  font-size: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #555;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#gameover-text {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin: 0 0 24px;
+  color: #222;
+}
+
+#gameover-retry {
+  background: #fc4b00;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 28px;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
 }
