@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   document.getElementById("splash-version").innerHTML = v;
 });
 
-const VERSION = 21;
+const VERSION = 22;
 
 let beta,
     gamma,
@@ -147,6 +147,17 @@ function changeAngle(){
 function amb(){
   var ambianceAudio = document.getElementById("ambiance");
   ambianceAudio.play();
+}
+
+let muted = false;
+const AUDIO_IDS = ["ambiance", "ambiancemid", "ambiancehard", "boom", "whistle"];
+
+function toggleMute() {
+  muted = !muted;
+  AUDIO_IDS.forEach(function(id) {
+    document.getElementById(id).muted = muted;
+  });
+  document.getElementById("mute-btn").textContent = muted ? "🔇" : "🔊";
 }
 
 function closeGameOver() {

@@ -12,8 +12,8 @@
       <meta name="apple-mobile-web-app-status-bar-style" content="default">
       <meta name="apple-mobile-web-app-title" content="Cocotte Boom">
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-      <link rel="stylesheet" href="cocotte.css?v=21">
-      <script src="script.js?v=21"></script>
+      <link rel="stylesheet" href="cocotte.css?v=22">
+      <script src="script.js?v=22"></script>
       <script>
         if ('serviceWorker' in navigator) {
           navigator.serviceWorker.register('/sw.js');
@@ -43,6 +43,7 @@
           <audio id="whistle" preload="auto" src="whistle.wav"></audio>
           <audio id="boom" autoplay preload="auto" src="explosion.wav"></audio>
         </div>
+        <button id="mute-btn" onclick="toggleMute()">🔊</button>
         <div class="feu">
           <img id="cocotte" class="base" src="cocotte.png"/>
           <img id="explosion" src="explosion.gif" style="display:none;"/>
