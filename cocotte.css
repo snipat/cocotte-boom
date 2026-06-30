@@ -13,6 +13,13 @@
   justify-content: space-between;
 }
 
+#splash-version {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  z-index: 10;
+}
+
 #splash-cocotte {
   position: absolute;
   width: 60vw;

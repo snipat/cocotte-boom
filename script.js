@@ -1,8 +1,10 @@
 document.addEventListener("DOMContentLoaded", function(event) {
-  document.getElementById("version").innerHTML = "Version : " + VERSION;
+  var v = "Version : " + VERSION;
+  document.getElementById("version").innerHTML = v;
+  document.getElementById("splash-version").innerHTML = v;
 });
 
-const VERSION = 18;
+const VERSION = 19;
 
 let beta,
     gamma,
