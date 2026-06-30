@@ -1,6 +1,9 @@
 document.addEventListener("DOMContentLoaded", function(event) {
+  document.getElementById("version").innerHTML = "Version : " + VERSION;
   amb();
 });
+
+const VERSION = 2;
 
 let beta,
     gamma,
