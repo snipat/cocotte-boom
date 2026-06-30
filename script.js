@@ -4,11 +4,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
   document.getElementById("splash-version").innerHTML = v;
 });
 
-const VERSION = 29;
+const VERSION = 30;
 
 let beta,
     gamma,
     pression = 0,
+    palier = 0,
     gameover = false,
     n = 1,
     sound1 = false;
@@ -93,29 +94,33 @@ function increment(){
 function changeColor(pression) {
   if (gameover) return;
 
-  if (pression == 0) {
-    document.getElementById("jauge").style.color = "purple";
-  } else if (pression >= 0 && pression < 500) {
-    document.getElementById("ambiance").play();
+  var nouveauPalier;
+  if (pression < 500)        nouveauPalier = 0;
+  else if (pression < 1000)  nouveauPalier = 1;
+  else if (pression < 2000)  nouveauPalier = 2;
+  else if (pression < 3000)  nouveauPalier = 3;
+  else                       nouveauPalier = 4;
+
+  if (nouveauPalier === palier) return;
+  palier = nouveauPalier;
+
+  if (palier === 0) {
     document.getElementById("jauge").style.color = "green";
-  } else if (pression >= 500 && pression < 1000) {
+  } else if (palier === 1) {
     document.getElementById("jauge").style.color = "orange";
     document.getElementById("orange").style.opacity = "1";
-    document.getElementById("ambiance").pause();
     document.getElementById("ambiancemid").play();
-    cocotte.classList.replace('base','bouge');
-  } else if (pression >= 1000 && pression < 2000) {
+    cocotte.classList.replace('base', 'bouge');
+  } else if (palier === 2) {
     document.getElementById("red").style.opacity = "1";
     document.getElementById("ambiancemid").pause();
     document.getElementById("ambiancehigh").play();
-    cocotte.classList.replace('bouge','saute');
-  } else if (pression >= 2000 && pression < 3000) {
+    cocotte.classList.replace('bouge', 'saute');
+  } else if (palier === 3) {
     document.getElementById("ambiancehigh").pause();
     document.getElementById("bipall").play();
-    cocotte.classList.replace('saute','bondit');
-
-    //document.getElementById("explosion").style.display = "block";
-  } else if (pression >= 3000 && pression < 5000) {
+    cocotte.classList.replace('saute', 'bondit');
+  } else if (palier === 4) {
     gameover = true;
     var explosion = document.getElementById("explosion");
     explosion.src = "explosion.gif?" + Date.now();
@@ -171,6 +176,7 @@ function closeGameOver() {
 
 function retryGame() {
   pression = 0;
+  palier = 0;
   gameover = false;
   document.getElementById("gameover-overlay").style.display = "none";
   document.getElementById("orange").style.opacity = "0.1";
