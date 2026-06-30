@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   amb();
 });
 
-const VERSION = 2;
+const VERSION = 3;
 
 let beta,
     gamma,
@@ -331,7 +331,7 @@ function closeGameOver() {
 }
 
 function retryGame() {
-  pression = 2000;
+  pression = 0;
   gameover = false;
   document.getElementById("gameover-overlay").style.display = "none";
   document.getElementById("orange").style.opacity = "0.1";
