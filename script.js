@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 let beta,
     gamma,
-    pression = 0,
+    pression = 2000,
     gameover = false,
     n = 1,
     sound1 = false;
