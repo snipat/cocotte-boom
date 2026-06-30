@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   document.getElementById("splash-version").innerHTML = v;
 });
 
-const VERSION = 27;
+const VERSION = 28;
 
 let beta,
     gamma,
@@ -106,11 +106,11 @@ function changeColor(pression) {
   } else if (pression >= 1000 && pression < 2000) {
     document.getElementById("red").style.opacity = "1";
     document.getElementById("ambiancemid").pause();
-    document.getElementById("ambiancehard").play();
+    document.getElementById("ambiancehigh").play();
     cocotte.classList.replace('bouge','saute');
   } else if (pression >= 2000 && pression < 3000) {
-    document.getElementById("ambiancehard").pause();
-    document.getElementById("boom").play();
+    document.getElementById("ambiancehigh").play();
+    document.getElementById("bipall").play();
     cocotte.classList.replace('saute','bondit');
 
     //document.getElementById("explosion").style.display = "block";
@@ -118,6 +118,7 @@ function changeColor(pression) {
     gameover = true;
     var explosion = document.getElementById("explosion");
     explosion.src = "explosion.gif?" + Date.now();
+    document.getElementById("boom").play();
     explosion.style.display = "block";
     setTimeout(function() {
       explosion.style.display = "none";
