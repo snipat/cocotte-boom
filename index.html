@@ -47,7 +47,7 @@
       </div>
     </div>
 
-    <div id="gameover-overlay" style="display:none;">
+    <div id="gameover-overlay" style="display:none;" onclick="if(event.target===this)closeGameOver();">
       <div id="gameover-popup">
         <button id="gameover-close" onclick="closeGameOver()">&#x2715;</button>
         <p id="gameover-text">Boum, retentez votre chance&nbsp;!</p>
