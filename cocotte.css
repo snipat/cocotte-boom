@@ -2,6 +2,43 @@
   text-shadow: none !important;
 }
 
+#splash {
+  position: fixed;
+  inset: 0;
+  background-color: #EC6B49;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#splash-cocotte {
+  position: absolute;
+  width: 60vw;
+  max-width: 280px;
+  height: auto;
+  top: 33%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#splash-btn {
+  position: absolute;
+  top: 66%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  color: #EC6B49;
+  border: none;
+  border-radius: 10px;
+  padding: 16px 40px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  min-width: 200px;
+}
+
 .content {
   background-color: #64cd99;
 }

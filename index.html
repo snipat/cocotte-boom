@@ -12,10 +12,15 @@
       <meta name="apple-mobile-web-app-status-bar-style" content="default">
       <meta name="apple-mobile-web-app-title" content="Cocotte Boom">
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-      <link rel="stylesheet" href="cocotte.css?v=13">
-      <script src="script.js?v=13"></script>
+      <link rel="stylesheet" href="cocotte.css?v=14">
+      <script src="script.js?v=14"></script>
 </head>
   <body>
+    <div id="splash">
+      <img id="splash-cocotte" src="cocotte.png"/>
+      <button id="splash-btn" onclick="lancerLeJeu()">Lancer le jeu</button>
+    </div>
+
     <div id="game">
       <div class="gameZone" id="gameZone">
         <div>
@@ -24,10 +29,6 @@
           <div id="roulis"style="display: inline-block;">Roulis : capteur de mouvement non autorisé   </div>
           <div id="tangage"style="display: inline-block;">Tangage : capteur de mouvement non autorisé   </div>
           <div id="jauge" style="display: inline-block;">Pression :   </div>
-          <br>
-          <br>
-      <!--    <button onclick="amb();">Autoriser le son</button>-->
-          <button onclick="bannerAuthorisation();">Lancer le jeu</button>
         </div>
         <div>
           <audio id="ambiance" autoplay loop preload="auto" src="ambiance.wav"></audio>

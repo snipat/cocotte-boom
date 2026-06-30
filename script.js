@@ -1,9 +1,8 @@
 document.addEventListener("DOMContentLoaded", function(event) {
   document.getElementById("version").innerHTML = "Version : " + VERSION;
-  amb();
 });
 
-const VERSION = 13;
+const VERSION = 14;
 
 let beta,
     gamma,
@@ -14,45 +13,41 @@ let beta,
 
 
 
-function bannerAuthorisation() {
+function lancerLeJeu() {
+  amb();
+
   if (
     window.DeviceOrientationEvent &&
     typeof window.DeviceOrientationEvent.requestPermission === "function"
   ) {
-    const banner = document.createElement("div");
-    banner.innerHTML = `<div id="autorisation" style="z-index: 1; position: absolute; width: 100%; background-color:#000; color: #fff" onclick="clickRequestDeviceOrientationEvent()"><p style="padding: 10px">Cliquez ici pour autoriser l'accès à votre capteur de mouvements.</p></div>`;
-    document.querySelector("body").appendChild(banner);
-  } else {
-    alert("Essaye avec un iphone");
-    console.log(typeof window.DeviceOrientationEvent);
-    console.log(typeof window.DeviceOrientationEvent.requestPermission);
-    console.log(typeof DeviceOrientationEvent.requestPermission);
-  }
-}
-
-function clickRequestDeviceOrientationEvent() {
-  window.DeviceOrientationEvent.requestPermission()
-    .then((response) => {
-      if (response === "granted") {
-        window.addEventListener("deviceorientation", (e) => {
-            document.getElementById("autorisation").style.display = "none";
+    window.DeviceOrientationEvent.requestPermission()
+      .then((response) => {
+        if (response === "granted") {
+          document.getElementById("splash").style.display = "none";
+          window.addEventListener("deviceorientation", (e) => {
             beta = Math.round(e.beta);
             gamma = Math.round(e.gamma);
             increasePression();
             changeColor(pression);
             changeAngle();
             displayPression();
-          //  amb();
-        });
-      } else {
-        alert(
-          "Désolé, vous ne pouvez pas jouer à ce jeu car votre appareil n'a pas de capteur de mouvement."
-        );
-      }
-    })
-    .catch((e) => {
-      console.error(e);
+          });
+        } else {
+          alert("Désolé, votre appareil n'a pas de capteur de mouvement.");
+        }
+      })
+      .catch((e) => { console.error(e); });
+  } else {
+    document.getElementById("splash").style.display = "none";
+    window.addEventListener("deviceorientation", (e) => {
+      beta = Math.round(e.beta);
+      gamma = Math.round(e.gamma);
+      increasePression();
+      changeColor(pression);
+      changeAngle();
+      displayPression();
     });
+  }
 }
 
 function displayPression() {
