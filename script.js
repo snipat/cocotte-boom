@@ -2,12 +2,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
   var v = "Version : " + VERSION;
   document.getElementById("version").innerHTML = v;
   document.getElementById("splash-version").innerHTML = v;
-  var h = window.innerHeight + "px";
-  document.getElementById("splash").style.height = h;
-  document.getElementById("gameZone").style.height = h;
 });
 
-const VERSION = 39;
+const VERSION = 40;
 
 let beta,
     gamma,
@@ -200,8 +197,9 @@ function retryGame() {
   palier = 0;
   gameover = false;
   document.getElementById("gameover-overlay").style.display = "none";
-  document.getElementById("orange").style.opacity = "0.1";
-  document.getElementById("red").style.opacity = "0.1";
+  document.getElementById("jaune").style.opacity = "0";
+  document.getElementById("orange").style.opacity = "0";
+  document.getElementById("red").style.opacity = "0";
   ["ambiancemid", "ambiancehard", "boom"].forEach(function(id) {
     var el = document.getElementById(id);
     el.pause();

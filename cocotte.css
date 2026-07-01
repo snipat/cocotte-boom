@@ -185,6 +185,7 @@
   height: 170px;
   width: 170px;
   background-color: #fdc323;
+  opacity: 0;
   z-index: 2;
   transform: translate(-50%, -50%);
   top: 50%;
