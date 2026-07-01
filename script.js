@@ -63,23 +63,19 @@ function increasePression() {
   } else {
     if ((beta >= 5 && beta < 10) || (beta <= -5 && beta > -10)) {
       pression += 2;
-        document.getElementById("jaune").style.opacity = "1";
-        document.getElementById("red").style.opacity = "0";
-        document.getElementById("orange").style.opacity = "0";
-        document.getElementById("bip1").play();
-
-      } else if ((beta >= 10 && beta < 15) || (beta <= -10 && beta > -15)) {
-        pression += 4;
-        document.getElementById("jaune").style.opacity = "1";
-        document.getElementById("orange").style.opacity = "1";
-        document.getElementById("red").style.opacity = "0";
-        document.getElementById("bip1").pause();
-        document.getElementById("bip2").play();
-      } else if (beta >= 15 || beta <= -15) {
-        pression += 6;
-        document.getElementById("jaune").style.opacity = "1";
-        document.getElementById("orange").style.opacity = "1";
-        document.getElementById("red").style.opacity = "1";
+      document.getElementById("jaune").style.opacity = "1";
+      document.getElementById("red").style.opacity = "0";
+      document.getElementById("orange").style.opacity = "0";
+    } else if ((beta >= 10 && beta < 15) || (beta <= -10 && beta > -15)) {
+      pression += 4;
+      document.getElementById("jaune").style.opacity = "1";
+      document.getElementById("orange").style.opacity = "1";
+      document.getElementById("red").style.opacity = "0";
+    } else if (beta >= 15 || beta <= -15) {
+      pression += 6;
+      document.getElementById("jaune").style.opacity = "1";
+      document.getElementById("orange").style.opacity = "1";
+      document.getElementById("red").style.opacity = "1";
     } else {
       pression += 1;
     }
@@ -117,28 +113,31 @@ function changeColor(pression) {
   if (nouveauPalier === palier) return;
   palier = nouveauPalier;
 
+  var bip1 = document.getElementById("bip1");
+  var bip2 = document.getElementById("bip2");
+
   if (palier === 0) {
-  //  document.getElementById("jauge").style.color = "green";
     cocotte.classList.replace('base', 'bouge');
+    bip1.pause();
+    bip2.pause();
   } else if (palier === 1) {
-//    document.getElementById("jauge").style.color = "orange";
-  //  document.getElementById("orange").style.opacity = "1";
-  //  document.getElementById("ambiance").play();
     cocotte.classList.replace('base', 'bouge');
+    if (bip1.paused) bip1.play();
+    bip2.pause();
   } else if (palier === 2) {
-//  document.getElementById("red").style.opacity = "1";
-//    document.getElementById("ambiance").pause();
-//    document.getElementById("ambiancemid").play();
     cocotte.classList.replace('bouge', 'saute');
+    bip1.pause();
+    if (bip2.paused) bip2.play();
   } else if (palier === 3) {
-  //  document.getElementById("ambiancehigh").pause();
-  //  document.getElementById("bipall").play();
     cocotte.classList.replace('saute', 'bondit');
+    bip1.pause();
+    if (bip2.paused) bip2.play();
   } else if (palier === 4) {
     gameover = true;
+    bip1.pause();
+    bip2.pause();
     var explosion = document.getElementById("explosion");
     explosion.src = "explosion.gif?" + Date.now();
-//    document.getElementById("boom").play();
     explosion.style.display = "block";
     setTimeout(function() {
       explosion.style.display = "none";
@@ -174,7 +173,7 @@ function amb(){
 }
 
 let muted = false;
-const AUDIO_IDS = ["ambiance", "ambiancemid", "ambiancehard", "boom", "whistle"];
+const AUDIO_IDS = ["ambiance", "ambiancemid", "ambiancehard", "boom", "whistle", "bip1", "bip2"];
 
 function toggleMute() {
   muted = !muted;
@@ -196,7 +195,7 @@ function retryGame() {
   document.getElementById("jaune").style.opacity = "0";
   document.getElementById("orange").style.opacity = "0";
   document.getElementById("red").style.opacity = "0";
-  ["ambiancemid", "ambiancehard", "boom"].forEach(function(id) {
+  ["ambiancemid", "ambiancehard", "boom", "bip1", "bip2"].forEach(function(id) {
     var el = document.getElementById(id);
     el.pause();
     el.currentTime = 0;
