@@ -2,9 +2,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
   var v = "Version : " + VERSION;
   document.getElementById("version").innerHTML = v;
   document.getElementById("splash-version").innerHTML = v;
+  // Desktop : autoplay fonctionne directement
+  document.getElementById("ambiance").play().catch(function(){});
+  // iOS : déverrouiller ambiance au premier touch du splash
+  document.getElementById("splash").addEventListener("touchstart", function() {
+    document.getElementById("ambiance").play().catch(function(){});
+  }, { once: true });
 });
 
-const VERSION = 57;
+const VERSION = 58;
 
 let beta,
     gamma,
@@ -113,34 +119,35 @@ function changeColor(pression) {
   if (nouveauPalier === palier) return;
   palier = nouveauPalier;
 
+  var ambiance = document.getElementById("ambiance");
   var bip1 = document.getElementById("bip1");
   var bip2 = document.getElementById("bip2");
+  var bip3 = document.getElementById("bip3");
 
-  if (palier === 0) {
+  if (palier === 1) {
     cocotte.classList.replace('base', 'bouge');
-    bip1.pause();
-    bip2.pause();
-  } else if (palier === 1) {
-    cocotte.classList.replace('base', 'bouge');
-    if (bip1.paused) bip1.play();
-    bip2.pause();
+    // ambiance continue, bips silencieux
+    bip1.pause(); bip2.pause(); bip3.pause();
   } else if (palier === 2) {
     cocotte.classList.replace('bouge', 'saute');
-    bip1.pause();
-    if (bip2.paused) bip2.play();
+    ambiance.pause();
+    if (bip1.paused) bip1.play();
+    bip2.pause(); bip3.pause();
   } else if (palier === 3) {
     cocotte.classList.replace('saute', 'bondit');
-    bip1.pause();
+    ambiance.pause(); bip1.pause();
     if (bip2.paused) bip2.play();
+    bip3.pause();
   } else if (palier === 4) {
     gameover = true;
-    bip1.pause();
-    bip2.pause();
+    ambiance.pause(); bip1.pause(); bip2.pause();
+    if (bip3.paused) bip3.play();
     var explosion = document.getElementById("explosion");
     explosion.src = "explosion.gif?" + Date.now();
     document.getElementById("cocotte").style.display = "none";
     explosion.style.display = "block";
     setTimeout(function() {
+      bip3.pause();
       explosion.style.display = "none";
       document.getElementById("gameover-overlay").style.display = "flex";
     }, 2000);
@@ -169,14 +176,16 @@ function changeAngle(){
 }
 
 function amb(){
-  ["ambiance", "bip1", "bip2", "ambiancemid", "ambiancehard", "boom", "whistle"].forEach(function(id) {
+  // Déverrouille tous les sons sur iOS (play+pause immédiat sauf ambiance)
+  ["bip1", "bip2", "bip3", "ambiancemid", "ambiancehard", "boom", "whistle"].forEach(function(id) {
     var el = document.getElementById(id);
-    el.play().then(function() { if (id !== "ambiance") el.pause(); }).catch(function(){});
+    el.play().then(function() { el.pause(); el.currentTime = 0; }).catch(function(){});
   });
+  document.getElementById("ambiance").play().catch(function(){});
 }
 
 let muted = false;
-const AUDIO_IDS = ["ambiance", "ambiancemid", "ambiancehard", "boom", "whistle", "bip1", "bip2"];
+const AUDIO_IDS = ["ambiance", "ambiancemid", "ambiancehard", "boom", "whistle", "bip1", "bip2", "bip3"];
 
 function toggleMute() {
   muted = !muted;
@@ -198,7 +207,7 @@ function retryGame() {
   document.getElementById("jaune").style.opacity = "0";
   document.getElementById("orange").style.opacity = "0";
   document.getElementById("red").style.opacity = "0";
-  ["ambiancemid", "ambiancehard", "boom", "bip1", "bip2"].forEach(function(id) {
+  ["bip1", "bip2", "bip3", "ambiancemid", "ambiancehard", "boom"].forEach(function(id) {
     var el = document.getElementById(id);
     el.pause();
     el.currentTime = 0;
