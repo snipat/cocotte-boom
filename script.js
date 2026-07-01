@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   }, { once: true });
 });
 
-const VERSION = 60;
+const VERSION = 61;
 
 let beta,
     gamma,
@@ -176,10 +176,15 @@ function changeAngle(){
 }
 
 function amb(){
-  // Déverrouille tous les sons sur iOS (play+pause immédiat sauf ambiance)
+  // Déverrouille iOS en silence : mute avant play, restore après pause
   ["bip1", "bip2", "bip3", "boom"].forEach(function(id) {
     var el = document.getElementById(id);
-    el.play().then(function() { el.pause(); el.currentTime = 0; }).catch(function(){});
+    el.muted = true;
+    el.play().then(function() {
+      el.pause();
+      el.currentTime = 0;
+      el.muted = muted;
+    }).catch(function(){});
   });
   document.getElementById("ambiance").play().catch(function(){});
 }
