@@ -4,7 +4,7 @@
     {
       "name": "cocotte-boom",
       "runtimeExecutable": "/usr/bin/python3",
-      "runtimeArgs": ["-m", "http.server", "5173", "--directory", "/Users/patricksebe/Documents/GitHub/cocotte-boom"],
+      "runtimeArgs": ["/Users/patricksebe/Documents/GitHub/cocotte-boom/serve.py"],
       "port": 5173
     }
   ]

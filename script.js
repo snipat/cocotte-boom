@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   document.getElementById("splash-version").innerHTML = v;
 });
 
-const VERSION = 33;
+const VERSION = 34;
 
 let beta,
     gamma,
@@ -108,26 +108,26 @@ function changeColor(pression) {
   palier = nouveauPalier;
 
   if (palier === 0) {
-    document.getElementById("jauge").style.color = "green";
+  //  document.getElementById("jauge").style.color = "green";
   } else if (palier === 1) {
-    document.getElementById("jauge").style.color = "orange";
+//    document.getElementById("jauge").style.color = "orange";
   //  document.getElementById("orange").style.opacity = "1";
-    document.getElementById("ambiance").play();
+  //  document.getElementById("ambiance").play();
     cocotte.classList.replace('base', 'bouge');
   } else if (palier === 2) {
 //  document.getElementById("red").style.opacity = "1";
-    document.getElementById("ambiance").pause();
-    document.getElementById("ambiancemid").play();
+//    document.getElementById("ambiance").pause();
+//    document.getElementById("ambiancemid").play();
     cocotte.classList.replace('bouge', 'saute');
   } else if (palier === 3) {
-    document.getElementById("ambiancehigh").pause();
-    document.getElementById("bipall").play();
+  //  document.getElementById("ambiancehigh").pause();
+  //  document.getElementById("bipall").play();
     cocotte.classList.replace('saute', 'bondit');
   } else if (palier === 4) {
     gameover = true;
     var explosion = document.getElementById("explosion");
     explosion.src = "explosion.gif?" + Date.now();
-    document.getElementById("boom").play();
+//    document.getElementById("boom").play();
     explosion.style.display = "block";
     setTimeout(function() {
       explosion.style.display = "none";
