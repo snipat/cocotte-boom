@@ -164,7 +164,7 @@ function changeAngle(){
   else if ((beta >= 10 && beta < 15) || (beta <= -10 && beta > -15)) {
     document.getElementById("gameZone").style.backgroundColor="orange";
   }
-  else if (beta >= 15 || beta <= -100) {
+  else if (beta >= 90 || beta <= -90) {
     document.getElementById("gameZone").style.backgroundColor="red";
   }
   if ((gamma >= 10 && gamma < 15) || (gamma <= -10 && gamma > -15)) {
@@ -173,7 +173,7 @@ function changeAngle(){
   else if ((gamma >= 15 && gamma < 30) || (gamma <= -15 && gamma > -30)) {
     document.getElementById("gameZone").style.backgroundColor="orange";
   }
-  else if (gamma >= 30 || gamma <= -100) {
+  else if (gamma >= 90 || gamma <= -90) {
     document.getElementById("gameZone").style.backgroundColor="red";
   }
 }
