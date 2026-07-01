@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   document.getElementById("splash-version").innerHTML = v;
 });
 
-const VERSION = 50;
+const VERSION = 51;
 
 let beta,
     gamma,
@@ -168,8 +168,10 @@ function changeAngle(){
 }
 
 function amb(){
-  var ambianceAudio = document.getElementById("ambiance");
-  ambianceAudio.play();
+  ["ambiance", "bip1", "bip2", "ambiancemid", "ambiancehard", "boom", "whistle"].forEach(function(id) {
+    var el = document.getElementById(id);
+    el.play().then(function() { if (id !== "ambiance") el.pause(); }).catch(function(){});
+  });
 }
 
 let muted = false;
