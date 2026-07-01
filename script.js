@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   document.getElementById("splash-version").innerHTML = v;
 });
 
-const VERSION = 35;
+const VERSION = 36;
 
 let beta,
     gamma,
@@ -64,10 +64,9 @@ function increasePression() {
   } else {
     if ((beta >= 5 && beta < 10) || (beta <= -5 && beta > -10)) {
       pression += 2;
-      document.getElementById("jaune").style.opacity = "1";
-      document.getElementById("red").style.opacity = "0";
-      document.getElementById("orange").style.opacity = "0";
-
+        document.getElementById("jaune").style.opacity = "1";
+        document.getElementById("red").style.opacity = "0";
+        document.getElementById("orange").style.opacity = "0";
       } else if ((beta >= 10 && beta < 15) || (beta <= -10 && beta > -15)) {
         pression += 4;
         document.getElementById("jaune").style.opacity = "1";
@@ -83,10 +82,19 @@ function increasePression() {
     }
     if ((gamma >= 10 && gamma < 15) || (gamma <= -10 && gamma > -15)) {
       pression += 2;
+        document.getElementById("jaune").style.opacity = "1";
+        document.getElementById("red").style.opacity = "0";
+        document.getElementById("orange").style.opacity = "0";
       } else if ((gamma >= 15 && gamma < 30) || (gamma <= -15 && gamma > -30)) {
         pression += 4;
+        document.getElementById("jaune").style.opacity = "1";
+        document.getElementById("orange").style.opacity = "1";
+        document.getElementById("red").style.opacity = "0";
       } else if (gamma >= 30 || gamma <= -30) {
         pression += 6;
+        document.getElementById("jaune").style.opacity = "1";
+        document.getElementById("orange").style.opacity = "1";
+        document.getElementById("red").style.opacity = "1";
     } else {
       pression += 1;
 
