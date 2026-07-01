@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   }, { once: true });
 });
 
-const VERSION = 58;
+const VERSION = 59;
 
 let beta,
     gamma,
