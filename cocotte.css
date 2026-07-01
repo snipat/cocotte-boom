@@ -188,6 +188,20 @@
   height: 100%;
 }
 
+
+.vert {
+  border-radius: 50%;
+  height: 170px;
+  width: 170px;
+  background-color: #87ae73;
+  opacity: 0;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  position: absolute;
+}
+
 .jaune {
   border-radius: 50%;
   height: 170px;
@@ -214,7 +228,7 @@
   position: absolute;
 }
 
-.red {
+.rouge {
   border-radius: 50%;
   height: 390px;
   width: 390px;

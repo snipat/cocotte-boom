@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   document.getElementById("ambiance").play().catch(function(){});
 });
 
-const VERSION = 69;
+const VERSION = 70;
 
 let beta,
     gamma,
@@ -72,36 +72,36 @@ function increasePression() {
     if ((beta >= 5 && beta < 10) || (beta <= -5 && beta > -10)) {
       pression += 2;
       document.getElementById("jaune").style.opacity = "1";
-      document.getElementById("red").style.opacity = "0";
+      document.getElementById("rouge").style.opacity = "0";
       document.getElementById("orange").style.opacity = "0";
     } else if ((beta >= 10 && beta < 15) || (beta <= -10 && beta > -15)) {
       pression += 4;
       document.getElementById("jaune").style.opacity = "1";
       document.getElementById("orange").style.opacity = "1";
-      document.getElementById("red").style.opacity = "0";
+      document.getElementById("rouge").style.opacity = "0";
     } else if (beta >= 15 || beta <= -15) {
       pression += 6;
       document.getElementById("jaune").style.opacity = "1";
       document.getElementById("orange").style.opacity = "1";
-      document.getElementById("red").style.opacity = "1";
+      document.getElementById("rouge").style.opacity = "1";
     } else {
       pression += 1;
     }
     if ((gamma >= 10 && gamma < 15) || (gamma <= -10 && gamma > -15)) {
       pression += 2;
         document.getElementById("jaune").style.opacity = "1";
-        document.getElementById("red").style.opacity = "0";
+        document.getElementById("rouge").style.opacity = "0";
         document.getElementById("orange").style.opacity = "0";
       } else if ((gamma >= 15 && gamma < 30) || (gamma <= -15 && gamma > -30)) {
         pression += 4;
         document.getElementById("jaune").style.opacity = "1";
         document.getElementById("orange").style.opacity = "1";
-        document.getElementById("red").style.opacity = "0";
+        document.getElementById("rouge").style.opacity = "0";
       } else if (gamma >= 30 || gamma <= -30) {
         pression += 6;
         document.getElementById("jaune").style.opacity = "1";
         document.getElementById("orange").style.opacity = "1";
-        document.getElementById("red").style.opacity = "1";
+        document.getElementById("rouge").style.opacity = "1";
     } else {
       pression += 1;
     }
@@ -182,7 +182,7 @@ function retryGame() {
   document.getElementById("gameover-overlay").style.display = "none";
   document.getElementById("jaune").style.opacity = "0";
   document.getElementById("orange").style.opacity = "0";
-  document.getElementById("red").style.opacity = "0";
+  document.getElementById("rouge").style.opacity = "0";
   ["bip1", "bip2", "bip3", "ambiancemid", "ambiancehard", "boom"].forEach(function(id) {
     var el = document.getElementById(id);
     el.pause();
