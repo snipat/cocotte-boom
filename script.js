@@ -2,15 +2,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
   var v = "Version : " + VERSION;
   document.getElementById("version").innerHTML = v;
   document.getElementById("splash-version").innerHTML = v;
-  // Desktop : autoplay fonctionne directement
+  // Desktop/Android : autoplay fonctionne sans geste
   document.getElementById("ambiance").play().catch(function(){});
-  // iOS : déverrouiller ambiance au premier touch du splash
-  document.getElementById("splash").addEventListener("touchstart", function() {
-    document.getElementById("ambiance").play().catch(function(){});
-  }, { once: true });
 });
 
-const VERSION = 61;
+const VERSION = 62;
 
 let beta,
     gamma,
@@ -21,6 +17,15 @@ let beta,
     sound1 = false;
 
 function lancerLeJeu() {
+  // Jouer ambiance immédiatement dans le geste bouton (requis par iOS)
+  document.getElementById("ambiance").play().catch(function(){});
+  // Déverrouiller les autres sons en silence
+  ["bip1", "bip2", "bip3", "boom"].forEach(function(id) {
+    var el = document.getElementById(id);
+    el.muted = true;
+    el.play().then(function() { el.pause(); el.currentTime = 0; el.muted = muted; }).catch(function(){});
+  });
+
   if (
     window.DeviceOrientationEvent &&
     typeof window.DeviceOrientationEvent.requestPermission === "function"
@@ -29,7 +34,6 @@ function lancerLeJeu() {
       .then((response) => {
         if (response === "granted") {
           document.getElementById("splash").style.display = "none";
-          amb();
           window.addEventListener("deviceorientation", (e) => {
             beta = Math.round(e.beta);
             gamma = Math.round(e.gamma);
@@ -45,7 +49,6 @@ function lancerLeJeu() {
       .catch((e) => { console.error(e); });
   } else {
     document.getElementById("splash").style.display = "none";
-    amb();
     window.addEventListener("deviceorientation", (e) => {
       beta = Math.round(e.beta);
       gamma = Math.round(e.gamma);
@@ -176,16 +179,6 @@ function changeAngle(){
 }
 
 function amb(){
-  // Déverrouille iOS en silence : mute avant play, restore après pause
-  ["bip1", "bip2", "bip3", "boom"].forEach(function(id) {
-    var el = document.getElementById(id);
-    el.muted = true;
-    el.play().then(function() {
-      el.pause();
-      el.currentTime = 0;
-      el.muted = muted;
-    }).catch(function(){});
-  });
   document.getElementById("ambiance").play().catch(function(){});
 }
 
