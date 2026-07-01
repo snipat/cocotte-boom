@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   document.getElementById("splash-version").innerHTML = v;
 });
 
-const VERSION = 46;
+const VERSION = 47;
 
 let beta,
     gamma,
@@ -171,7 +171,7 @@ function changeAngle(){
 
 function amb(){
   var ambianceAudio = document.getElementById("ambiance");
-//  ambianceAudio.play();
+  ambianceAudio.play();
 }
 
 let muted = false;
