@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   document.getElementById("ambiance").play().catch(function(){});
 });
 
-const VERSION = 67;
+const VERSION = 68;
 
 let beta,
     gamma,
@@ -39,7 +39,6 @@ function lancerLeJeu() {
             gamma = Math.round(e.gamma);
             increasePression();
             changeColor(pression);
-            changeAngle();
             displayPression();
           });
         } else {
@@ -154,27 +153,6 @@ function changeColor(pression) {
       explosion.style.display = "none";
       document.getElementById("gameover-overlay").style.display = "flex";
     }, 2000);
-  }
-}
-
-function changeAngle(){
-  if((beta >= 5 && beta < 10) || (beta <= -5 && beta > -10)){
-    document.getElementById("gameZone").style.backgroundColor="orange";
-  }
-  else if ((beta >= 10 && beta < 15) || (beta <= -10 && beta > -15)) {
-    document.getElementById("gameZone").style.backgroundColor="orange";
-  }
-  else if (beta >= 15 || beta <= -15) {
-    document.getElementById("gameZone").style.backgroundColor="red";
-  }
-  if ((gamma >= 10 && gamma < 15) || (gamma <= -10 && gamma > -15)) {
-    document.getElementById("gameZone").style.backgroundColor="orange";
-  }
-  else if ((gamma >= 15 && gamma < 30) || (gamma <= -15 && gamma > -30)) {
-    document.getElementById("gameZone").style.backgroundColor="orange";
-  }
-  else if (gamma >= 15 || gamma <= -15) {
-    document.getElementById("gameZone").style.backgroundColor="red";
   }
 }
 
