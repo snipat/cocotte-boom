@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   document.getElementById("splash-version").innerHTML = v;
 });
 
-const VERSION = 43;
+const VERSION = 42;
 
 let beta,
     gamma,
@@ -124,7 +124,8 @@ function changeColor(pression) {
 
   if (palier === 0) {
   //  document.getElementById("jauge").style.color = "green";
-    cocotte.classList.replace('base', 'bouge');
+  cocotte.classList.replace('base', 'bouge');
+
   } else if (palier === 1) {
 //    document.getElementById("jauge").style.color = "orange";
   //  document.getElementById("orange").style.opacity = "1";

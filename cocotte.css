@@ -113,6 +113,7 @@
   animation: shake4 0.2s infinite;
 }
 
+
 @keyframes shake {
   0% { transform: translate(-52%, -50%) rotate(0deg); }
   10% { transform: translate(-50%, -52%) rotate(-1deg); }
@@ -210,7 +211,7 @@
   height: 390px;
   width: 390px;
   background-color: red;
-  opacity: 0.1;
+  opacity: 0;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
