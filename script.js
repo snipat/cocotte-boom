@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   document.getElementById("splash-version").innerHTML = v;
 });
 
-const VERSION = 43;
+const VERSION = 44;
 
 let beta,
     gamma,
@@ -13,7 +13,6 @@ let beta,
     gameover = false,
     n = 1,
     sound1 = false;
-
 
 function lancerLeJeu() {
   if (
@@ -102,13 +101,6 @@ function increasePression() {
   }
 }
 
-/*
-function increment(){
-    pression=pression+100;
-    console.log("increment"+ pression)
-}
-*/
-
 function changeColor(pression) {
   if (gameover) return;
 
@@ -124,8 +116,7 @@ function changeColor(pression) {
 
   if (palier === 0) {
   //  document.getElementById("jauge").style.color = "green";
-  cocotte.classList.replace('base', 'bouge');
-
+    cocotte.classList.replace('base', 'bouge');
   } else if (palier === 1) {
 //    document.getElementById("jauge").style.color = "orange";
   //  document.getElementById("orange").style.opacity = "1";
@@ -176,7 +167,7 @@ function changeAngle(){
 
 function amb(){
   var ambianceAudio = document.getElementById("ambiance");
-  ambianceAudio.play();
+//  ambianceAudio.play();
 }
 
 let muted = false;
