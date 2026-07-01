@@ -2,9 +2,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
   var v = "Version : " + VERSION;
   document.getElementById("version").innerHTML = v;
   document.getElementById("splash-version").innerHTML = v;
+  var h = window.innerHeight + "px";
+  document.getElementById("splash").style.height = h;
+  document.getElementById("gameZone").style.height = h;
 });
 
-const VERSION = 38;
+const VERSION = 39;
 
 let beta,
     gamma,
