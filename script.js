@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   document.getElementById("splash-version").innerHTML = v;
 });
 
-const VERSION = 49;
+const VERSION = 48;
 
 let beta,
     gamma,
@@ -61,32 +61,27 @@ function increasePression() {
   if (gameover) {
 
   } else {
-    var bip1 = document.getElementById("bip1");
-    var bip2 = document.getElementById("bip2");
     if ((beta >= 5 && beta < 10) || (beta <= -5 && beta > -10)) {
       pression += 2;
-      document.getElementById("jaune").style.opacity = "1";
-      document.getElementById("red").style.opacity = "0";
-      document.getElementById("orange").style.opacity = "0";
-      if (bip1.paused) bip1.play();
-      bip2.pause();
-    } else if ((beta >= 10 && beta < 15) || (beta <= -10 && beta > -15)) {
-      pression += 4;
-      document.getElementById("jaune").style.opacity = "1";
-      document.getElementById("orange").style.opacity = "1";
-      document.getElementById("red").style.opacity = "0";
-      bip1.pause();
-      if (bip2.paused) bip2.play();
-    } else if (beta >= 15 || beta <= -15) {
-      pression += 6;
-      document.getElementById("jaune").style.opacity = "1";
-      document.getElementById("orange").style.opacity = "1";
-      document.getElementById("red").style.opacity = "1";
-      if (bip2.paused) bip2.play();
+        document.getElementById("jaune").style.opacity = "1";
+        document.getElementById("red").style.opacity = "0";
+        document.getElementById("orange").style.opacity = "0";
+        document.getElementById("bip1").play();
+
+      } else if ((beta >= 10 && beta < 15) || (beta <= -10 && beta > -15)) {
+        pression += 4;
+        document.getElementById("jaune").style.opacity = "1";
+        document.getElementById("orange").style.opacity = "1";
+        document.getElementById("red").style.opacity = "0";
+        document.getElementById("bip1").pause();
+        document.getElementById("bip2").play();
+      } else if (beta >= 15 || beta <= -15) {
+        pression += 6;
+        document.getElementById("jaune").style.opacity = "1";
+        document.getElementById("orange").style.opacity = "1";
+        document.getElementById("red").style.opacity = "1";
     } else {
       pression += 1;
-      bip1.pause();
-      bip2.pause();
     }
     if ((gamma >= 10 && gamma < 15) || (gamma <= -10 && gamma > -15)) {
       pression += 2;
@@ -105,7 +100,6 @@ function increasePression() {
         document.getElementById("red").style.opacity = "1";
     } else {
       pression += 1;
-
     }
   }
 }
@@ -180,7 +174,7 @@ function amb(){
 }
 
 let muted = false;
-const AUDIO_IDS = ["ambiance", "ambiancemid", "ambiancehard", "boom", "whistle", "bip1", "bip2"];
+const AUDIO_IDS = ["ambiance", "ambiancemid", "ambiancehard", "boom", "whistle"];
 
 function toggleMute() {
   muted = !muted;
@@ -202,7 +196,7 @@ function retryGame() {
   document.getElementById("jaune").style.opacity = "0";
   document.getElementById("orange").style.opacity = "0";
   document.getElementById("red").style.opacity = "0";
-  ["ambiancemid", "ambiancehard", "boom", "bip1", "bip2"].forEach(function(id) {
+  ["ambiancemid", "ambiancehard", "boom"].forEach(function(id) {
     var el = document.getElementById(id);
     el.pause();
     el.currentTime = 0;
