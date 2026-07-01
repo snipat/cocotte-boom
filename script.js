@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   document.getElementById("splash-version").innerHTML = v;
 });
 
-const VERSION = 31;
+const VERSION = 33;
 
 let beta,
     gamma,
@@ -13,7 +13,6 @@ let beta,
     gameover = false,
     n = 1,
     sound1 = false;
-
 
 
 function lancerLeJeu() {
@@ -65,10 +64,13 @@ function increasePression() {
   } else {
     if ((beta >= 5 && beta < 10) || (beta <= -5 && beta > -10)) {
       pression += 2;
+      document.getElementById("jaune").style.opacity = "1";
       } else if ((beta >= 10 && beta < 15) || (beta <= -10 && beta > -15)) {
         pression += 4;
+        document.getElementById("orange").style.opacity = "1";
       } else if (beta >= 15 || beta <= -15) {
         pression += 6;
+        document.getElementById("red").style.opacity = "1";
     } else {
       pression += 1;
     }
@@ -80,6 +82,7 @@ function increasePression() {
         pression += 6;
     } else {
       pression += 1;
+
     }
   }
 }
@@ -108,11 +111,11 @@ function changeColor(pression) {
     document.getElementById("jauge").style.color = "green";
   } else if (palier === 1) {
     document.getElementById("jauge").style.color = "orange";
-    document.getElementById("orange").style.opacity = "1";
+  //  document.getElementById("orange").style.opacity = "1";
     document.getElementById("ambiance").play();
     cocotte.classList.replace('base', 'bouge');
   } else if (palier === 2) {
-    document.getElementById("red").style.opacity = "1";
+//  document.getElementById("red").style.opacity = "1";
     document.getElementById("ambiance").pause();
     document.getElementById("ambiancemid").play();
     cocotte.classList.replace('bouge', 'saute');
