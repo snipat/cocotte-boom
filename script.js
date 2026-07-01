@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   document.getElementById("ambiance").play().catch(function(){});
 });
 
-const VERSION = 64;
+const VERSION = 65;
 
 let beta,
     gamma,
@@ -159,22 +159,22 @@ function changeColor(pression) {
 
 function changeAngle(){
   if((beta >= 5 && beta < 10) || (beta <= -5 && beta > -10)){
-  //  document.getElementById("gameZone").style.backgroundColor="green";
+    document.getElementById("gameZone").style.backgroundColor="green";
   }
   else if ((beta >= 10 && beta < 15) || (beta <= -10 && beta > -15)) {
-//    document.getElementById("gameZone").style.backgroundColor="orange";
+    document.getElementById("gameZone").style.backgroundColor="orange";
   }
-  else if (beta >= 15 || beta <= -15) {
-//    document.getElementById("gameZone").style.backgroundColor="red";
+  else if (beta >= 15 || beta <= -100) {
+    document.getElementById("gameZone").style.backgroundColor="red";
   }
   if ((gamma >= 10 && gamma < 15) || (gamma <= -10 && gamma > -15)) {
-//    document.getElementById("gameZone").style.backgroundColor="green";
+    document.getElementById("gameZone").style.backgroundColor="green";
   }
   else if ((gamma >= 15 && gamma < 30) || (gamma <= -15 && gamma > -30)) {
-//    document.getElementById("gameZone").style.backgroundColor="orange";
+    document.getElementById("gameZone").style.backgroundColor="orange";
   }
-  else if (gamma >= 30 || gamma <= -30) {
-//    document.getElementById("gameZone").style.backgroundColor="red";
+  else if (gamma >= 30 || gamma <= -100) {
+    document.getElementById("gameZone").style.backgroundColor="red";
   }
 }
 
