@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   document.getElementById("splash-version").innerHTML = v;
 });
 
-const VERSION = 45;
+const VERSION = 46;
 
 let beta,
     gamma,
@@ -66,11 +66,15 @@ function increasePression() {
         document.getElementById("jaune").style.opacity = "1";
         document.getElementById("red").style.opacity = "0";
         document.getElementById("orange").style.opacity = "0";
+        document.getElementById("bip1").play();
+
       } else if ((beta >= 10 && beta < 15) || (beta <= -10 && beta > -15)) {
         pression += 4;
         document.getElementById("jaune").style.opacity = "1";
         document.getElementById("orange").style.opacity = "1";
         document.getElementById("red").style.opacity = "0";
+        document.getElementById("bip1").pause();
+        document.getElementById("bip2").play();
       } else if (beta >= 15 || beta <= -15) {
         pression += 6;
         document.getElementById("jaune").style.opacity = "1";
