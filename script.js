@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   document.getElementById("splash-version").innerHTML = v;
 });
 
-const VERSION = 56;
+const VERSION = 57;
 
 let beta,
     gamma,
@@ -138,6 +138,7 @@ function changeColor(pression) {
     bip2.pause();
     var explosion = document.getElementById("explosion");
     explosion.src = "explosion.gif?" + Date.now();
+    document.getElementById("cocotte").style.display = "none";
     explosion.style.display = "block";
     setTimeout(function() {
       explosion.style.display = "none";
@@ -203,5 +204,8 @@ function retryGame() {
     el.currentTime = 0;
   });
   document.getElementById("ambiance").play();
-  document.getElementById("cocotte").className = "base";
+  document.getElementById("explosion").style.display = "none";
+  var cocotte = document.getElementById("cocotte");
+  cocotte.style.display = "block";
+  cocotte.className = "base";
 }
