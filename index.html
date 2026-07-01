@@ -12,8 +12,8 @@
       <meta name="apple-mobile-web-app-status-bar-style" content="default">
       <meta name="apple-mobile-web-app-title" content="Cocotte Boom">
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-      <link rel="stylesheet" href="cocotte.css?v=62">
-      <script src="script.js?v=62"></script>
+      <link rel="stylesheet" href="cocotte.css?v=63">
+      <script src="script.js?v=63"></script>
       <script>
         if ('serviceWorker' in navigator) {
           navigator.serviceWorker.register('/sw.js');
@@ -37,12 +37,12 @@
 
     <div id="game">
       <div class="gameZone" id="gameZone">
-        <div>
-          <div id="version" style="display: inline-block;"></div>
-          <br>
-          <div id="roulis"style="display: inline-block;">Roulis : capteur de mouvement non autorisé   </div>
-          <div id="tangage"style="display: inline-block;">Tangage : capteur de mouvement non autorisé   </div>
-          <div id="jauge" style="display: inline-block;">Pression :   </div>
+        <div id="info-box">
+          <button id="info-close" onclick="document.getElementById('info-box').style.display='none'">&#x2715;</button>
+          <div id="version"></div>
+          <div id="roulis">Roulis : —</div>
+          <div id="tangage">Tangage : —</div>
+          <div id="jauge">Pression : —</div>
         </div>
         <div>
           <audio id="ambiance" autoplay loop preload="auto" src="ambiance.wav"></audio>
