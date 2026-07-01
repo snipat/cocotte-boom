@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   document.getElementById("ambiance").play().catch(function(){});
 });
 
-const VERSION = 63;
+const VERSION = 64;
 
 let beta,
     gamma,
@@ -211,6 +211,7 @@ function retryGame() {
     el.currentTime = 0;
   });
   document.getElementById("ambiance").play();
+  document.getElementById("info-box").style.display = "";
   document.getElementById("explosion").style.display = "none";
   var cocotte = document.getElementById("cocotte");
   cocotte.style.display = "block";
