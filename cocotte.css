@@ -217,6 +217,17 @@
   position: absolute;
 }
 
+.vert {
+  border-radius: 50%;
+  height: 590px;
+  width: 590px;
+  background-color: red;
+  opacity: 0.1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+
 /* Hide the number input */
 #options .full-width-slider input {
   display: none;

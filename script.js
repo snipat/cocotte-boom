@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   document.getElementById("splash-version").innerHTML = v;
 });
 
-const VERSION = 31;
+const VERSION = 32;
 
 let beta,
     gamma,
@@ -71,6 +71,7 @@ function increasePression() {
         pression += 6;
     } else {
       pression += 1;
+      document.getElementById("vert").style.opacity = "1";
     }
     if ((gamma >= 10 && gamma < 15) || (gamma <= -10 && gamma > -15)) {
       pression += 2;
@@ -108,13 +109,13 @@ function changeColor(pression) {
     document.getElementById("jauge").style.color = "green";
   } else if (palier === 1) {
     document.getElementById("jauge").style.color = "orange";
-    document.getElementById("orange").style.opacity = "1";
+  //  document.getElementById("orange").style.opacity = "1";
     document.getElementById("ambiance").play();
     cocotte.classList.replace('base', 'bouge');
   } else if (palier === 2) {
-    document.getElementById("red").style.opacity = "1";
-    document.getElementById("ambiance").pause();
-    document.getElementById("ambiancemid").play();
+  //  document.getElementById("red").style.opacity = "1";
+    //document.getElementById("ambiance").pause();
+  //  document.getElementById("ambiancemid").play();
     cocotte.classList.replace('bouge', 'saute');
   } else if (palier === 3) {
     document.getElementById("ambiancehigh").pause();
