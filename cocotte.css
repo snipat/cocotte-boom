@@ -7,6 +7,7 @@
   inset: 0;
   background-color: #EC6B49;
   z-index: 200;
+  touch-action: manipulation;
 }
 
 #splash-version {
