@@ -70,15 +70,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
   audioCtx.resume().then(function() { playLoop('ambiance1'); }).catch(function(){});
 });
 
-const VERSION = 106;
+const VERSION = 107;
 
 let beta,
     gamma,
     pression = 0,
     palier = 0,
     gameover = false,
-    n = 1,
-    sound1 = false,
     ambiance4Played = false;
 
 function lancerLeJeu() {
@@ -240,7 +238,6 @@ function changeColor(pression) {
     document.getElementById("cocotte").style.display = "none";
     explosion.style.display = "block";
     setTimeout(function() {
-      stopSound('ambiance3'); stopSound('ambiance4');
       explosion.style.display = "none";
       document.getElementById("gameover-overlay").style.display = "flex";
     }, 2000);
