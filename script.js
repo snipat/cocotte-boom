@@ -70,14 +70,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
   audioCtx.resume().then(function() { playLoop('ambiance1'); }).catch(function(){});
 });
 
-const VERSION = 109;
+const VERSION = 110;
 
 let beta,
     gamma,
     pression = 0,
     palier = 0,
     gameover = false,
-    ambiance4Played = false;
+    ambiance4Played = false,
+    palier4Seuil = 3000;
 
 function lancerLeJeu() {
   // Plein écran + verrouillage portrait (Android Chrome)
@@ -194,11 +195,11 @@ function changeColor(pression) {
   if (gameover) return;
 
   var nouveauPalier;
-  if (pression < 500)        nouveauPalier = 0;
-  else if (pression < 1000)  nouveauPalier = 1;
-  else if (pression < 2000)  nouveauPalier = 2;
-  else if (pression < 3000)  nouveauPalier = 3;
-  else                       nouveauPalier = 4;
+  if (pression < 500)               nouveauPalier = 0;
+  else if (pression < 1000)         nouveauPalier = 1;
+  else if (pression < 2000)         nouveauPalier = 2;
+  else if (pression < palier4Seuil) nouveauPalier = 3;
+  else                              nouveauPalier = 4;
 
   if (nouveauPalier === palier) return;
   palier = nouveauPalier;
@@ -211,6 +212,8 @@ function changeColor(pression) {
     stopSound('ambiance2'); stopSound('ambiance3'); stopSound('ambiance4');
     playLoop('ambiance1');
   } else if (palier === 2) {
+    var seuils = [3000, 4000, 5000];
+    palier4Seuil = seuils[Math.floor(Math.random() * 3)];
     cocotte.classList.replace('bouge', 'saute');
     stopSound('ambiance1'); stopSound('ambiance3'); stopSound('ambiance4');
     playLoop('ambiance2');
@@ -275,6 +278,7 @@ function retryGame() {
   inCalmZone = false;
   calmCooldown = false;
   ambiance4Played = false;
+  palier4Seuil = 3000;
   if (thumbsUpTimer) { clearTimeout(thumbsUpTimer); thumbsUpTimer = null; }
   document.getElementById("thumbs-up").style.display = "none";
   stopAllSounds();
