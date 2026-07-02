@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   audioCtx.resume().then(function() { playLoop('ambiance1'); }).catch(function(){});
 });
 
-const VERSION = 130;
+const VERSION = 131;
 
 let beta,
     gamma,
@@ -292,7 +292,7 @@ async function submitScore(playerName) {
     headers: {
       'Content-Type': 'application/json',
       'apikey': SUPABASE_KEY,
-      'Authorization': 'Bearer ' + SUPABASE_KEY,
+      'Authorization': 'Bearer anon',
       'Prefer': 'return=minimal'
     },
     body: JSON.stringify({ gamersName: playerName })
@@ -326,7 +326,7 @@ async function openScoreboard() {
   content.innerHTML = 'Chargement…';
   var res = await fetch(
     SUPABASE_URL + '/rest/v1/gamers?order=created_at.desc&limit=10&select=gamersName,created_at',
-    { headers: { 'apikey': SUPABASE_KEY, 'Authorization': 'Bearer ' + SUPABASE_KEY } }
+    { headers: { 'apikey': SUPABASE_KEY, 'Authorization': 'Bearer anon' } }
   );
   var gamers = res.ok ? await res.json() : [];
   if (!gamers.length) {
