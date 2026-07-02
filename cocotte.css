@@ -33,7 +33,7 @@
 
 #splash-actions {
   position: absolute;
-  top: 72%;
+  top: calc(40% + 22vw + 5vh);
   left: 50%;
   transform: translateX(-50%);
   display: flex;
