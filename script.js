@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   audioCtx.resume().then(function() { playLoop('ambiance1'); }).catch(function(){});
 });
 
-const VERSION = 108;
+const VERSION = 109;
 
 let beta,
     gamma,
@@ -163,7 +163,7 @@ function increasePression() {
       pression = Math.max(0, pression - 500);
       showThumbsUp();
       playOnce('ping');
-      setTimeout(function() { calmCooldown = false; }, 2000);
+      setTimeout(function() { calmCooldown = false; }, 4000);
     }
   } else {
     inCalmZone = false;
