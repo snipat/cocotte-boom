@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   audioCtx.resume().then(function() { playLoop('ambiance1'); }).catch(function(){});
 });
 
-const VERSION = 113;
+const VERSION = 114;
 
 let beta,
     gamma,
@@ -202,6 +202,7 @@ function changeColor(pression) {
 
   if (nouveauPalier === palier) return;
   palier = nouveauPalier;
+  document.getElementById('palier-info').textContent = 'Palier : ' + palier;
 
   var wrap = document.getElementById('cocotte-wrap');
   if (palier >= 1 && palier <= 3) {
@@ -259,6 +260,13 @@ function toggleRegles() {
   box.style.display = box.style.display === 'block' ? 'none' : 'block';
 }
 
+function closeReglesIfOutside(e) {
+  var box = document.getElementById('regles-box');
+  if (box.style.display === 'block' && !box.contains(e.target)) {
+    box.style.display = 'none';
+  }
+}
+
 function toggleInfoBox() {
   var box = document.getElementById('info-box');
   box.style.display = box.style.display === 'none' ? '' : 'none';
@@ -284,6 +292,7 @@ function retryGame() {
   document.getElementById("jaune").style.opacity = "0";
   document.getElementById("orange").style.opacity = "0";
   document.getElementById("rouge").style.opacity = "0";
+  document.getElementById('palier-info').textContent = 'Palier : 0';
   inCalmZone = false;
   calmCooldown = false;
   ambiance4Played = false;
