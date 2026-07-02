@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   audioCtx.resume().then(function() { playLoop('ambiance1'); }).catch(function(){});
 });
 
-const VERSION = 105;
+const VERSION = 106;
 
 let beta,
     gamma,
@@ -220,16 +220,16 @@ function changeColor(pression) {
     if (!ambiance4Played) {
       ambiance4Played = true;
       playOnce('ambiance4');
-    }
-    if (audioBuffers['ambiance4']) {
-      var src = audioCtx.createBufferSource();
-      src.buffer = audioBuffers['ambiance4'];
-      src.connect(masterGain);
-      activeSources['ambiance4'].onended = function() {
-        src.start(0);
-        activeSources['ambiance4'] = src;
-        src.onended = function() { delete activeSources['ambiance4']; };
-      };
+      if (audioBuffers['ambiance4']) {
+        var src = audioCtx.createBufferSource();
+        src.buffer = audioBuffers['ambiance4'];
+        src.connect(masterGain);
+        activeSources['ambiance4'].onended = function() {
+          src.start(0);
+          activeSources['ambiance4'] = src;
+          src.onended = function() { delete activeSources['ambiance4']; };
+        };
+      }
     }
   } else if (palier === 4) {
     gameover = true;
