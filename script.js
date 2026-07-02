@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   audioCtx.resume().then(function() { playLoop('ambiance1'); }).catch(function(){});
 });
 
-const VERSION = 121;
+const VERSION = 122;
 
 let beta,
     gamma,
