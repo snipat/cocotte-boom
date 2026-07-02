@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   audioCtx.resume().then(function() { playLoop('ambiance1'); }).catch(function(){});
 });
 
-const VERSION = 104;
+const VERSION = 105;
 
 let beta,
     gamma,
@@ -79,7 +79,6 @@ let beta,
     gameover = false,
     n = 1,
     sound1 = false,
-    alarmPlayed = false,
     ambiance4Played = false;
 
 function lancerLeJeu() {
@@ -187,7 +186,7 @@ function increasePression() {
   document.getElementById("jaune").style.opacity  = niveau >= 1 ? "1" : "0";
   document.getElementById("orange").style.opacity = niveau >= 2 ? "1" : "0";
   document.getElementById("rouge").style.opacity  = niveau >= 3 ? "1" : "0";
-  if (niveau >= 3 && !alarmPlayed) { alarmPlayed = true; playOnce('alarm'); }
+  if (niveau >= 3 && !activeSources['alarm']) playOnce('alarm');
 }
 
 function changeColor(pression) {
@@ -274,7 +273,6 @@ function retryGame() {
   document.getElementById("orange").style.opacity = "0";
   document.getElementById("rouge").style.opacity = "0";
   inCalmZone = false;
-  alarmPlayed = false;
   ambiance4Played = false;
   if (thumbsUpTimer) { clearTimeout(thumbsUpTimer); thumbsUpTimer = null; }
   document.getElementById("thumbs-up").style.display = "none";
