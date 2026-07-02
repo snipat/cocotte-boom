@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   audioCtx.resume().then(function() { playLoop('ambiance1'); }).catch(function(){});
 });
 
-const VERSION = 85;
+const VERSION = 86;
 
 let beta,
     gamma,
@@ -122,6 +122,7 @@ function displayPression() {
 }
 
 var thumbsUpTimer = null;
+var inCalmZone = false;
 
 function showThumbsUp() {
   if (thumbsUpTimer) return;
@@ -138,44 +139,55 @@ function increasePression() {
 
   pression += 1;
 
-  if (beta > -5 && beta < 5) {
+  var betaCalm = beta > -5 && beta < 5;
+  var gammaCalm = gamma > -5 && gamma < 5;
+
+  if (betaCalm || gammaCalm) {
     pression = Math.max(0, pression - 100);
-    showThumbsUp();
-  } else if ((beta >= 5 && beta < 10) || (beta <= -5 && beta > -10)) {
-    pression += 2;
-    document.getElementById("jaune").style.opacity = "1";
-    document.getElementById("orange").style.opacity = "0";
-    document.getElementById("rouge").style.opacity = "0";
-  } else if ((beta >= 10 && beta < 15) || (beta <= -10 && beta > -15)) {
-    pression += 4;
-    document.getElementById("jaune").style.opacity = "1";
-    document.getElementById("orange").style.opacity = "1";
-    document.getElementById("rouge").style.opacity = "0";
-  } else if (beta >= 15 || beta <= -15) {
-    pression += 6;
-    document.getElementById("jaune").style.opacity = "1";
-    document.getElementById("orange").style.opacity = "1";
-    document.getElementById("rouge").style.opacity = "1";
+    if (!inCalmZone) {
+      inCalmZone = true;
+      showThumbsUp();
+    }
+  } else {
+    inCalmZone = false;
   }
 
-  if (gamma > -5 && gamma < 5) {
-    pression = Math.max(0, pression - 100);
-    showThumbsUp();
-  } else if ((gamma >= 5 && gamma < 10) || (gamma <= -5 && gamma > -10)) {
-    pression += 2;
-    document.getElementById("jaune").style.opacity = "1";
-    document.getElementById("orange").style.opacity = "0";
-    document.getElementById("rouge").style.opacity = "0";
-  } else if ((gamma >= 15 && gamma < 30) || (gamma <= -15 && gamma > -30)) {
-    pression += 4;
-    document.getElementById("jaune").style.opacity = "1";
-    document.getElementById("orange").style.opacity = "1";
-    document.getElementById("rouge").style.opacity = "0";
-  } else if (gamma >= 30 || gamma <= -30) {
-    pression += 6;
-    document.getElementById("jaune").style.opacity = "1";
-    document.getElementById("orange").style.opacity = "1";
-    document.getElementById("rouge").style.opacity = "1";
+  if (!betaCalm) {
+    if ((beta >= 5 && beta < 10) || (beta <= -5 && beta > -10)) {
+      pression += 2;
+      document.getElementById("jaune").style.opacity = "1";
+      document.getElementById("orange").style.opacity = "0";
+      document.getElementById("rouge").style.opacity = "0";
+    } else if ((beta >= 10 && beta < 15) || (beta <= -10 && beta > -15)) {
+      pression += 4;
+      document.getElementById("jaune").style.opacity = "1";
+      document.getElementById("orange").style.opacity = "1";
+      document.getElementById("rouge").style.opacity = "0";
+    } else if (beta >= 15 || beta <= -15) {
+      pression += 6;
+      document.getElementById("jaune").style.opacity = "1";
+      document.getElementById("orange").style.opacity = "1";
+      document.getElementById("rouge").style.opacity = "1";
+    }
+  }
+
+  if (!gammaCalm) {
+    if ((gamma >= 5 && gamma < 10) || (gamma <= -5 && gamma > -10)) {
+      pression += 2;
+      document.getElementById("jaune").style.opacity = "1";
+      document.getElementById("orange").style.opacity = "0";
+      document.getElementById("rouge").style.opacity = "0";
+    } else if ((gamma >= 15 && gamma < 30) || (gamma <= -15 && gamma > -30)) {
+      pression += 4;
+      document.getElementById("jaune").style.opacity = "1";
+      document.getElementById("orange").style.opacity = "1";
+      document.getElementById("rouge").style.opacity = "0";
+    } else if (gamma >= 30 || gamma <= -30) {
+      pression += 6;
+      document.getElementById("jaune").style.opacity = "1";
+      document.getElementById("orange").style.opacity = "1";
+      document.getElementById("rouge").style.opacity = "1";
+    }
   }
 }
 
@@ -244,6 +256,7 @@ function retryGame() {
   document.getElementById("jaune").style.opacity = "0";
   document.getElementById("orange").style.opacity = "0";
   document.getElementById("rouge").style.opacity = "0";
+  inCalmZone = false;
   if (thumbsUpTimer) { clearTimeout(thumbsUpTimer); thumbsUpTimer = null; }
   document.getElementById("thumbs-up").style.display = "none";
   stopAllSounds();
