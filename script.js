@@ -1,11 +1,74 @@
+// ── Web Audio API ──────────────────────────────────────────────
+var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+var masterGain = audioCtx.createGain();
+masterGain.connect(audioCtx.destination);
+
+var audioBuffers = {};
+var activeSources = {};
+
+var AUDIO_FILES = {
+  ambiance1: 'ambiance1.wav',
+  ambiance2: 'ambiance2.wav',
+  ambiance3: 'ambiance3.wav',
+  ambiance4: 'ambiance4.wav',
+  boom: 'explosion.wav'
+};
+
+function loadAudioFiles() {
+  Object.keys(AUDIO_FILES).forEach(function(id) {
+    fetch(AUDIO_FILES[id])
+      .then(function(r) { return r.arrayBuffer(); })
+      .then(function(buf) { return audioCtx.decodeAudioData(buf); })
+      .then(function(decoded) { audioBuffers[id] = decoded; })
+      .catch(function() {});
+  });
+}
+
+function playLoop(id) {
+  stopSound(id);
+  if (!audioBuffers[id]) return;
+  var source = audioCtx.createBufferSource();
+  source.buffer = audioBuffers[id];
+  source.loop = true;
+  source.connect(masterGain);
+  source.start(0);
+  activeSources[id] = source;
+}
+
+function playOnce(id) {
+  stopSound(id);
+  if (!audioBuffers[id]) return;
+  var source = audioCtx.createBufferSource();
+  source.buffer = audioBuffers[id];
+  source.loop = false;
+  source.connect(masterGain);
+  source.start(0);
+  activeSources[id] = source;
+  source.onended = function() { delete activeSources[id]; };
+}
+
+function stopSound(id) {
+  if (activeSources[id]) {
+    try { activeSources[id].stop(); } catch(e) {}
+    delete activeSources[id];
+  }
+}
+
+function stopAllSounds() {
+  Object.keys(activeSources).forEach(stopSound);
+}
+// ───────────────────────────────────────────────────────────────
+
 document.addEventListener("DOMContentLoaded", function(event) {
+  loadAudioFiles();
   var v = "Version : " + VERSION;
   document.getElementById("version").innerHTML = v;
   document.getElementById("splash-version").innerHTML = v;
-  document.getElementById("ambiance1").play().catch(function(){});
+  // Desktop/Android : autoplay sans geste
+  audioCtx.resume().then(function() { playLoop('ambiance1'); }).catch(function(){});
 });
 
-const VERSION = 77;
+const VERSION = 78;
 
 let beta,
     gamma,
@@ -16,12 +79,8 @@ let beta,
     sound1 = false;
 
 function lancerLeJeu() {
-  document.getElementById("ambiance1").play().catch(function(){});
-  ["ambiance2", "ambiance3", "ambiance4", "boom"].forEach(function(id) {
-    var el = document.getElementById(id);
-    el.muted = true;
-    el.play().then(function() { el.pause(); el.currentTime = 0; el.muted = muted; }).catch(function(){});
-  });
+  // Resume AudioContext dans le geste utilisateur (obligatoire iOS)
+  audioCtx.resume().then(function() { playLoop('ambiance1'); }).catch(function(){});
 
   if (
     window.DeviceOrientationEvent &&
@@ -102,6 +161,12 @@ function increasePression() {
     } else {
       pression += 1;
     }
+
+    var betaCalm = beta > -5 && beta < 5;
+    var gammaCalm = gamma > -10 && gamma < 10;
+    var afficherVert = betaCalm || gammaCalm;
+    document.getElementById("vert").style.opacity = afficherVert ? "1" : "0";
+    document.getElementById("jaune").style.opacity = afficherVert ? "0" : document.getElementById("jaune").style.opacity;
   }
 }
 
@@ -118,32 +183,27 @@ function changeColor(pression) {
   if (nouveauPalier === palier) return;
   palier = nouveauPalier;
 
-  var a1 = document.getElementById("ambiance1");
-  var a2 = document.getElementById("ambiance2");
-  var a3 = document.getElementById("ambiance3");
-  var a4 = document.getElementById("ambiance4");
-
   if (palier === 1) {
     cocotte.classList.replace('base', 'bouge');
-    a2.pause(); a3.pause(); a4.pause();
+    stopSound('ambiance2'); stopSound('ambiance3'); stopSound('ambiance4');
   } else if (palier === 2) {
     cocotte.classList.replace('bouge', 'saute');
-    a1.pause(); a3.pause(); a4.pause();
-    if (a2.paused) a2.play();
+    stopSound('ambiance1'); stopSound('ambiance3'); stopSound('ambiance4');
+    playLoop('ambiance2');
   } else if (palier === 3) {
     cocotte.classList.replace('saute', 'bondit');
-    a1.pause(); a2.pause(); a4.pause();
-    if (a3.paused) a3.play();
+    stopSound('ambiance1'); stopSound('ambiance2'); stopSound('ambiance4');
+    playLoop('ambiance3');
   } else if (palier === 4) {
     gameover = true;
-    a1.pause(); a2.pause();
-    if (a4.paused) a4.play();
+    stopSound('ambiance1'); stopSound('ambiance2');
+    playLoop('ambiance4');
     var explosion = document.getElementById("explosion");
     explosion.src = "explosion.gif?" + Date.now();
     document.getElementById("cocotte").style.display = "none";
     explosion.style.display = "block";
     setTimeout(function() {
-      a3.pause(); a4.pause();
+      stopSound('ambiance3'); stopSound('ambiance4');
       explosion.style.display = "none";
       document.getElementById("gameover-overlay").style.display = "flex";
     }, 2000);
@@ -155,14 +215,11 @@ function selectDiff(btn) {
   btn.classList.add('diff-active');
 }
 
-let muted = false;
-const AUDIO_IDS = ["ambiance1", "ambiance2", "ambiance3", "ambiance4", "boom"];
+var muted = false;
 
 function toggleMute() {
   muted = !muted;
-  AUDIO_IDS.forEach(function(id) {
-    document.getElementById(id).muted = muted;
-  });
+  masterGain.gain.value = muted ? 0 : 1;
   document.getElementById("mute-btn").textContent = muted ? "🔇" : "🔊";
 }
 
@@ -179,12 +236,8 @@ function retryGame() {
   document.getElementById("jaune").style.opacity = "0";
   document.getElementById("orange").style.opacity = "0";
   document.getElementById("rouge").style.opacity = "0";
-  ["ambiance2", "ambiance3", "ambiance4", "boom"].forEach(function(id) {
-    var el = document.getElementById(id);
-    el.pause();
-    el.currentTime = 0;
-  });
-  document.getElementById("ambiance1").play();
+  stopAllSounds();
+  playLoop('ambiance1');
   document.getElementById("info-box").style.display = "";
   document.getElementById("explosion").style.display = "none";
   var cocotte = document.getElementById("cocotte");
