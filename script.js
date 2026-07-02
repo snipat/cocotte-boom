@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   audioCtx.resume().then(function() { playLoop('ambiance1'); }).catch(function(){});
 });
 
-const VERSION = 89;
+const VERSION = 90;
 
 let beta,
     gamma,
