@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   audioCtx.resume().then(function() { playLoop('ambiance1'); }).catch(function(){});
 });
 
-const VERSION = 93;
+const VERSION = 94;
 
 let beta,
     gamma,
@@ -164,43 +164,24 @@ function increasePression() {
     inCalmZone = false;
   }
 
+  var betaLevel = 0;
   if (!betaCalm) {
-    if ((beta >= 5 && beta < 10) || (beta <= -5 && beta > -10)) {
-      pression += 2;
-      document.getElementById("jaune").style.opacity = "1";
-      document.getElementById("orange").style.opacity = "0";
-      document.getElementById("rouge").style.opacity = "0";
-    } else if ((beta >= 10 && beta < 15) || (beta <= -10 && beta > -15)) {
-      pression += 4;
-      document.getElementById("jaune").style.opacity = "1";
-      document.getElementById("orange").style.opacity = "1";
-      document.getElementById("rouge").style.opacity = "0";
-    } else if (beta >= 15 || beta <= -15) {
-      pression += 6;
-      document.getElementById("jaune").style.opacity = "1";
-      document.getElementById("orange").style.opacity = "1";
-      document.getElementById("rouge").style.opacity = "1";
-    }
+    if ((beta >= 5 && beta < 10) || (beta <= -5 && beta > -10)) { pression += 2; betaLevel = 1; }
+    else if ((beta >= 10 && beta < 15) || (beta <= -10 && beta > -15)) { pression += 4; betaLevel = 2; }
+    else if (beta >= 15 || beta <= -15) { pression += 6; betaLevel = 3; }
   }
 
+  var gammaLevel = 0;
   if (!gammaCalm) {
-    if ((gamma >= 5 && gamma < 10) || (gamma <= -5 && gamma > -10)) {
-      pression += 2;
-      document.getElementById("jaune").style.opacity = "1";
-      document.getElementById("orange").style.opacity = "0";
-      document.getElementById("rouge").style.opacity = "0";
-    } else if ((gamma >= 15 && gamma < 30) || (gamma <= -15 && gamma > -30)) {
-      pression += 4;
-      document.getElementById("jaune").style.opacity = "1";
-      document.getElementById("orange").style.opacity = "1";
-      document.getElementById("rouge").style.opacity = "0";
-    } else if (gamma >= 30 || gamma <= -30) {
-      pression += 6;
-      document.getElementById("jaune").style.opacity = "1";
-      document.getElementById("orange").style.opacity = "1";
-      document.getElementById("rouge").style.opacity = "1";
-    }
+    if ((gamma >= 5 && gamma < 10) || (gamma <= -5 && gamma > -10)) { pression += 2; gammaLevel = 1; }
+    else if ((gamma >= 15 && gamma < 30) || (gamma <= -15 && gamma > -30)) { pression += 4; gammaLevel = 2; }
+    else if (gamma >= 30 || gamma <= -30) { pression += 6; gammaLevel = 3; }
   }
+
+  var niveau = Math.max(betaLevel, gammaLevel);
+  document.getElementById("jaune").style.opacity  = niveau >= 1 ? "1" : "0";
+  document.getElementById("orange").style.opacity = niveau >= 2 ? "1" : "0";
+  document.getElementById("rouge").style.opacity  = niveau >= 3 ? "1" : "0";
 }
 
 function changeColor(pression) {
