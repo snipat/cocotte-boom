@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   audioCtx.resume().then(function() { playLoop('ambiance1'); }).catch(function(){});
 });
 
-const VERSION = 100;
+const VERSION = 101;
 
 let beta,
     gamma,
@@ -199,9 +199,13 @@ function changeColor(pression) {
   if (nouveauPalier === palier) return;
   palier = nouveauPalier;
 
-  if (palier === 1) {
+  if (palier === 0) {
+    stopSound('ambiance2'); stopSound('ambiance3'); stopSound('ambiance4');
+    playLoop('ambiance1');
+  } else if (palier === 1) {
     cocotte.classList.replace('base', 'bouge');
     stopSound('ambiance2'); stopSound('ambiance3'); stopSound('ambiance4');
+    playLoop('ambiance1');
   } else if (palier === 2) {
     cocotte.classList.replace('bouge', 'saute');
     stopSound('ambiance1'); stopSound('ambiance3'); stopSound('ambiance4');
