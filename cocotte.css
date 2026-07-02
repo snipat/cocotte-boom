@@ -140,6 +140,16 @@
   display: block;
 }
 
+#thumbs-up {
+  display: none;
+  position: absolute;
+  inset: 0;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  z-index: 20;
+}
+
 .base {
   animation: shake 0.5s infinite;
 }

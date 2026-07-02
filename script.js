@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   audioCtx.resume().then(function() { playLoop('ambiance1'); }).catch(function(){});
 });
 
-const VERSION = 80;
+const VERSION = 81;
 
 let beta,
     gamma,
@@ -121,47 +121,62 @@ function displayPression() {
  document.getElementById("tangage").innerHTML = "Tangage : " + gamma;
 }
 
+var thumbsUpTimer = null;
+
+function showThumbsUp() {
+  if (thumbsUpTimer) return;
+  var el = document.getElementById("thumbs-up");
+  el.style.display = "flex";
+  thumbsUpTimer = setTimeout(function() {
+    el.style.display = "none";
+    thumbsUpTimer = null;
+  }, 3000);
+}
+
 function increasePression() {
-  if (gameover) {
+  if (gameover) return;
 
-  } else {
-    if ((beta >= 5 && beta < 10) || (beta <= -5 && beta > -10)) {
-      pression += 2;
-      document.getElementById("jaune").style.opacity = "1";
-      document.getElementById("rouge").style.opacity = "0";
-      document.getElementById("orange").style.opacity = "0";
-    } else if ((beta >= 10 && beta < 15) || (beta <= -10 && beta > -15)) {
-      pression += 4;
-      document.getElementById("jaune").style.opacity = "1";
-      document.getElementById("orange").style.opacity = "1";
-      document.getElementById("rouge").style.opacity = "0";
-    } else if (beta >= 15 || beta <= -15) {
-      pression += 6;
-      document.getElementById("jaune").style.opacity = "1";
-      document.getElementById("orange").style.opacity = "1";
-      document.getElementById("rouge").style.opacity = "1";
-    } else {
-      pression += 1;
-    }
-    if ((gamma >= 5 && gamma < 10) || (gamma <= -5 && gamma > -10)) {
-      pression += 2;
-        document.getElementById("jaune").style.opacity = "1";
-        document.getElementById("rouge").style.opacity = "0";
-        document.getElementById("orange").style.opacity = "0";
-      } else if ((gamma >= 15 && gamma < 30) || (gamma <= -15 && gamma > -30)) {
-        pression += 4;
-        document.getElementById("jaune").style.opacity = "1";
-        document.getElementById("orange").style.opacity = "1";
-        document.getElementById("rouge").style.opacity = "0";
-      } else if (gamma >= 30 || gamma <= -30) {
-        pression += 6;
-        document.getElementById("jaune").style.opacity = "1";
-        document.getElementById("orange").style.opacity = "1";
-        document.getElementById("rouge").style.opacity = "1";
-    } else {
-      pression += 1;
-    }
+  // Base : la pression monte toujours de 1
+  pression += 1;
 
+  if ((beta >= 5 && beta < 10) || (beta <= -5 && beta > -10)) {
+    pression += 2;
+    document.getElementById("jaune").style.opacity = "1";
+    document.getElementById("orange").style.opacity = "0";
+    document.getElementById("rouge").style.opacity = "0";
+  } else if ((beta >= 10 && beta < 15) || (beta <= -10 && beta > -15)) {
+    pression += 4;
+    document.getElementById("jaune").style.opacity = "1";
+    document.getElementById("orange").style.opacity = "1";
+    document.getElementById("rouge").style.opacity = "0";
+  } else if (beta >= 15 || beta <= -15) {
+    pression += 6;
+    document.getElementById("jaune").style.opacity = "1";
+    document.getElementById("orange").style.opacity = "1";
+    document.getElementById("rouge").style.opacity = "1";
+  }
+
+  if ((gamma >= 5 && gamma < 10) || (gamma <= -5 && gamma > -10)) {
+    pression += 2;
+    document.getElementById("jaune").style.opacity = "1";
+    document.getElementById("orange").style.opacity = "0";
+    document.getElementById("rouge").style.opacity = "0";
+  } else if ((gamma >= 15 && gamma < 30) || (gamma <= -15 && gamma > -30)) {
+    pression += 4;
+    document.getElementById("jaune").style.opacity = "1";
+    document.getElementById("orange").style.opacity = "1";
+    document.getElementById("rouge").style.opacity = "0";
+  } else if (gamma >= 30 || gamma <= -30) {
+    pression += 6;
+    document.getElementById("jaune").style.opacity = "1";
+    document.getElementById("orange").style.opacity = "1";
+    document.getElementById("rouge").style.opacity = "1";
+  }
+
+  // Zone calme : |beta| < 5 OU |gamma| < 5 → récompense
+  if ((beta > -5 && beta < 5) || (gamma > -5 && gamma < 5)) {
+    pression = Math.max(0, pression - 100);
+    showThumbsUp();
   }
 }
 
@@ -230,6 +245,8 @@ function retryGame() {
   document.getElementById("jaune").style.opacity = "0";
   document.getElementById("orange").style.opacity = "0";
   document.getElementById("rouge").style.opacity = "0";
+  if (thumbsUpTimer) { clearTimeout(thumbsUpTimer); thumbsUpTimer = null; }
+  document.getElementById("thumbs-up").style.display = "none";
   stopAllSounds();
   playLoop('ambiance1');
   document.getElementById("info-box").style.display = "";
