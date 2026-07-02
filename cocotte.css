@@ -56,14 +56,27 @@
   white-space: nowrap;
 }
 
-#difficulty-selector {
-  display: -webkit-flex;
+#splash-bottom-row {
   display: flex;
   gap: 10px;
+  align-items: center;
   z-index: 10;
 }
 
-.diff-btn {
+#difficulty-select {
+  padding: 9px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  border: 2px solid #fff;
+  color: #EC6B49;
+  background: #fff;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+#regles-btn {
   padding: 9px 16px;
   border-radius: 20px;
   font-size: 0.85rem;
@@ -74,14 +87,50 @@
   cursor: pointer;
   white-space: nowrap;
   -webkit-tap-highlight-color: transparent;
-  -webkit-user-select: none;
-  user-select: none;
 }
 
-.diff-btn.diff-active {
-  background: #fff;
-  color: #EC6B49;
-  border-color: #fff;
+#regles-box {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 50;
+  background: rgba(0, 0, 0, 0.88);
+  color: #fff;
+  font-size: 0.82rem;
+  padding: 16px 36px 16px 16px;
+  border-radius: 12px;
+  line-height: 1.6;
+  width: min(85vw, 340px);
+  max-height: 70vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+#regles-box p {
+  margin: 0 0 10px;
+}
+
+#regles-box p:last-child {
+  margin-bottom: 0;
+}
+
+#regles-close {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 36px;
+  height: 36px;
+  font-size: 18px;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
 }
 
 .content {

@@ -12,8 +12,8 @@
       <meta name="apple-mobile-web-app-status-bar-style" content="default">
       <meta name="apple-mobile-web-app-title" content="Cocotte Boom">
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-      <link rel="stylesheet" href="cocotte.css?v=109">
-      <script src="script.js?v=109"></script>
+      <link rel="stylesheet" href="cocotte.css?v=110">
+      <script src="script.js?v=110"></script>
       <script>
         if ('serviceWorker' in navigator) {
           navigator.serviceWorker.register('/sw.js');
@@ -34,11 +34,26 @@
       </div>
       <div id="splash-actions">
         <button id="splash-btn" onclick="lancerLeJeu()">Lancer le jeu</button>
-        <div id="difficulty-selector">
-          <button class="diff-btn" onclick="selectDiff(this)">Facile</button>
-          <button class="diff-btn diff-active" onclick="selectDiff(this)">Moyen</button>
-          <button class="diff-btn" onclick="selectDiff(this)">Difficile</button>
+        <div id="splash-bottom-row">
+          <select id="difficulty-select">
+            <option value="facile">Facile</option>
+            <option value="moyen" selected>Moyen</option>
+            <option value="difficile">Difficile</option>
+          </select>
+          <button id="regles-btn" onclick="toggleRegles()">Règles</button>
         </div>
+      </div>
+
+      <div id="regles-box">
+        <button id="regles-close" onclick="toggleRegles()">&#x2715;</button>
+        <p><strong>Règles</strong></p>
+        <p>Votre téléphone est désormais une cocotte minute sous pression !</p>
+        <p>Assemblés en rond, les joueurs se passent la cocotte sans s'arrêter et sans la poser. Celui ou celle qui a la cocotte entre les mains quand elle explose sort du cercle. Le survivant gagne la partie !</p>
+        <p>Pour faire augmenter la pression, penchez la cocotte.<br>Pour la diminuer, mettez le téléphone à l'équilibre.</p>
+        <p><strong>Sons</strong><br>
+        Alarme : cocotte trop penchée !<br>
+        Sifflement : cocotte sous pression danger !<br>
+        Tintement et apparition du pouce 👍 : bravo équilibre parfait</p>
       </div>
     </div>
 

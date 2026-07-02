@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   audioCtx.resume().then(function() { playLoop('ambiance1'); }).catch(function(){});
 });
 
-const VERSION = 109;
+const VERSION = 110;
 
 let beta,
     gamma,
@@ -247,9 +247,9 @@ function changeColor(pression) {
   }
 }
 
-function selectDiff(btn) {
-  document.querySelectorAll('.diff-btn').forEach(function(b) { b.classList.remove('diff-active'); });
-  btn.classList.add('diff-active');
+function toggleRegles() {
+  var box = document.getElementById('regles-box');
+  box.style.display = box.style.display === 'block' ? 'none' : 'block';
 }
 
 var muted = false;
