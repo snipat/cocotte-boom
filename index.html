@@ -12,8 +12,8 @@
       <meta name="apple-mobile-web-app-status-bar-style" content="default">
       <meta name="apple-mobile-web-app-title" content="Cocotte Boom">
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-      <link rel="stylesheet" href="cocotte.css?v=114">
-      <script src="script.js?v=114"></script>
+      <link rel="stylesheet" href="cocotte.css?v=115">
+      <script src="script.js?v=115"></script>
       <script>
         if ('serviceWorker' in navigator) {
           navigator.serviceWorker.register('/sw.js');
@@ -40,7 +40,7 @@
             <option value="moyen" selected>Difficulté</option>
             <option value="difficile">Difficile</option>
           </select>
-          <button id="regles-btn" onclick="toggleRegles()">Règles</button>
+          <button id="regles-btn" onclick="toggleRegles(); event.stopPropagation()">Règles</button>
         </div>
       </div>
 
