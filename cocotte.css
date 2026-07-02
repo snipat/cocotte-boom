@@ -288,18 +288,48 @@
   100% { opacity: 0;    transform: translateX(-50%) translateY(-55px) scale(2);   }
 }
 
-/* Palier 0 : 1 nuage léger (gamezone) */
+/* Palier 0 : 4 nuages légers (gamezone) */
 #cocotte-wrap:not([data-palier]) #fumee-1 {
   display: block; width: 16px; height: 16px;
-  left: 50%; top: 8%;
+  left: 44%; top: 8%;
   animation: fumee-monte 3.2s 0s infinite ease-out;
 }
+#cocotte-wrap:not([data-palier]) #fumee-2 {
+  display: block; width: 16px; height: 16px;
+  left: 56%; top: 10%;
+  animation: fumee-monte 3.2s 0.8s infinite ease-out;
+}
+#cocotte-wrap:not([data-palier]) #fumee-3 {
+  display: block; width: 16px; height: 16px;
+  left: 48%; top: 6%;
+  animation: fumee-monte 3.2s 1.6s infinite ease-out;
+}
+#cocotte-wrap:not([data-palier]) #fumee-4 {
+  display: block; width: 16px; height: 16px;
+  left: 52%; top: 12%;
+  animation: fumee-monte 3.2s 2.4s infinite ease-out;
+}
 
-/* Palier 0 : 1 nuage léger (splash) */
+/* Palier 0 : 4 nuages légers (splash) */
 #splash-cocotte-wrap .fumee-s1 {
   display: block; width: 16px; height: 16px;
-  left: 50%; top: 8%;
+  left: 44%; top: 8%;
   animation: fumee-monte 3.2s 0s infinite ease-out;
+}
+#splash-cocotte-wrap .fumee-s2 {
+  display: block; width: 16px; height: 16px;
+  left: 56%; top: 10%;
+  animation: fumee-monte 3.2s 0.8s infinite ease-out;
+}
+#splash-cocotte-wrap .fumee-s3 {
+  display: block; width: 16px; height: 16px;
+  left: 48%; top: 6%;
+  animation: fumee-monte 3.2s 1.6s infinite ease-out;
+}
+#splash-cocotte-wrap .fumee-s4 {
+  display: block; width: 16px; height: 16px;
+  left: 52%; top: 12%;
+  animation: fumee-monte 3.2s 2.4s infinite ease-out;
 }
 
 /* Palier 1 : 2 nuages */
