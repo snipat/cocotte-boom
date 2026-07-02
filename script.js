@@ -11,7 +11,8 @@ var AUDIO_FILES = {
   ambiance2: 'ambiance2.wav',
   ambiance3: 'ambiance3.wav',
   ambiance4: 'ambiance4.wav',
-  boom: 'explosion.wav'
+  boom: 'explosion.wav',
+  ping: 'ping.wav'
 };
 
 function loadAudioFiles() {
@@ -68,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   audioCtx.resume().then(function() { playLoop('ambiance1'); }).catch(function(){});
 });
 
-const VERSION = 98;
+const VERSION = 99;
 
 let beta,
     gamma,
@@ -159,6 +160,7 @@ function increasePression() {
       inCalmZone = true;
       pression = Math.max(0, pression - 500);
       showThumbsUp();
+      playOnce('ping');
     }
   } else {
     inCalmZone = false;
