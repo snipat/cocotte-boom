@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   audioCtx.resume().then(function() { playLoop('ambiance1'); }).catch(function(){});
 });
 
-const VERSION = 125;
+const VERSION = 126;
 
 let beta,
     gamma,
@@ -207,7 +207,7 @@ function changeColor(pression) {
   document.getElementById('palier-info').textContent = 'Palier : ' + palier;
 
   var wrap = document.getElementById('cocotte-wrap');
-  if (palier >= 1 && palier <= 3) {
+  if (palier >= 1 && palier <= 4) {
     wrap.dataset.palier = palier;
   } else {
     wrap.removeAttribute('data-palier');
