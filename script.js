@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   audioCtx.resume().then(function() { playLoop('ambiance1'); }).catch(function(){});
 });
 
-const VERSION = 129;
+const VERSION = 130;
 
 let beta,
     gamma,
@@ -308,9 +308,12 @@ async function saveAndRetry() {
     if (!res.ok) {
       var body = await res.json().catch(function() { return {}; });
       if (body.code === '23505' || res.status === 409) {
-        errEl.style.display = 'block';
-        return;
+        errEl.textContent = 'Ce nom est déjà utilisé !';
+      } else {
+        errEl.textContent = 'Erreur ' + res.status + (body.message ? ' : ' + body.message : '');
       }
+      errEl.style.display = 'block';
+      return;
     }
   }
   retryGame();
