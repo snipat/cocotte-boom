@@ -460,3 +460,42 @@ display: none;
   cursor: pointer;
   width: 100%;
 }
+
+#rotate-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: #EC6B49;
+  z-index: 300;
+  align-items: center;
+  justify-content: center;
+}
+
+#rotate-message {
+  text-align: center;
+  color: #fff;
+}
+
+#rotate-icon {
+  font-size: 4rem;
+  animation: rotate-hint 1.5s ease-in-out infinite;
+  display: inline-block;
+}
+
+#rotate-message p {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 16px;
+}
+
+@keyframes rotate-hint {
+  0%   { transform: rotate(0deg); }
+  50%  { transform: rotate(90deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@media (orientation: landscape) and (max-width: 1024px) {
+  #rotate-overlay {
+    display: flex;
+  }
+}

@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   audioCtx.resume().then(function() { playLoop('ambiance1'); }).catch(function(){});
 });
 
-const VERSION = 88;
+const VERSION = 89;
 
 let beta,
     gamma,
@@ -79,6 +79,18 @@ let beta,
     sound1 = false;
 
 function lancerLeJeu() {
+  // Plein écran + verrouillage portrait (Android Chrome)
+  var el = document.documentElement;
+  if (el.requestFullscreen) {
+    el.requestFullscreen().then(function() {
+      if (screen.orientation && screen.orientation.lock) {
+        screen.orientation.lock('portrait').catch(function(){});
+      }
+    }).catch(function(){});
+  } else if (el.webkitRequestFullscreen) {
+    el.webkitRequestFullscreen();
+  }
+
   // Resume AudioContext dans le geste utilisateur (obligatoire iOS)
   audioCtx.resume().then(function() { playLoop('ambiance1'); }).catch(function(){});
 
