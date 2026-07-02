@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   audioCtx.resume().then(function() { playLoop('ambiance1'); }).catch(function(){});
 });
 
-const VERSION = 86;
+const VERSION = 87;
 
 let beta,
     gamma,
@@ -131,7 +131,7 @@ function showThumbsUp() {
   thumbsUpTimer = setTimeout(function() {
     el.style.display = "none";
     thumbsUpTimer = null;
-  }, 3000);
+  }, 2000);
 }
 
 function increasePression() {
@@ -143,9 +143,9 @@ function increasePression() {
   var gammaCalm = gamma > -5 && gamma < 5;
 
   if (betaCalm || gammaCalm) {
-    pression = Math.max(0, pression - 100);
     if (!inCalmZone) {
       inCalmZone = true;
+      pression = Math.max(0, pression - 100);
       showThumbsUp();
     }
   } else {
