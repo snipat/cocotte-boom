@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   audioCtx.resume().then(function() { playLoop('ambiance1'); }).catch(function(){});
 });
 
-const VERSION = 132;
+const VERSION = 133;
 
 let beta,
     gamma,
@@ -287,14 +287,14 @@ var SUPABASE_URL = 'https://mdnebdlcbgdrliffxhlc.supabase.co';
 var SUPABASE_KEY = 'sb_publishable_DLzSO8qUpSZVc-XauZSICw_pUGJhhib';
 
 async function submitScore(playerName) {
-  return fetch(SUPABASE_URL + '/rest/v1/gamers', {
+  return fetch(SUPABASE_URL + '/rest/v1/score', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       'apikey': SUPABASE_KEY,
       'Prefer': 'return=minimal'
     },
-    body: JSON.stringify({ gamersName: playerName })
+    body: JSON.stringify({ player_name: playerName })
   });
 }
 
@@ -324,7 +324,7 @@ async function openScoreboard() {
   overlay.style.display = 'flex';
   content.innerHTML = 'Chargement…';
   var res = await fetch(
-    SUPABASE_URL + '/rest/v1/gamers?order=created_at.desc&limit=10&select=gamersName,created_at',
+    SUPABASE_URL + '/rest/v1/score?order=created_at.desc&limit=10&select=player_name,created_at',
     { headers: { 'apikey': SUPABASE_KEY } }
   );
   var gamers = res.ok ? await res.json() : [];
@@ -336,7 +336,7 @@ async function openScoreboard() {
   gamers.forEach(function(g, i) {
     var d = new Date(g.created_at);
     var date = d.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: '2-digit' });
-    html += '<tr><td>' + (i + 1) + '</td><td>' + g.gamersName + '</td><td>' + date + '</td></tr>';
+    html += '<tr><td>' + (i + 1) + '</td><td>' + g.player_name + '</td><td>' + date + '</td></tr>';
   });
   html += '</tbody></table>';
   content.innerHTML = html;
