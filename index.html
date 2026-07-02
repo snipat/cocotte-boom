@@ -12,8 +12,8 @@
       <meta name="apple-mobile-web-app-status-bar-style" content="default">
       <meta name="apple-mobile-web-app-title" content="Cocotte Boom">
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-      <link rel="stylesheet" href="cocotte.css?v=70">
-      <script src="script.js?v=70"></script>
+      <link rel="stylesheet" href="cocotte.css?v=71">
+      <script src="script.js?v=71"></script>
       <script>
         if ('serviceWorker' in navigator) {
           navigator.serviceWorker.register('/sw.js');
@@ -33,6 +33,20 @@
         <img id="splash-cocotte" class="base" src="cocotte.png"/>
       </div>
       <button id="splash-btn" onclick="lancerLeJeu()">Lancer le jeu</button>
+      <div id="difficulty-selector">
+        <label class="diff-option">
+          <input type="radio" name="difficulte" value="facile" onchange="onDiffChange(this)">
+          <span>Facile</span>
+        </label>
+        <label class="diff-option">
+          <input type="radio" name="difficulte" value="moyen" onchange="onDiffChange(this)" checked>
+          <span>Moyen</span>
+        </label>
+        <label class="diff-option">
+          <input type="radio" name="difficulte" value="difficile" onchange="onDiffChange(this)">
+          <span>Difficile</span>
+        </label>
+      </div>
     </div>
 
     <div id="game">
@@ -57,6 +71,7 @@
             <img id="cocotte" class="base" src="cocotte.png"/>
             <img id="explosion" src="explosion.gif" style="display:none;"/>
           </div>
+          <div id="vert" class="vert"></div>
           <div id="jaune" class="jaune"></div>
           <div id="orange" class="orange"></div>
           <div id="rouge" class="rouge"></div>

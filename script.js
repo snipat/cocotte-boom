@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   document.getElementById("ambiance").play().catch(function(){});
 });
 
-const VERSION = 70;
+const VERSION = 71;
 
 let beta,
     gamma,
@@ -156,6 +156,12 @@ function changeColor(pression) {
   }
 }
 
+function onDiffChange(el) {
+  // navigator.vibrate pour Android ; sur iOS le Taptic Engine se déclenche
+  // nativement via l'input radio interactif dans le DOM
+  if (navigator.vibrate) navigator.vibrate(10);
+}
+
 function amb(){
   document.getElementById("ambiance").play().catch(function(){});
 }
@@ -180,6 +186,7 @@ function retryGame() {
   palier = 0;
   gameover = false;
   document.getElementById("gameover-overlay").style.display = "none";
+  document.getElementById("vert").style.opacity = "0";
   document.getElementById("jaune").style.opacity = "0";
   document.getElementById("orange").style.opacity = "0";
   document.getElementById("rouge").style.opacity = "0";
