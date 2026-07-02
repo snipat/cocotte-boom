@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   audioCtx.resume().then(function() { playLoop('ambiance1'); }).catch(function(){});
 });
 
-const VERSION = 82;
+const VERSION = 83;
 
 let beta,
     gamma,
@@ -119,6 +119,18 @@ function displayPression() {
  document.getElementById("jauge").innerHTML = "Pression : "+ pression;
  document.getElementById("roulis").innerHTML = "Roulis : " + beta;
  document.getElementById("tangage").innerHTML = "Tangage : " + gamma;
+}
+
+var thumbsUpTimer = null;
+
+function showThumbsUp() {
+  if (thumbsUpTimer) return;
+  var el = document.getElementById("thumbs-up");
+  el.style.display = "flex";
+  thumbsUpTimer = setTimeout(function() {
+    el.style.display = "none";
+    thumbsUpTimer = null;
+  }, 3000);
 }
 
 function increasePression() {
@@ -227,6 +239,8 @@ function retryGame() {
   document.getElementById("jaune").style.opacity = "0";
   document.getElementById("orange").style.opacity = "0";
   document.getElementById("rouge").style.opacity = "0";
+  if (thumbsUpTimer) { clearTimeout(thumbsUpTimer); thumbsUpTimer = null; }
+  document.getElementById("thumbs-up").style.display = "none";
   stopAllSounds();
   playLoop('ambiance1');
   document.getElementById("info-box").style.display = "";
