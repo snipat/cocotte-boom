@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   audioCtx.resume().then(function() { playLoop('ambiance1'); }).catch(function(){});
 });
 
-const VERSION = 79;
+const VERSION = 80;
 
 let beta,
     gamma,
@@ -143,7 +143,7 @@ function increasePression() {
     } else {
       pression += 1;
     }
-    if ((gamma >= 10 && gamma < 15) || (gamma <= -10 && gamma > -15)) {
+    if ((gamma >= 5 && gamma < 10) || (gamma <= -5 && gamma > -10)) {
       pression += 2;
         document.getElementById("jaune").style.opacity = "1";
         document.getElementById("rouge").style.opacity = "0";

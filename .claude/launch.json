@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "cocotte-boom",
-      "runtimeExecutable": "/usr/bin/ruby",
-      "runtimeArgs": ["-run", "-e", "httpd", "/Users/patricksebe/Documents/GitHub/cocotte-boom", "-p", "5173"],
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "5173", "--directory", "/Users/patricksebe/Documents/GitHub/cocotte-boom"],
       "port": 5173
     }
   ]
