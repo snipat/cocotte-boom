@@ -478,6 +478,7 @@ display: none;
 }
 
 #mute-btn {
+  touch-action: manipulation;
   position: fixed;
   bottom: 24px;
   right: 24px;
@@ -509,6 +510,7 @@ display: none;
 
 #charts-btn {
   display: none;
+  touch-action: manipulation;
   position: fixed;
   bottom: 24px;
   right: 84px;
