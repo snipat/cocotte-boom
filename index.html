@@ -12,8 +12,8 @@
       <meta name="apple-mobile-web-app-status-bar-style" content="default">
       <meta name="apple-mobile-web-app-title" content="Cocotte Boom">
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-      <link rel="stylesheet" href="cocotte.css?v=126">
-      <script src="script.js?v=126"></script>
+      <link rel="stylesheet" href="cocotte.css?v=127">
+      <script src="script.js?v=127"></script>
       <script>
         if ('serviceWorker' in navigator) {
           navigator.serviceWorker.register('/sw.js');
@@ -45,6 +45,7 @@
             <option value="difficile">Difficile</option>
           </select>
           <button id="regles-btn" onclick="toggleRegles(); event.stopPropagation()">Règles</button>
+          <button id="scores-btn" onclick="openScoreboard(); event.stopPropagation()">🏆</button>
         </div>
       </div>
 
@@ -93,7 +94,18 @@
       <div id="gameover-popup">
         <button id="gameover-close" onclick="closeGameOver()">&#x2715;</button>
         <p id="gameover-text">Boum, retentez votre chance&nbsp;!</p>
-        <button id="gameover-retry" onclick="retryGame()">J'essaie encore</button>
+        <input type="text" id="player-name-input" placeholder="Ton prénom (optionnel)" maxlength="20" autocomplete="off">
+        <p id="name-error">Ce nom est déjà utilisé&nbsp;!</p>
+        <button id="gameover-save" onclick="saveAndRetry()">Enregistrer &amp; rejouer</button>
+        <button id="gameover-retry" onclick="retryGame()">Rejouer sans enregistrer</button>
+      </div>
+    </div>
+
+    <div id="scoreboard-overlay" style="display:none;" onclick="if(event.target===this)closeScoreboard();">
+      <div id="scoreboard-popup">
+        <button id="scoreboard-close" onclick="closeScoreboard()">&#x2715;</button>
+        <p><strong>🏆 Meilleurs scores</strong></p>
+        <div id="scoreboard-content">Chargement…</div>
       </div>
     </div>
     <button id="charts-btn" onclick="toggleInfoBox()">🐛</button>

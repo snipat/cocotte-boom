@@ -624,11 +624,31 @@ display: none;
 #gameover-text {
   font-size: 1.3rem;
   font-weight: bold;
-  margin: 0 0 24px;
+  margin: 0 0 20px;
   color: #222;
 }
 
-#gameover-retry {
+#player-name-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 2px solid #eee;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+  text-align: center;
+  outline: none;
+}
+#player-name-input:focus { border-color: #fc4b00; }
+
+#name-error {
+  display: none;
+  color: #fc4b00;
+  font-size: 0.82rem;
+  margin: 0 0 10px;
+}
+
+#gameover-save {
   background: #fc4b00;
   color: #fff;
   border: none;
@@ -637,4 +657,85 @@ display: none;
   font-size: 1rem;
   cursor: pointer;
   width: 100%;
+  margin-bottom: 10px;
 }
+
+#gameover-retry {
+  background: transparent;
+  color: #aaa;
+  border: 2px solid #eee;
+  border-radius: 8px;
+  padding: 11px 28px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  width: 100%;
+}
+
+#scores-btn {
+  padding: 9px 13px;
+  border-radius: 20px;
+  font-size: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  background: transparent;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#scoreboard-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#scoreboard-popup {
+  background: #fff;
+  border-radius: 12px;
+  padding: 40px 24px 32px;
+  width: min(85vw, 340px);
+  text-align: center;
+  position: relative;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+#scoreboard-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 48px;
+  height: 48px;
+  font-size: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #555;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#scores-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  margin-top: 12px;
+}
+#scores-table th {
+  border-bottom: 2px solid #eee;
+  padding: 6px 8px;
+  font-weight: bold;
+  color: #aaa;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+#scores-table td {
+  padding: 9px 8px;
+  border-bottom: 1px solid #f0f0f0;
+}
+#scores-table tbody tr:first-child td { font-weight: bold; color: #fc4b00; }

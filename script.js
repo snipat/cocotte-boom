@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   audioCtx.resume().then(function() { playLoop('ambiance1'); }).catch(function(){});
 });
 
-const VERSION = 126;
+const VERSION = 127;
 
 let beta,
     gamma,
@@ -282,6 +282,67 @@ function toggleMute() {
   document.getElementById("mute-btn").textContent = muted ? "🔇" : "🔊";
 }
 
+// ── Supabase ────────────────────────────────────────────────────
+var SUPABASE_URL = 'https://mdnebdlcbgdrliffxhlc.supabase.co';
+var SUPABASE_KEY = 'sb_publishable_DLzSO8qUpSZVc-XauZSICw_pUGJhhib';
+
+async function submitScore(playerName) {
+  return fetch(SUPABASE_URL + '/rest/v1/scores', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'apikey': SUPABASE_KEY,
+      'Authorization': 'Bearer ' + SUPABASE_KEY,
+      'Prefer': 'return=minimal'
+    },
+    body: JSON.stringify({ player_name: playerName, score: pression, palier_max: palier })
+  });
+}
+
+async function saveAndRetry() {
+  var name = document.getElementById('player-name-input').value.trim();
+  var errEl = document.getElementById('name-error');
+  errEl.style.display = 'none';
+  if (name) {
+    var res = await submitScore(name);
+    if (!res.ok) {
+      var body = await res.json().catch(function() { return {}; });
+      if (body.code === '23505' || res.status === 409) {
+        errEl.style.display = 'block';
+        return;
+      }
+    }
+  }
+  retryGame();
+}
+
+async function openScoreboard() {
+  var overlay = document.getElementById('scoreboard-overlay');
+  var content = document.getElementById('scoreboard-content');
+  overlay.style.display = 'flex';
+  content.innerHTML = 'Chargement…';
+  var res = await fetch(
+    SUPABASE_URL + '/rest/v1/scores?order=score.desc&limit=10&select=player_name,score,palier_max',
+    { headers: { 'apikey': SUPABASE_KEY, 'Authorization': 'Bearer ' + SUPABASE_KEY } }
+  );
+  var scores = res.ok ? await res.json() : [];
+  if (!scores.length) {
+    content.innerHTML = '<p style="text-align:center;opacity:0.7;margin-top:16px;">Aucun score enregistré.</p>';
+    return;
+  }
+  var html = '<table id="scores-table"><thead><tr><th>#</th><th>Joueur</th><th>Score</th></tr></thead><tbody>';
+  scores.forEach(function(s, i) {
+    html += '<tr><td>' + (i + 1) + '</td><td>' + s.player_name + '</td><td>' + s.score + '</td></tr>';
+  });
+  html += '</tbody></table>';
+  content.innerHTML = html;
+}
+
+function closeScoreboard() {
+  document.getElementById('scoreboard-overlay').style.display = 'none';
+}
+// ───────────────────────────────────────────────────────────────
+
 function closeGameOver() {
   document.getElementById("gameover-overlay").style.display = "none";
 }
@@ -308,4 +369,6 @@ function retryGame() {
   cocotte.style.display = "block";
   cocotte.className = "base";
   document.getElementById('cocotte-wrap').removeAttribute('data-palier');
+  document.getElementById('player-name-input').value = '';
+  document.getElementById('name-error').style.display = 'none';
 }
