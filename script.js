@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   audioCtx.resume().then(function() { playLoop('ambiance1'); }).catch(function(){});
 });
 
-const VERSION = 94;
+const VERSION = 95;
 
 let beta,
     gamma,
@@ -151,8 +151,8 @@ function increasePression() {
 
   pression += 1;
 
-  var betaCalm = beta > -5 && beta < 5;
-  var gammaCalm = gamma > -5 && gamma < 5;
+  var betaCalm = beta > -2 && beta < 2;
+  var gammaCalm = gamma > -2 && gamma < 2;
 
   if (betaCalm || gammaCalm) {
     if (!inCalmZone) {
