@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   document.getElementById("ambiance").play().catch(function(){});
 });
 
-const VERSION = 75;
+const VERSION = 76;
 
 let beta,
     gamma,
@@ -189,7 +189,7 @@ function retryGame() {
   document.getElementById("jaune").style.opacity = "0";
   document.getElementById("orange").style.opacity = "0";
   document.getElementById("rouge").style.opacity = "0";
-  ["bip1", "bip2", "bip3", "ambiancemid", "ambiancehard", "boom"].forEach(function(id) {
+  ["bip1", "bip2", "bip3", "boom"].forEach(function(id) {
     var el = document.getElementById(id);
     el.pause();
     el.currentTime = 0;
