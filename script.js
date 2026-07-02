@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   audioCtx.resume().then(function() { playLoop('ambiance1'); }).catch(function(){});
 });
 
-const VERSION = 127;
+const VERSION = 128;
 
 let beta,
     gamma,
@@ -287,7 +287,7 @@ var SUPABASE_URL = 'https://mdnebdlcbgdrliffxhlc.supabase.co';
 var SUPABASE_KEY = 'sb_publishable_DLzSO8qUpSZVc-XauZSICw_pUGJhhib';
 
 async function submitScore(playerName) {
-  return fetch(SUPABASE_URL + '/rest/v1/scores', {
+  return fetch(SUPABASE_URL + '/rest/v1/gamers', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -322,7 +322,7 @@ async function openScoreboard() {
   overlay.style.display = 'flex';
   content.innerHTML = 'Chargement…';
   var res = await fetch(
-    SUPABASE_URL + '/rest/v1/scores?order=score.desc&limit=10&select=player_name,score,palier_max',
+    SUPABASE_URL + '/rest/v1/gamers?order=score.desc&limit=10&select=player_name,score,palier_max',
     { headers: { 'apikey': SUPABASE_KEY, 'Authorization': 'Bearer ' + SUPABASE_KEY } }
   );
   var scores = res.ok ? await res.json() : [];
