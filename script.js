@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   audioCtx.resume().then(function() { playLoop('ambiance1'); }).catch(function(){});
 });
 
-const VERSION = 96;
+const VERSION = 97;
 
 let beta,
     gamma,
@@ -210,6 +210,7 @@ function changeColor(pression) {
     cocotte.classList.replace('saute', 'bondit');
     stopSound('ambiance1'); stopSound('ambiance2'); stopSound('ambiance4');
     playLoop('ambiance3');
+    playOnce('ambiance4');
   } else if (palier === 4) {
     gameover = true;
     stopSound('ambiance1'); stopSound('ambiance2'); stopSound('ambiance3');
