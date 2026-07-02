@@ -508,6 +508,7 @@ display: none;
 }
 
 #charts-btn {
+  display: none;
   position: fixed;
   bottom: 24px;
   right: 84px;

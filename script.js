@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   audioCtx.resume().then(function() { playLoop('ambiance1'); }).catch(function(){});
 });
 
-const VERSION = 118;
+const VERSION = 119;
 
 let beta,
     gamma,
@@ -103,6 +103,7 @@ function lancerLeJeu() {
       .then((response) => {
         if (response === "granted") {
           document.getElementById("splash").style.display = "none";
+          document.getElementById("charts-btn").style.display = "flex";
           window.addEventListener("deviceorientation", (e) => {
             beta = Math.round(e.beta);
             gamma = Math.round(e.gamma);
@@ -117,6 +118,7 @@ function lancerLeJeu() {
       .catch((e) => { console.error(e); });
   } else {
     document.getElementById("splash").style.display = "none";
+    document.getElementById("charts-btn").style.display = "flex";
     window.addEventListener("deviceorientation", (e) => {
       beta = Math.round(e.beta);
       gamma = Math.round(e.gamma);
