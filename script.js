@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   audioCtx.resume().then(function() { playLoop('ambiance1'); }).catch(function(){});
 });
 
-const VERSION = 81;
+const VERSION = 82;
 
 let beta,
     gamma,
@@ -121,18 +121,6 @@ function displayPression() {
  document.getElementById("tangage").innerHTML = "Tangage : " + gamma;
 }
 
-var thumbsUpTimer = null;
-
-function showThumbsUp() {
-  if (thumbsUpTimer) return;
-  var el = document.getElementById("thumbs-up");
-  el.style.display = "flex";
-  thumbsUpTimer = setTimeout(function() {
-    el.style.display = "none";
-    thumbsUpTimer = null;
-  }, 3000);
-}
-
 function increasePression() {
   if (gameover) return;
 
@@ -171,12 +159,6 @@ function increasePression() {
     document.getElementById("jaune").style.opacity = "1";
     document.getElementById("orange").style.opacity = "1";
     document.getElementById("rouge").style.opacity = "1";
-  }
-
-  // Zone calme : |beta| < 5 OU |gamma| < 5 → récompense
-  if ((beta > -5 && beta < 5) || (gamma > -5 && gamma < 5)) {
-    pression = Math.max(0, pression - 100);
-    showThumbsUp();
   }
 }
 
@@ -245,8 +227,6 @@ function retryGame() {
   document.getElementById("jaune").style.opacity = "0";
   document.getElementById("orange").style.opacity = "0";
   document.getElementById("rouge").style.opacity = "0";
-  if (thumbsUpTimer) { clearTimeout(thumbsUpTimer); thumbsUpTimer = null; }
-  document.getElementById("thumbs-up").style.display = "none";
   stopAllSounds();
   playLoop('ambiance1');
   document.getElementById("info-box").style.display = "";
