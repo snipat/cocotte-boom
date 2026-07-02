@@ -1,4 +1,4 @@
-const CACHE_NAME = 'cocotte-boom-v107';
+const CACHE_NAME = 'cocotte-boom-v108';
 const ASSETS = [
   '/',
   '/index.html',
