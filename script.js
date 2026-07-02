@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   audioCtx.resume().then(function() { playLoop('ambiance1'); }).catch(function(){});
 });
 
-const VERSION = 78;
+const VERSION = 79;
 
 let beta,
     gamma,
@@ -162,11 +162,6 @@ function increasePression() {
       pression += 1;
     }
 
-    var betaCalm = beta > -5 && beta < 5;
-    var gammaCalm = gamma > -10 && gamma < 10;
-    var afficherVert = betaCalm || gammaCalm;
-    document.getElementById("vert").style.opacity = afficherVert ? "1" : "0";
-    document.getElementById("jaune").style.opacity = afficherVert ? "0" : document.getElementById("jaune").style.opacity;
   }
 }
 
@@ -232,7 +227,6 @@ function retryGame() {
   palier = 0;
   gameover = false;
   document.getElementById("gameover-overlay").style.display = "none";
-  document.getElementById("vert").style.opacity = "0";
   document.getElementById("jaune").style.opacity = "0";
   document.getElementById("orange").style.opacity = "0";
   document.getElementById("rouge").style.opacity = "0";
