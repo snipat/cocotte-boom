@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   audioCtx.resume().then(function() { playLoop('ambiance1'); }).catch(function(){});
 });
 
-const VERSION = 103;
+const VERSION = 104;
 
 let beta,
     gamma,
@@ -78,7 +78,9 @@ let beta,
     palier = 0,
     gameover = false,
     n = 1,
-    sound1 = false;
+    sound1 = false,
+    alarmPlayed = false,
+    ambiance4Played = false;
 
 function lancerLeJeu() {
   // Plein écran + verrouillage portrait (Android Chrome)
@@ -185,7 +187,7 @@ function increasePression() {
   document.getElementById("jaune").style.opacity  = niveau >= 1 ? "1" : "0";
   document.getElementById("orange").style.opacity = niveau >= 2 ? "1" : "0";
   document.getElementById("rouge").style.opacity  = niveau >= 3 ? "1" : "0";
-  if (niveau >= 3 && !activeSources['alarm']) playOnce('alarm');
+  if (niveau >= 3 && !alarmPlayed) { alarmPlayed = true; playOnce('alarm'); }
 }
 
 function changeColor(pression) {
@@ -216,7 +218,10 @@ function changeColor(pression) {
     cocotte.classList.replace('saute', 'bondit');
     stopSound('ambiance1'); stopSound('ambiance2'); stopSound('ambiance4');
     playLoop('ambiance3');
-    playOnce('ambiance4');
+    if (!ambiance4Played) {
+      ambiance4Played = true;
+      playOnce('ambiance4');
+    }
     if (audioBuffers['ambiance4']) {
       var src = audioCtx.createBufferSource();
       src.buffer = audioBuffers['ambiance4'];
@@ -269,6 +274,8 @@ function retryGame() {
   document.getElementById("orange").style.opacity = "0";
   document.getElementById("rouge").style.opacity = "0";
   inCalmZone = false;
+  alarmPlayed = false;
+  ambiance4Played = false;
   if (thumbsUpTimer) { clearTimeout(thumbsUpTimer); thumbsUpTimer = null; }
   document.getElementById("thumbs-up").style.display = "none";
   stopAllSounds();
