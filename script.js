@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   document.getElementById("ambiance").play().catch(function(){});
 });
 
-const VERSION = 71;
+const VERSION = 72;
 
 let beta,
     gamma,
@@ -156,9 +156,9 @@ function changeColor(pression) {
   }
 }
 
-function onDiffChange(el) {
-  // navigator.vibrate pour Android ; sur iOS le Taptic Engine se déclenche
-  // nativement via l'input radio interactif dans le DOM
+function selectDiff(btn) {
+  document.querySelectorAll('.diff-btn').forEach(function(b) { b.classList.remove('diff-active'); });
+  btn.classList.add('diff-active');
   if (navigator.vibrate) navigator.vibrate(10);
 }
 

@@ -12,8 +12,8 @@
       <meta name="apple-mobile-web-app-status-bar-style" content="default">
       <meta name="apple-mobile-web-app-title" content="Cocotte Boom">
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-      <link rel="stylesheet" href="cocotte.css?v=71">
-      <script src="script.js?v=71"></script>
+      <link rel="stylesheet" href="cocotte.css?v=72">
+      <script src="script.js?v=72"></script>
       <script>
         if ('serviceWorker' in navigator) {
           navigator.serviceWorker.register('/sw.js');
@@ -34,18 +34,9 @@
       </div>
       <button id="splash-btn" onclick="lancerLeJeu()">Lancer le jeu</button>
       <div id="difficulty-selector">
-        <label class="diff-option">
-          <input type="radio" name="difficulte" value="facile" onchange="onDiffChange(this)">
-          <span>Facile</span>
-        </label>
-        <label class="diff-option">
-          <input type="radio" name="difficulte" value="moyen" onchange="onDiffChange(this)" checked>
-          <span>Moyen</span>
-        </label>
-        <label class="diff-option">
-          <input type="radio" name="difficulte" value="difficile" onchange="onDiffChange(this)">
-          <span>Difficile</span>
-        </label>
+        <button class="diff-btn" onclick="selectDiff(this)">Facile</button>
+        <button class="diff-btn diff-active" onclick="selectDiff(this)">Moyen</button>
+        <button class="diff-btn" onclick="selectDiff(this)">Difficile</button>
       </div>
     </div>
 
