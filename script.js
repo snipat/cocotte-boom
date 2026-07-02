@@ -12,7 +12,8 @@ var AUDIO_FILES = {
   ambiance3: 'ambiance3.wav',
   ambiance4: 'ambiance4.wav',
   boom: 'explosion.wav',
-  ping: 'ping.wav'
+  ping: 'ping.wav',
+  alarm: 'alarm.wav'
 };
 
 function loadAudioFiles() {
@@ -69,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   audioCtx.resume().then(function() { playLoop('ambiance1'); }).catch(function(){});
 });
 
-const VERSION = 101;
+const VERSION = 102;
 
 let beta,
     gamma,
@@ -214,6 +215,7 @@ function changeColor(pression) {
     cocotte.classList.replace('saute', 'bondit');
     stopSound('ambiance1'); stopSound('ambiance2'); stopSound('ambiance4');
     playLoop('ambiance3');
+    playOnce('alarm');
     playOnce('ambiance4');
     if (audioBuffers['ambiance4']) {
       var src = audioCtx.createBufferSource();
