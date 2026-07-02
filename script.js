@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   audioCtx.resume().then(function() { playLoop('ambiance1'); }).catch(function(){});
 });
 
-const VERSION = 111;
+const VERSION = 112;
 
 let beta,
     gamma,
@@ -203,6 +203,13 @@ function changeColor(pression) {
   if (nouveauPalier === palier) return;
   palier = nouveauPalier;
 
+  var wrap = document.getElementById('cocotte-wrap');
+  if (palier >= 1 && palier <= 3) {
+    wrap.dataset.palier = palier;
+  } else {
+    wrap.removeAttribute('data-palier');
+  }
+
   if (palier === 0) {
     stopSound('ambiance2'); stopSound('ambiance3'); stopSound('ambiance4');
     playLoop('ambiance1');
@@ -284,4 +291,5 @@ function retryGame() {
   var cocotte = document.getElementById("cocotte");
   cocotte.style.display = "block";
   cocotte.className = "base";
+  document.getElementById('cocotte-wrap').removeAttribute('data-palier');
 }

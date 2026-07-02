@@ -272,6 +272,56 @@
   100% { transform: rotate(-20deg); }
 }
 
+.fumee {
+  display: none;
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(200, 200, 200, 0.6);
+  pointer-events: none;
+}
+
+@keyframes fumee-monte {
+  0%   { opacity: 0;    transform: translateX(-50%) translateY(0)     scale(0.5); }
+  20%  { opacity: 0.65; transform: translateX(-50%) translateY(-8px)  scale(0.8); }
+  100% { opacity: 0;    transform: translateX(-50%) translateY(-55px) scale(2);   }
+}
+
+/* Palier 1 : 1 petit nuage */
+#cocotte-wrap[data-palier="1"] #fumee-1 {
+  display: block; width: 14px; height: 14px;
+  left: 50%; top: 8%;
+  animation: fumee-monte 2.2s 0s infinite ease-out;
+}
+
+/* Palier 2 : 2 nuages moyens */
+#cocotte-wrap[data-palier="2"] #fumee-1 {
+  display: block; width: 22px; height: 22px;
+  left: 46%; top: 6%;
+  animation: fumee-monte 1.8s 0s infinite ease-out;
+}
+#cocotte-wrap[data-palier="2"] #fumee-2 {
+  display: block; width: 22px; height: 22px;
+  left: 56%; top: 8%;
+  animation: fumee-monte 1.8s 0.8s infinite ease-out;
+}
+
+/* Palier 3 : 3 grands nuages */
+#cocotte-wrap[data-palier="3"] #fumee-1 {
+  display: block; width: 34px; height: 34px;
+  left: 44%; top: 4%;
+  animation: fumee-monte 1.4s 0s infinite ease-out;
+}
+#cocotte-wrap[data-palier="3"] #fumee-2 {
+  display: block; width: 34px; height: 34px;
+  left: 56%; top: 6%;
+  animation: fumee-monte 1.4s 0.5s infinite ease-out;
+}
+#cocotte-wrap[data-palier="3"] #fumee-3 {
+  display: block; width: 34px; height: 34px;
+  left: 50%; top: 8%;
+  animation: fumee-monte 1.4s 1s infinite ease-out;
+}
+
 .feu {
   position: absolute;
   top: 0;
