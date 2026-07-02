@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   audioCtx.resume().then(function() { playLoop('ambiance1'); }).catch(function(){});
 });
 
-const VERSION = 128;
+const VERSION = 129;
 
 let beta,
     gamma,
@@ -295,7 +295,7 @@ async function submitScore(playerName) {
       'Authorization': 'Bearer ' + SUPABASE_KEY,
       'Prefer': 'return=minimal'
     },
-    body: JSON.stringify({ player_name: playerName, score: pression, palier_max: palier })
+    body: JSON.stringify({ gamersName: playerName })
   });
 }
 
@@ -322,17 +322,19 @@ async function openScoreboard() {
   overlay.style.display = 'flex';
   content.innerHTML = 'Chargement…';
   var res = await fetch(
-    SUPABASE_URL + '/rest/v1/gamers?order=score.desc&limit=10&select=player_name,score,palier_max',
+    SUPABASE_URL + '/rest/v1/gamers?order=created_at.desc&limit=10&select=gamersName,created_at',
     { headers: { 'apikey': SUPABASE_KEY, 'Authorization': 'Bearer ' + SUPABASE_KEY } }
   );
-  var scores = res.ok ? await res.json() : [];
-  if (!scores.length) {
+  var gamers = res.ok ? await res.json() : [];
+  if (!gamers.length) {
     content.innerHTML = '<p style="text-align:center;opacity:0.7;margin-top:16px;">Aucun score enregistré.</p>';
     return;
   }
-  var html = '<table id="scores-table"><thead><tr><th>#</th><th>Joueur</th><th>Score</th></tr></thead><tbody>';
-  scores.forEach(function(s, i) {
-    html += '<tr><td>' + (i + 1) + '</td><td>' + s.player_name + '</td><td>' + s.score + '</td></tr>';
+  var html = '<table id="scores-table"><thead><tr><th>#</th><th>Joueur</th><th>Date</th></tr></thead><tbody>';
+  gamers.forEach(function(g, i) {
+    var d = new Date(g.created_at);
+    var date = d.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: '2-digit' });
+    html += '<tr><td>' + (i + 1) + '</td><td>' + g.gamersName + '</td><td>' + date + '</td></tr>';
   });
   html += '</tbody></table>';
   content.innerHTML = html;
