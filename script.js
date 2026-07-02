@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   document.getElementById("ambiance").play().catch(function(){});
 });
 
-const VERSION = 74;
+const VERSION = 75;
 
 let beta,
     gamma,
