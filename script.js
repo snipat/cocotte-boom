@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   audioCtx.resume().then(function() { playLoop('ambiance1'); }).catch(function(){});
 });
 
-const VERSION = 112;
+const VERSION = 113;
 
 let beta,
     gamma,
@@ -257,6 +257,11 @@ function changeColor(pression) {
 function toggleRegles() {
   var box = document.getElementById('regles-box');
   box.style.display = box.style.display === 'block' ? 'none' : 'block';
+}
+
+function toggleInfoBox() {
+  var box = document.getElementById('info-box');
+  box.style.display = box.style.display === 'none' ? '' : 'none';
 }
 
 var muted = false;

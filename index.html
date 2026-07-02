@@ -12,8 +12,8 @@
       <meta name="apple-mobile-web-app-status-bar-style" content="default">
       <meta name="apple-mobile-web-app-title" content="Cocotte Boom">
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-      <link rel="stylesheet" href="cocotte.css?v=112">
-      <script src="script.js?v=112"></script>
+      <link rel="stylesheet" href="cocotte.css?v=113">
+      <script src="script.js?v=113"></script>
       <script>
         if ('serviceWorker' in navigator) {
           navigator.serviceWorker.register('/sw.js');
@@ -60,12 +60,12 @@
     <div id="game">
       <div class="gameZone" id="gameZone">
         <div id="info-box">
-          <button id="info-close" onclick="document.getElementById('info-box').style.display='none'">&#x2715;</button>
           <div id="version"></div>
           <div id="roulis">Roulis : —</div>
           <div id="tangage">Tangage : —</div>
           <div id="jauge">Pression : —</div>
         </div>
+        <button id="charts-btn" onclick="toggleInfoBox()">📊</button>
         <button id="mute-btn" onclick="toggleMute()">🔊</button>
         <div class="feu">
           <div id="cocotte-wrap">
@@ -75,6 +75,9 @@
             <div class="fumee" id="fumee-1"></div>
             <div class="fumee" id="fumee-2"></div>
             <div class="fumee" id="fumee-3"></div>
+            <div class="fumee" id="fumee-4"></div>
+            <div class="fumee" id="fumee-5"></div>
+            <div class="fumee" id="fumee-6"></div>
           </div>
 <div id="jaune" class="jaune"></div>
           <div id="orange" class="orange"></div>
