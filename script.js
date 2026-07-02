@@ -2,11 +2,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
   var v = "Version : " + VERSION;
   document.getElementById("version").innerHTML = v;
   document.getElementById("splash-version").innerHTML = v;
-  // Desktop/Android : autoplay fonctionne sans geste
-  document.getElementById("ambiance").play().catch(function(){});
+  document.getElementById("ambiance1").play().catch(function(){});
 });
 
-const VERSION = 76;
+const VERSION = 77;
 
 let beta,
     gamma,
@@ -17,10 +16,8 @@ let beta,
     sound1 = false;
 
 function lancerLeJeu() {
-  // Jouer ambiance immédiatement dans le geste bouton (requis par iOS)
-  document.getElementById("ambiance").play().catch(function(){});
-  // Déverrouiller les autres sons en silence
-  ["bip1", "bip2", "bip3", "boom"].forEach(function(id) {
+  document.getElementById("ambiance1").play().catch(function(){});
+  ["ambiance2", "ambiance3", "ambiance4", "boom"].forEach(function(id) {
     var el = document.getElementById(id);
     el.muted = true;
     el.play().then(function() { el.pause(); el.currentTime = 0; el.muted = muted; }).catch(function(){});
@@ -121,35 +118,32 @@ function changeColor(pression) {
   if (nouveauPalier === palier) return;
   palier = nouveauPalier;
 
-  var ambiance = document.getElementById("ambiance");
-  var bip1 = document.getElementById("bip1");
-  var bip2 = document.getElementById("bip2");
-  var bip3 = document.getElementById("bip3");
+  var a1 = document.getElementById("ambiance1");
+  var a2 = document.getElementById("ambiance2");
+  var a3 = document.getElementById("ambiance3");
+  var a4 = document.getElementById("ambiance4");
 
   if (palier === 1) {
     cocotte.classList.replace('base', 'bouge');
-    // ambiance continue, bips silencieux
-    bip1.pause(); bip2.pause(); bip3.pause();
+    a2.pause(); a3.pause(); a4.pause();
   } else if (palier === 2) {
     cocotte.classList.replace('bouge', 'saute');
-    ambiance.pause();
-    if (bip1.paused) bip1.play();
-    bip2.pause(); bip3.pause();
+    a1.pause(); a3.pause(); a4.pause();
+    if (a2.paused) a2.play();
   } else if (palier === 3) {
     cocotte.classList.replace('saute', 'bondit');
-    ambiance.pause(); bip1.pause();
-    if (bip2.paused) bip2.play();
-    bip3.pause();
+    a1.pause(); a2.pause(); a4.pause();
+    if (a3.paused) a3.play();
   } else if (palier === 4) {
     gameover = true;
-    ambiance.pause(); bip1.pause(); bip2.pause();
-    if (bip3.paused) bip3.play();
+    a1.pause(); a2.pause();
+    if (a4.paused) a4.play();
     var explosion = document.getElementById("explosion");
     explosion.src = "explosion.gif?" + Date.now();
     document.getElementById("cocotte").style.display = "none";
     explosion.style.display = "block";
     setTimeout(function() {
-      bip3.pause();
+      a3.pause(); a4.pause();
       explosion.style.display = "none";
       document.getElementById("gameover-overlay").style.display = "flex";
     }, 2000);
@@ -161,12 +155,8 @@ function selectDiff(btn) {
   btn.classList.add('diff-active');
 }
 
-function amb(){
-  document.getElementById("ambiance").play().catch(function(){});
-}
-
 let muted = false;
-const AUDIO_IDS = ["ambiance", "boom", "bip1", "bip2", "bip3"];
+const AUDIO_IDS = ["ambiance1", "ambiance2", "ambiance3", "ambiance4", "boom"];
 
 function toggleMute() {
   muted = !muted;
@@ -189,12 +179,12 @@ function retryGame() {
   document.getElementById("jaune").style.opacity = "0";
   document.getElementById("orange").style.opacity = "0";
   document.getElementById("rouge").style.opacity = "0";
-  ["bip1", "bip2", "bip3", "boom"].forEach(function(id) {
+  ["ambiance2", "ambiance3", "ambiance4", "boom"].forEach(function(id) {
     var el = document.getElementById(id);
     el.pause();
     el.currentTime = 0;
   });
-  document.getElementById("ambiance").play();
+  document.getElementById("ambiance1").play();
   document.getElementById("info-box").style.display = "";
   document.getElementById("explosion").style.display = "none";
   var cocotte = document.getElementById("cocotte");
