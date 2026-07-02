@@ -477,10 +477,10 @@ display: none;
 }
 
 #mute-btn {
-  position: absolute;
+  position: fixed;
   bottom: 24px;
   right: 24px;
-  z-index: 10;
+  z-index: 300;
   width: 52px;
   height: 52px;
   font-size: 24px;
@@ -494,10 +494,10 @@ display: none;
 }
 
 #info-box {
-  position: absolute;
+  position: fixed;
   bottom: 24px;
   left: 12px;
-  z-index: 10;
+  z-index: 300;
   background: rgba(0, 0, 0, 0.35);
   color: #fff;
   font-size: 0.75rem;
@@ -507,10 +507,10 @@ display: none;
 }
 
 #charts-btn {
-  position: absolute;
+  position: fixed;
   bottom: 24px;
   right: 84px;
-  z-index: 10;
+  z-index: 300;
   width: 52px;
   height: 52px;
   font-size: 24px;
