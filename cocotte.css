@@ -10,7 +10,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 32px;
 }
 
 #splash-version {
@@ -21,10 +22,6 @@
 }
 
 #splash-cocotte-wrap {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   width: 44%;
   z-index: 5;
 }
@@ -36,10 +33,6 @@
 }
 
 #splash-btn {
-  position: absolute;
-  top: 62%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   background: #fff;
   color: #EC6B49;
   border: none;
@@ -52,10 +45,6 @@
 }
 
 #difficulty-selector {
-  position: absolute;
-  top: 78%;
-  left: 50%;
-  transform: translateX(-50%);
   display: -webkit-flex;
   display: flex;
   gap: 10px;
