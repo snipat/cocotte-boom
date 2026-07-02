@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   audioCtx.resume().then(function() { playLoop('ambiance1'); }).catch(function(){});
 });
 
-const VERSION = 83;
+const VERSION = 84;
 
 let beta,
     gamma,
@@ -136,10 +136,15 @@ function showThumbsUp() {
 function increasePression() {
   if (gameover) return;
 
-  // Base : la pression monte toujours de 1
   pression += 1;
-
-  if ((beta >= 5 && beta < 10) || (beta <= -5 && beta > -10)) {
+  if ((beta >= 0 && beta < 5) || (beta <= 0 && beta > -10)) {
+    pression += 2;
+    document.getElementById("jaune").style.opacity = "0";
+    document.getElementById("orange").style.opacity = "0";
+    document.getElementById("rouge").style.opacity = "0";
+    showThumbsUp;
+  }
+  else if ((beta >= 5 && beta < 10) || (beta <= -5 && beta > -10)) {
     pression += 2;
     document.getElementById("jaune").style.opacity = "1";
     document.getElementById("orange").style.opacity = "0";
@@ -155,8 +160,14 @@ function increasePression() {
     document.getElementById("orange").style.opacity = "1";
     document.getElementById("rouge").style.opacity = "1";
   }
-
-  if ((gamma >= 5 && gamma < 10) || (gamma <= -5 && gamma > -10)) {
+  if ((gamma >= 0 && gamma < 5) || (gamma <= 0 && gamma > -5)) {
+    pression += 2;
+    document.getElementById("jaune").style.opacity = "0";
+    document.getElementById("orange").style.opacity = "0";
+    document.getElementById("rouge").style.opacity = "0";
+    showThumbsUp;
+  }
+  else if ((gamma >= 5 && gamma < 10) || (gamma <= -5 && gamma > -10)) {
     pression += 2;
     document.getElementById("jaune").style.opacity = "1";
     document.getElementById("orange").style.opacity = "0";
