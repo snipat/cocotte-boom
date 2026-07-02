@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   audioCtx.resume().then(function() { playLoop('ambiance1'); }).catch(function(){});
 });
 
-const VERSION = 92;
+const VERSION = 93;
 
 let beta,
     gamma,
@@ -229,7 +229,7 @@ function changeColor(pression) {
     playLoop('ambiance3');
   } else if (palier === 4) {
     gameover = true;
-    stopSound('ambiance1'); stopSound('ambiance2');
+    stopSound('ambiance1'); stopSound('ambiance2'); stopSound('ambiance3');
     playOnce('boom');
     var explosion = document.getElementById("explosion");
     explosion.src = "explosion.gif?" + Date.now();
